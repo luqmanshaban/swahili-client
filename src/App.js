@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 import styles from './STYLES/App.scss';
 import BreakPoint from './STYLES/BreakPoint.css'
@@ -10,7 +10,20 @@ import Signup from './FORMS/Signup';
 import Contact from './components/Landing/Contact';
 import Menu from './components/Menu';
 
+import Analytics from './Analytics'
+
 function App() {
+
+  /////// ANALYTICS ////////////
+   useEffect(() => {
+    Analytics('G-GV3EMF5W6T');
+    window.gtag('config', 'G-GV3EMF5W6T', {
+      page_path: window.location.pathname,
+    });
+
+  }, []);
+///////////////////
+
   return (
     <div className={`${styles.App} ${BreakPoint.App} `}>
       <Navbar  />
