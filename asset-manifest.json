@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/swahili-client/static/css/main.d24bb485.css",
+    "main.js": "/swahili-client/static/js/main.7db28f6e.js",
+    "static/media/landing-header.jpg": "/swahili-client/static/media/landing-header.93f1693de938925eee1f.jpg",
+    "static/media/featured.png": "/swahili-client/static/media/featured.2d898429b14047545eb3.png",
+    "static/media/Screenshot from 2023-03-29 11-27-15.png": "/swahili-client/static/media/Screenshot from 2023-03-29 11-27-15.e310ce101c1808d59278.png",
+    "static/media/apple.png": "/swahili-client/static/media/apple.12e47e92a9602fe2f773.png",
+    "static/media/pot.png": "/swahili-client/static/media/pot.7d576ddd02565c42b44b.png",
+    "static/media/drinks.png": "/swahili-client/static/media/drinks.987bae8fa5bea5ea7d60.png",
+    "static/media/coffe.png": "/swahili-client/static/media/coffe.79319f17aa1ce8860b47.png",
+    "static/media/bg-sidebar-desktop.svg": "/swahili-client/static/media/bg-sidebar-desktop.6918153f38678372ceb1.svg",
+    "index.html": "/swahili-client/index.html",
+    "main.d24bb485.css.map": "/swahili-client/static/css/main.d24bb485.css.map",
+    "main.7db28f6e.js.map": "/swahili-client/static/js/main.7db28f6e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d24bb485.css",
+    "static/js/main.7db28f6e.js"
+  ]
+}
