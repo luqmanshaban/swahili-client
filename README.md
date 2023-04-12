@@ -1,70 +1,13 @@
-# Getting Started with Create React App
+Introducing Swahili Plate: A Full-Stack Website for a Nairobi-based Restaurant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Swahili Plate is a well-known restaurant in Nairobi, renowned for its delicious Swahili cuisine. The restaurant has been operating for several years, and despite its popularity, it lacked an online presence. That's where I came in. As a developer, I was tasked with creating a full-stack website for Swahili Plate that would help the restaurant expand its reach and engage with its customers in a more meaningful way.
 
-## Available Scripts
+The primary objective of the project was to create a user-friendly and responsive website that would showcase the restaurant's menu, provide customers with a seamless online ordering experience, and enable the restaurant's management team to manage orders, menus, and customer data with ease. To achieve this, I chose to use a combination of front-end and back-end technologies that are widely used and well-suited for this type of project.
 
-In the project directory, you can run:
+The front-end of the Swahili Plate website is built using React, JavaScript, MUI, SASS, and CSS. React is a popular JavaScript library for building user interfaces, and MUI is a UI framework that makes it easy to create responsive designs. SASS and CSS were used for styling and layout, respectively. The website's front-end is designed to be visually appealing, easy to navigate, and accessible on a range of devices.
 
-### `npm start`
+The back-end of the website is built using Node.js, Express, Sequelize, and MySQL. Node.js is a popular open-source, cross-platform JavaScript runtime environment that enables developers to build server-side applications. Express is a minimal and flexible Node.js web application framework, while Sequelize is an ORM (Object-Relational Mapping) that allows developers to interact with databases using JavaScript. MySQL is a widely used relational database management system that is easy to use and scalable. These technologies were used to build the server-side functionality of the website, which includes order management, menu updates, and customer data management.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To ensure that the project is well-organized and easy to maintain, I chose to use Git for version control. Git is a distributed version control system that allows multiple developers to work on a project simultaneously, track changes, and collaborate more efficiently. By using Git, I was able to create branches for different features and merge changes seamlessly, without affecting the stability of the website.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In conclusion, building the Swahili Plate website was an exciting and challenging project that allowed me to use a range of front-end and back-end technologies to create a user-friendly and responsive website for a Nairobi-based restaurant. By using React, JavaScript, MUI, SASS, CSS, Node.js, Express, Sequelize, MySQL, and Git, I was able to create a website that met the client's needs, improved the restaurant's online presence, and provided customers with a seamless online ordering experience. I am proud of the outcome of this project and believe it will go a long way in helping Swahili Plate grow and thrive in the years to come

@@ -1,0 +1,113 @@
+$primary: #fbf8f2;
+$swatch_2: #6f6f70;
+$swatch_3: #9c9b9c;
+$secondary: #deccae;
+$text: #120f0b;
+$swatch_6: #e78d26;
+$swatch_7: #563b13;
+$swatch_8: #9b7151;
+
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+    height: 550px;
+    border-radius: 20px;
+    background-color: $secondary;
+
+    .sidebarImg {
+        background-size: cover;
+        background-position: center;
+        background-image: url(../assets/images/bg-sidebar-desktop.svg);
+        width: 300px;
+        height: 550px;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        // gap: 50px;
+        padding: 50px;
+        // width: 500px;
+
+        .contactInfo {
+            padding-top: 20px;
+           
+
+            .call {
+                // background-color: aqua;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+
+                .callContent {
+                    background-color: $primary;
+                    padding: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    border-radius: 10px;
+                }
+            }
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-direction: column;
+
+
+            section {
+                display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                width: 50px;
+                background-color: $swatch_6;
+                border-radius: 50%;
+            }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    
+    .content {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .sidebarImg {
+        display: none;
+    }
+
+    .map {
+
+        section {
+            display: none;
+        }
+    }
+
+}

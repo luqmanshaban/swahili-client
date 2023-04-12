@@ -1,0 +1,60 @@
+//
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=DM+Sans&family=Signika+Negative:wght@300&display=swap');
+
+//
+
+
+// font-family: 'Cabin', sans-serif;
+// font-family: 'DM Sans', sans-serif;
+// font-family: 'Signika Negative', sans-serif;
+
+
+$swatch_1: #fbf8f2;
+$swatch_2: #6f6f70;
+$swatch_3: #9c9b9c;
+$swatch_4: #deccae;
+$swatch_5: #120f0b;
+$swatch_6: #e78d26;
+$swatch_7: #563b13;
+$swatch_8: #9b7151;
+
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+//Default styles
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Cabin', sans-serif;
+    color: $swatch_5;
+}
+
+p, span {
+    font-family: 'DM Sans', sans-serif;
+}
+
+a, button {
+    font-family: 'Signika Negative', sans-serif;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: $swatch_5;
+}
+
+ul {
+    list-style: none;
+}
+
+.App {
+    background-color: $swatch_5;
+    // padding: 20px;
+}
+
+
