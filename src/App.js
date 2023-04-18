@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 
 import styles from './STYLES/App.scss';
 import BreakPoint from './STYLES/BreakPoint.css'
@@ -11,8 +11,11 @@ import Contact from './components/Landing/Contact';
 import Menu from './components/Menu';
 
 import Analytics from './Analytics'
+import Dashboard from './components//Dashboard/Dashboard';
 
 function App() {
+  const isDashboard = window.location.pathname === '/dashboard';
+  const [logged, setLogged] = useState(!isDashboard)
 
   /////// ANALYTICS ////////////
    useEffect(() => {
@@ -26,7 +29,7 @@ function App() {
 
   return (
     <div className={`${styles.App} ${BreakPoint.App} `}>
-      <Navbar  />
+      {logged ? !isDashboard && <Navbar /> : setLogged(isDashboard)}
       
       {/* <Landing /> */}
 
@@ -36,6 +39,7 @@ function App() {
         <Route path='/swahili-client' Component={Landing} />
         <Route path='/contact' Component={Contact} />
         <Route path='/menu' Component={Menu} />
+        <Route path='/dashboard' Component={Dashboard} />
         <Route path='/' element={<Navigate to='/swahili-client'></Navigate>}/>
       </Routes>
 

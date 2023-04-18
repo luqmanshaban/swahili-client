@@ -1,0 +1,47 @@
+
+//
+
+$swatch_1: #fbf8f2;
+$swatch_2: #6f6f70;
+$swatch_3: #9c9b9c;
+$swatch_4: #deccae;
+$swatch_5: #120f0b;
+$swatch_6: #e78d26;
+$swatch_7: #563b13;
+$swatch_8: #9b7151;
+
+.sidebar {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    
+    h5, h2{
+        text-align: center;
+    }
+    h5 {
+        background-color: $swatch_1;
+        padding: 5px 0;
+        width: 50%;
+        margin-left: 50px;
+    }
+
+   
+   a {
+     padding: 5px 10px;
+     border: none;
+     font-size: 16px;
+     border-radius: 5px;
+     font-weight: lighter;
+     background-color: $swatch_7;
+     color: $swatch_1;
+     text-align: center;
+   }
+
+
+    .logout {
+        background-color: $swatch_5;
+        color: $swatch_1;
+        font-weight: bold;
+    }
+}

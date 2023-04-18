@@ -61,7 +61,7 @@ function Login() {
 
 
   const [user, setUser] = useState( {
-      username: '',
+      email: '',
       password: ''
   })
 
@@ -87,7 +87,7 @@ function Login() {
               localStorage.setItem('authToken', token)
               setUser({
                   
-                  username: '',
+                  email: '',
                   password: ''
               })
               console.log(user);
@@ -116,7 +116,7 @@ function Login() {
            type='text'
            name='email'
            required
-           inputProps={{maxLength: 15, minLength: 5}}
+           inputProps={{maxLength: 35, minLength: 5}}
            onChange={handleChange}
            focused={focused && user.username === ''} // <-- add focused prop
            InputLabelProps={{style: {color: focused ? 'green' : '#757575'}}} // <-- add inputLabel prop

@@ -56,11 +56,14 @@ function Signup() {
     const classes = useStyles();
   
     const [signedUp, setSignedUp] = useState(false);
+    // const [passwordMatch, setPasswordMatch] = useState(true);
+    // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   
     const [user, setUser] = useState({
       firstname: '',
       lastname: '',
       email: '',
+      phone: '',
       password: '',
     });
   
@@ -73,33 +76,47 @@ function Signup() {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-  
+    
+      // Check if password and confirm password fields match
+      // if (user.password !== user.cpassword) {
+      //   setPasswordMatch(false);
+      //   return;
+      // }
+    
       try {
         setTimeout(() => {
           navigate('/login');
         }, 4000);
-        await axios.post('https://movies-server-kllv.onrender.com/api/v1/signup', user).then((response) => {
+        await axios.post('http://localhost:4000/api/v1/signup', user).then((response) => {
           console.log(response);
           setUser({
             firstname: '',
             lastname: '',
             email: '',
+            phone: '',
             password: '',
+            
           });
           console.log(user);
+          // setShowSuccessMessage(true);
+          if(response.status === 200){
+            alert('User created')
+          }
         });
       } catch (error) {
         console.log(error);
       }
-  
+    
       setSignedUp(true);
+      
     };
+    
   
     // Define the content to be rendered
     const content = signedUp ? (
 
       <div className={styles.condition}>
-        <p>Thank you {user.username} for signing Up</p>
+        <p>Thank you {user.firstname} for signing Up</p>
       </div>
 
     ) : (
@@ -136,6 +153,17 @@ function Signup() {
           inputProps={{ maxLength: 35, minLength: 8 }}
           onChange={handleChange}
         />
+
+        <TextField
+          label='Phone Number'
+          variant='filled'
+          type='tel'
+          name='phone'
+          required
+          inputProps={{ maxLength: 15 }}
+          onChange={handleChange}
+        />
+        
     
         <TextField
           label='Create Password'
@@ -146,16 +174,24 @@ function Signup() {
           inputProps={{ maxLength: 25, minLength: 6 }}
           onChange={handleChange}
         />
+       
   
-        <TextField
+        {/* <TextField
           label='Confirm Password'
           variant='filled'
           name='cpassword'
           type='password'
           required
           inputProps={{ maxLength: 25, minLength: 6 }}
-        />
-  
+          onChange={handleChange}
+        /> */}
+
+      {/* {!passwordMatch && (
+        <p style={{ color: "red" }}>Passwords don't match</p>
+      )} */}
+      {/* {showSuccessMessage && (
+        <p style={{ color: "green" }}>Passwords match!</p>
+      )}   */}
         <Button type='submit' variant='contained' color='primary'>
           Sign Up
         </Button>

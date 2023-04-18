@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect, useRef,  useState } from 'react';
+import React, {useEffect,  useState, useRef } from 'react';
 import './Reservation.module.scss';
 
 //MUI
 import { makeStyles } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 //MUI STYLING
@@ -39,6 +41,7 @@ const useStyles = makeStyles(theme => ({
 function Reservation() {
   const formRef = useRef(null);
   const [inView, setInView] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,24 +64,46 @@ function Reservation() {
     const classes = useStyles()
     const [numPeople, setNumPeople] = useState(10);
 
-    const [user, setUser] = useState( {
+    const [booking, setBooking] = useState( {
         firstname : '',
         lastname: '',
         email: '',
         phone: '',
+        range: ''
 
     });
 
     const handleChange = (e) => {
-        setUser( prev => ({
+        setBooking( prev => ({
             ...prev,
             [e.target.name]: e.target.value
         }))
         
     };
 
-    const handleSubmit = () => {
-      console.log(user);
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+
+      try {
+          await axios.post('http://localhost:4000/api/v1/login', booking).then(response => {
+
+          setTimeout(() => {
+            navigate('/dashboard');
+          }, 4000);
+              console.log(response);
+              setBooking({
+                firstname : '',
+                lastname: '',
+                email: '',
+                phone: '',
+                range: ''
+              })
+              console.log(booking);              
+
+          })
+      } catch (error) {
+          console.log(error);
+      }
     }
   return (
     <div >
@@ -128,6 +153,7 @@ function Reservation() {
       id="people"
       label="Number of People"
       type="range"
+      name='range'
       inputProps={{
         min: 1,
         max: 10,
