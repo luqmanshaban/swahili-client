@@ -236,72 +236,6 @@ ul {
 
         
         
-    
-    }
-    .line {
-        position: relative;
-        height: 350px;
-        width: 2px;
-        background-color: $primary;
-        opacity: 1;
-    }
-    .animation {
-        position: absolute;
-        top: 0;
-        // left: 0.5px;
-        width: 2px;
-        height: 20px;
-        border-radius: 5px;
-        background-color: $swatch_6;
-        animation: move 5s ease-in-out infinite;
-    }
-    
-    @keyframes move {
-        0% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(350px);
-        }
-        100% {
-            transform: translateY(0);
-        }
-    }
-   
-    
-  
-
-
-    .img1 {
-        position: relative;
-        left: -590px;
-        animation: img1 2s ease infinite;
-    }
-
-    @keyframes img1 {
-        0% {
-            transform: scaleX(1);
-        }
-        100% {
-            transform: scaleX(-1);
-        }
-    }
-
-    .img2 {
-        position: relative;
-        top: 230px;
-        right: -20px;
-        border-radius: 50%;
-        animation: img2 3s ease infinite;
-    }
-    
-    @keyframes img2 {
-        0%{
-            transform: rotate(0);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
     }
     
 
@@ -589,27 +523,8 @@ ul {
             
         }
 
-        .carousel,.fade {
-           display: none;
-        }
-
         
-        // ##3
-        .img1 {
-            // left: 20px;
-            // right: -100px;
-            display:  none;
-        }
-        .img2 {
-            display: none;
-        }
-        .img3 {
-            display: none;
-        }
-
-        .line {
-            display: none;
-        }
+        
     }
     
 
@@ -633,18 +548,19 @@ ul {
         }
         .featured{ 
             flex-direction: column;
-            gap: 10px;
+            // gap: 10px ;
             // margin: 30px 0;
+            margin: 0 !important;
+
             padding: 20px;
 
             .featuredImg {
-                height: 150px;
-                width: 100%;
-                margin: 0;
+                height: 150px !important;
+                width: 100% !important;
 
                 .fImg {
                     height: 230px;
-                    width: 120%;
+                    width: 100%;
                 }
             }
 

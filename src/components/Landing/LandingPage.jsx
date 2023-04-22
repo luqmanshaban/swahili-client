@@ -87,14 +87,6 @@ function LandingPage() {
       //styles
       const headerAnmStyle = header ? 'hcontent' : '';
 
-//////////////////
-
-// function handleContactClick() {
-//   const contactElement = document.getElementById('contact');
-//   contactElement.scrollIntoView({ behavior: 'smooth' });
-// }
-
-
 
   return (
     <div className={`${styles.landing} ${breakPoints.landing} `}>

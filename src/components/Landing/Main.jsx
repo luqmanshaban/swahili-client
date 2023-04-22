@@ -113,13 +113,13 @@ function Main() {
 
 {/* #######  */}
 
-<div className={`${styles.reservation}`} >
+{/* <div className={`${styles.reservation}`} >
     <div className={styles.rcontent}>
        <h1 style={{textAlign: 'center', textDecoration: 'underline', textDecorationColor: '#e78d26'}}>Reserve a Table</h1>
 
        <Reservation />
     </div>
-</div>
+</div> */}
     </>
   )
 }

@@ -11,7 +11,7 @@ import Contact from './components/Landing/Contact';
 import Menu from './components/Menu';
 
 import Analytics from './Analytics'
-import Dashboard from './components//Dashboard/Dashboard';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const isDashboard = window.location.pathname === '/dashboard';
@@ -31,7 +31,6 @@ function App() {
     <div className={`${styles.App} ${BreakPoint.App} `}>
       {logged ? !isDashboard && <Navbar /> : setLogged(isDashboard)}
       
-      {/* <Landing /> */}
 
       <Routes>
         <Route exact path='/login' Component={Login } />
