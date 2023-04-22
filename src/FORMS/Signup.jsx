@@ -125,6 +125,7 @@ function Signup() {
       <form className={classes.root} onSubmit={handleSubmit}>
 
         <TextField
+        
           label='First Name'
           variant='filled'
           type='text'
@@ -132,6 +133,7 @@ function Signup() {
           required
           inputProps={{ maxLength: 15, minLength: 3 }}
           onChange={handleChange}
+          style={{marginTop: '150px'}}
         />
 
         <TextField

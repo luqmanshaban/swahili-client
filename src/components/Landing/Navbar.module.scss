@@ -53,10 +53,11 @@ ul {
     // box-shadow: 0 4px 8px #6f6f70;
     min-height: 70px;
     padding: 25px;
-    margin: 20px ;
-    border-radius: 20px;
-    // position: fixed;
-    // overflow: hidden;
+    margin: 0px ;
+    border-radius: 0 0 20px 20px ;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
     
         // logo //
         .logo {
@@ -118,16 +119,12 @@ ul {
 
 @media screen and (max-width: 800px) {
     .navbar {
-        margin:  20px 5px ;
-        // border-radius: 10px 10px 10px 10px;
         padding: 10px ;
-        border-radius: 0 10px 10px 0;
         transition: 0.5s ease-in-out;
 
         &.active {
             margin-bottom: 260px !important;
             background-color: $primary; 
-            // padding: 0;
             border-radius: 1px;
         }
 
@@ -166,14 +163,14 @@ ul {
         flex-direction: column;
         // align-items: flex-start !important;
         gap: 20px !important;
-        top: 90px;
+        top: 70px;
         left: -100%;
         text-align: start;
-        width: 97%;
+        width: 100%;
         transition: 0.7s ease-in-out;
         background-color: $primary;
         padding: 10px 20px ;
-        margin-left: 5px;
+        // margin-left: 5px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
         &.active {
