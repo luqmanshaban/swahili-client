@@ -1,127 +1,116 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import Reservation from '../../FORMS/Reservation';
 
-//MUI
-import TickIcon from '@mui/icons-material/CheckCircle';
+// MUI
 import { createTheme, ThemeProvider } from '@mui/system';
 import ArrowIcon from '@mui/icons-material/ArrowRightAltRounded';
 
-
 //
 import styles from '../../STYLES/Landing.module.scss';
-import apple from '../../assets/images/apple.png';
-import pot from '../../assets/images/pot.png';
-import drinks from '../../assets/images/drinks.png';
 import featured from '../../assets/images/featured.png';
-import coffee from '../../assets/images/coffe.png'
 ////
 
-//Mui
-const theme = createTheme( {
-    palette: {
-        primary: {
-            main: '#e78d26'
-        },
-        secondary: {
-            main: '#fbf8f2'
-        },
-        tertiary: {
-            main: '#563b13'
-        }
-    }
-})
+// Mui
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#e78d26',
+    },
+    secondary: {
+      main: '#fbf8f2',
+    },
+    tertiary: {
+      main: '#563b13',
+    },
+  },
+});
 /////////////////////////////////////////
 
 function Main() {
+  const [inView, setInView] = useState(false);
+
+  const contentRef = useRef(null);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    // IntersectionObserver callback function
+    const callback = (entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        setInView(true);
+        observer.unobserve(entry.target); // Stop observing once the element is in view
+      }
+    };
+
+    // Create an IntersectionObserver instance
+    const observer = new IntersectionObserver(callback);
+
+    // Observe the section element
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    // Cleanup function
+    return () => {
+      observer.unobserve(contentRef.current);
+    };
+  }, []);
+
+  // image
+  useEffect(() => {
+    // IntersectionObserver callback function
+    const callback = (entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        setInView(true);
+        observer.unobserve(entry.target); // Stop observing once the element is in view
+      }
+    };
+
+    // Create an IntersectionObserver instance
+    const observer = new IntersectionObserver(callback);
+
+    // Observe the section element
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    // Cleanup function
+    return () => {
+      observer.unobserve(imgRef.current);
+    };
+  }, []);
+
+  // styles
+  const content = inView ? styles.featuredContent : '';
+  const img = inView ? styles.featuredImg : '';
+
   return (
     <>
-     <h3 >We offer all kinds of swahili dishes&#9; <span><br />from healthy food to snacks and desserts</span></h3>
+      <div className={styles.featured}>
+        <section className={img} ref={imgRef}>
+          <img className={styles.fImg} src={featured} alt="" />
+        </section>
 
-<div className={styles.food}>
+        <section className={content} ref={contentRef}>
+          <h2>New Season Collection</h2>
+          <p>
+            Discover our latest collection of trendy and fashionable clothing
+            for the upcoming season. Stay stylish and comfortable with our
+            high-quality clothing line.
+          </p>
 
-   <div className={styles.foodC}>
-   <section>
-      <article className={styles.article1}>
-          <img id='img1' src={apple} alt="" />
-      </article>
-      <ThemeProvider theme={theme}>
-          {<TickIcon className={styles.tickIcon} color='tertiary' sx={{fontSize: '30px'}}/>}
-       </ThemeProvider>
-
-       <p >Healthy Food</p>
-    </section>
-    
-   <section>
-     <article className={styles.article2}>
-         <img id='img2' src={pot}  alt="" />
-      </article>
-      <ThemeProvider theme={theme}>
-          {<TickIcon className={styles.tickIcon} color='tertiary' sx={{fontSize: '30px'}}/>}
-       </ThemeProvider>
-
-       <p>Tasty Meals</p>
-   </section>
-
-    <section>
-       <article className={styles.article3}>
-          <img id='img3' src={drinks}  alt="" />
-       </article>
-       <ThemeProvider theme={theme}>
-           {<TickIcon className={styles.tickIcon} color='tertiary' sx={{fontSize: '30px'}}/>}
-        </ThemeProvider>
-
-        <p>Drinks & Desserts</p>
-    </section>
-
-    <section>
-       <article className={styles.article3}>
-          <img id='img4' src={coffee} height={100} alt="" />
-       </article>
-       <ThemeProvider theme={theme}>
-           {<TickIcon className={styles.tickIcon} color='tertiary' sx={{fontSize: '30px'}}/>}
-        </ThemeProvider>
-
-        <p>Coffee & Tea</p>
-    </section>
-   </div>
-
-</div>
-
-{/* //////////////////////// */}
-
-{/* ################### */}
-
-
-<div className={styles.featured}>
-    <div className={`${styles.featuredImg}`} >
-        <img className={styles.fImg} src={featured} alt=""/>
-    </div>
-
-    <div className={`${styles.featuredContent}`} >
-        <h2>Living Well begins with eating well.</h2>
-        <p>Swahili Plate serves healthy, high-quality food using locally sourced ingredients. Our chefs skillfully combine traditional and contemporary techniques to create delicious and nutritious meals that nourish both the body and soul.</p>
-
-        <Link  to='/menu' className={styles.featuredA}>
-            <span>Explore Menu</span>
+          <Link to="/shop" className={styles.featuredA}>
+            <span>Order Now!</span>
             <ThemeProvider theme={theme}>
-               {<ArrowIcon className={styles.arrowIcon}/>}
+              {<ArrowIcon className={styles.arrowIcon} />}
             </ThemeProvider>
-        </Link>
-    </div>
-</div>
-
-{/* #######  */}
-
-{/* <div className={`${styles.reservation}`} >
-    <div className={styles.rcontent}>
-       <h1 style={{textAlign: 'center', textDecoration: 'underline', textDecorationColor: '#e78d26'}}>Reserve a Table</h1>
-
-       <Reservation />
-    </div>
-</div> */}
+          </Link>
+        </section>
+      </div>
     </>
-  )
+  );
 }
 
 export default Main;

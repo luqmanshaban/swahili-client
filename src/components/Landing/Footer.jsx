@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React,{useRef, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 
 //mui
@@ -35,9 +36,69 @@ const theme = createTheme( {
 /////////////////////////////////////////
 
 function Footer() {
+  const [inView, setInView] = useState(false);
+
+
+  const swahiliRef = useRef(null)
+  const contactRef = useRef(null)
+
+  // swahili
+  useEffect(() => {
+    // IntersectionObserver callback function
+    const callback = (entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        setInView(true);
+        observer.unobserve(entry.target); // Stop observing once the element is in view
+      }
+    };
+
+    // Create an IntersectionObserver instance
+    const observer = new IntersectionObserver(callback);
+
+    // Observe the section element
+    if (swahiliRef.current) {
+      observer.observe(swahiliRef.current);
+    }
+
+    // Cleanup function
+    return () => {
+      observer.unobserve(swahiliRef.current);
+    };
+  }, []);
+
+   // swahili
+   useEffect(() => {
+    // IntersectionObserver callback function
+    const callback = (entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        setInView(true);
+        observer.unobserve(entry.target); // Stop observing once the element is in view
+      }
+    };
+
+    // Create an IntersectionObserver instance
+    const observer = new IntersectionObserver(callback);
+
+    // Observe the section element
+    if (contactRef.current) {
+      observer.observe(contactRef.current);
+    }
+
+    // Cleanup function
+    return () => {
+      observer.unobserve(contactRef.current);
+    };
+  }, []);
+
+  //styles
+  const swahili = inView ? styles.swahili : ''
+  const subscription = inView ? styles.subscription : ''
+
   return (
     <>
-    <div className={styles.swahili}>
+    <div className={swahili} ref={swahiliRef}>
                <Link to='/' className={styles.logo}>
                   <img src={logo} height={30} alt="logo" className={styles.swahililogo}/>
                   <p style={{ fontWeight: 'bold',fontSize: '20px'}}>Swahili Plate</p>
@@ -62,7 +123,7 @@ function Footer() {
             </div>
             
             
-            <div className={styles.subscription}>
+            <div className={subscription} ref={contactRef}>
             <h5 style={{ fontSize: '20px'}}>Stay Connected</h5>
                 <div className={styles.email}>
                 <TextField 

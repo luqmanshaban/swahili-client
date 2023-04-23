@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useState, useRef, useEffect } from 'react';
+import React from 'react';
 
 import {Link}  from 'react-router-dom';
 // MUI //
@@ -42,55 +42,14 @@ const theme = createTheme( {
 })
 /////////////////////////////////////////
 
-  
-
 
 
 function LandingPage() {
 
- 
-//  *********************************************** //
-
-
-
-
-//Animations
-    const headerAnm = useRef(null);
-
-    // Animation
-    const [header, setHeader] = useState(false)
-
-    useEffect(() => {
-      // IntersectionObserver callback function
-      const callback = (entries) => {
-          const [entry] = entries;
-          setHeader(entry.isIntersecting);
-      };
-  
-      // Create an IntersectionObserver instance
-      const observer = new IntersectionObserver(callback);
-  
-      // Observe the section element
-      if (headerAnm.current) {
-          observer.observe(headerAnm.current);
-      }
-  
-      // Cleanup function
-      return () => {
-          if (headerAnm.current instanceof Element) {
-              observer.unobserve(headerAnm.current);
-          }
-      };
-  }, []);
-  
-
-      //styles
-      const headerAnmStyle = header ? 'hcontent' : '';
-
-
   return (
     <div className={`${styles.landing} ${breakPoints.landing} `}>
-
+        
+        {/* ############################# */}
         <header>
             <div className={styles.background}>
               {/* <Navbar /> */}
@@ -99,7 +58,7 @@ function LandingPage() {
             <div className={styles.headerContent}>
 
                 <div className={styles.hdContent}>
-                    <div className={`${headerAnmStyle} ${styles.hcontent}`} ref={headerAnm} >
+                    <div className={`${styles.hcontent}`} >
     
                          <h1>Meet, Eat & &#9; <span> <br />  </span> Enjoy The true &#9; <span> <br />  </span> taste</h1>
                          
@@ -112,10 +71,10 @@ function LandingPage() {
                          
                          <section>
                             <ThemeProvider theme={theme}>
-                              <a href='https://www.facebook.com/swahiliplate/' target='_blank' rel='noreferrer'>
+                              <a href='https://www.facebook.com/swahiliplate/' target='_blank' rel='noreferrer' id={styles.fb}>
                                 {<FacebookIcon color='secondary' className={styles.socialIcons}/>}
                               </a>
-                              <a href="https://www.instagram.com/swahiliplate/?hl=en" target='_blank' rel='noreferrer'>
+                              <a href="https://www.instagram.com/swahiliplate/?hl=en" target='_blank' rel='noreferrer' id={styles.ig}>
                                 {<InstagramIcon color='secondary' className={styles.socialIcons} />}
                               </a>
                             </ThemeProvider>
@@ -129,15 +88,13 @@ function LandingPage() {
             </div>
             </div>
         </header>
-        {/* ############################# */}
 
+        {/* ############################# */}
         <main>
            <Main/>
         </main>
 
-
         {/* ############################# */}
-
         <footer className={`${styles.footer}`} id='contact'>
 
             <Footer/>

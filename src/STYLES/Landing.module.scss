@@ -52,7 +52,7 @@ ul {
 .landing {
     background-color: $primary;
     // padding:  30px 50px;
-    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     padding: 10px 0px;
     border-radius: 20px 20px 0 0 ;
     // height: 100vh;
@@ -173,10 +173,7 @@ ul {
         top: 70px;
         margin: 70px 0;
 
-
-    }
-
-    // *** //
+         // *** //
     .hdContent {
         // @include flex(space-between);
         display: flex;
@@ -191,9 +188,13 @@ ul {
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative;
-            opacity: 0;
-            animation: header 2s ease forwards 0.5s;
+            
+
+            h1 {
+                position: relative;
+                opacity: 0;
+                animation: header 2s ease forwards 0.5s;
+            }
 
             .headerA {
                 @include flex(flex-start);
@@ -203,13 +204,63 @@ ul {
                 color: $primary;
                 padding: 10px 15px;
                 border-radius: 15px;
+                box-shadow: 0 14px 18px 0 rgba($swatch_6, 0.2), 0 16px 30px 0 rgba($swatch_6, 0.19);
+                animation: hbutton 0.8s ease forwards 2s;
+                transition: 0.3s ease;
+                opacity: 0;
+
     
                 .arrowIcon {
                     background-color: #e78d26;
                     border-radius: 50%;
                 }
             }
-    
+            @keyframes hbutton {
+                from {
+                    opacity: 0;
+                }
+                to{
+                    opacity: 1;
+                }
+            }
+
+            //facebook icon
+            #fb {
+                position: relative;
+                left: -150px;
+                opacity: 0;
+                animation: fb 2s ease forwards;
+                transition: 0.3s ease;
+            }
+            @keyframes fb {
+                from {
+                    left: -150px;
+                    opacity: 0;
+                }
+                to {
+                    left: 0;
+                    opacity: 1;
+                }
+            }
+            //instagram icon
+
+            #ig {
+                position: relative;
+                right: -150px;
+                opacity: 0;
+                animation: ig 2s ease forwards;
+                transition: 0.3s ease;
+            }
+            @keyframes ig {
+                from {
+                    right: -150px;
+                    opacity: 0;
+                }
+                to {
+                    right: 0;
+                    opacity: 1;
+                }
+            }
             
             .socialIcons {
                 // background-color: $primary;
@@ -220,6 +271,8 @@ ul {
                 font-size: 50px;
                 margin-top: 50px;
                 cursor: pointer;
+
+                
             }
             // **** //
 
@@ -240,6 +293,8 @@ ul {
         
         
     }
+
+    }
     
 
     }
@@ -250,71 +305,25 @@ ul {
     main {
 
         margin: 40px 0;
-        h3 {
-            text-align: center;
-            font-size: 25px;
-        }
-        .mainh3 {
+        
+        .featuredImg {
+            animation: img 1.2s ease-in-out forwards;
             opacity: 0;
-            animation: headerH3 2 ease forwards;
+            position: relative;
         }
-        @keyframes headerH3 {
-            from {
+        @keyframes img {
+            0% {
                 opacity: 0;
+                left: -50px;
+                top: -10px;
             }
-            to{
-                opacity: 1
+            100% {
+                opacity: 1;
+                left: 0;
+                top: 0;
             }
         }
-
-        .foodC {
-            @include flex(space-evenly);
-            margin: 70px 0;
-
-            section {
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                padding: 20px;
-                cursor: pointer;
-                transition: 0.3s ease-in-out;
-                border-radius: 10px;
-
-
-
-                .article1, .article2, .article3 {
-                    border: 2px solid $swatch_6;
-                    border-radius: 50%;
-                    padding: 10px;
-    
-                    img {
-                        height: 200px;
-                        width: 200px;
-                    }
-    
-                    
-                }
-    
-                #img4 {
-                    height: 100px;
-                    width: 140px;
-                }
-                .tickIcon {
-                    position: relative;
-                    top: -25px;
-                    right: -70px;
-                }
-
-                p {
-                    text-align: center;
-                    font-weight: bold;
-                }
-            }
-
-            section:hover {
-                scale: 1.2;
-            }
-
-            
-        }
+       
 
         .featured {
             @include flex(space-between);
@@ -334,6 +343,9 @@ ul {
                 align-items: flex-start;
                 gap: 30px;
                 flex-direction: column;
+                animation: fcontent 1.2s ease-in-out forwards;
+                opacity: 0;
+                position: relative;
 
                 .featuredA {
                     @include flex(flex-start);
@@ -350,7 +362,18 @@ ul {
                     }
                 }
 
-
+            }
+            @keyframes fcontent {
+                0% {
+                    opacity: 0;
+                    right: -50px;
+                    top: -10px;
+                }
+                100% {
+                    opacity: 1;
+                    right: 0;
+                    top: 0;
+                }
             }
         }
         
@@ -377,6 +400,9 @@ ul {
             align-items: flex-start;
             flex-direction: column;
             gap: 10px;
+            opacity: 0;
+            animation: swahili 3.2s ease forwards;
+
             .logo {
                 @include flex(flex-start);
                 gap: 10px;
@@ -396,12 +422,18 @@ ul {
                     cursor: pointer;
                     font-size: 30px;
                 }
+            }  
+
+        }
+        @keyframes swahili {
+            from {
+                opacity: 0;
+                
             }
-
-            
-    
-            
-
+            to {
+                opacity: 1;
+                
+            }
         }
         
 
@@ -411,6 +443,8 @@ ul {
             align-items: flex-start;
             flex-direction: column;
             gap: 20px;
+            opacity: 0;
+            animation: swahili 3.2s ease forwards;
             .email {
                 @include flex(space-between)
             }
@@ -418,6 +452,16 @@ ul {
                 display: flex;
 
                 gap: 10px;
+            }
+        }
+        @keyframes subscription {
+            from {
+                opacity: 0;
+                
+            }
+            to {
+                opacity: 1;
+                
             }
         }
 
@@ -528,11 +572,7 @@ ul {
         margin: 0 !important;
 
         h3 {
-            margin: 80px 0 10px 0;
-
-            span {
-                display: none;
-            }
+            display: none;
         }
         .featured{ 
             flex-direction: column;
@@ -545,12 +585,12 @@ ul {
             .featuredImg {
                 height: 150px !important;
                 width: 100% !important;
-
                 .fImg {
                     height: 230px;
                     width: 100%;
                 }
             }
+            
 
             .featuredContent {
                 margin: 0;
@@ -562,35 +602,8 @@ ul {
             }
         }
 
-        .foodC {
-            flex-direction: column;
-            margin: 40px 0;
-            width: 100%;
-            padding: 20px 40px;
-            gap: 40px;
-            position: relative;
-            margin: auto;
-         
-           section {
-             width: 100% !important;
-             height: 300px;
-
-             .tickIcon {
-                top: -230px !important;
-                left: 190px !important;
-             }
-
-            
-           }
-           section:hover {
-            scale: 1 !important;
-           }
-              
-            .article1 , .article2, .article3{
-                // width: 100% ;
-                border: none !important;
-            }
-            
+        .food {
+            display: none;
         }
     }
 

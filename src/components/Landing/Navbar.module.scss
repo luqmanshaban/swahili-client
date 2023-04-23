@@ -58,6 +58,10 @@ ul {
     position: fixed;
     width: 100%;
     z-index: 9999;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    animation: navbar 0.7s ease forwards;
+    opacity: 0;
     
         // logo //
         .logo {
@@ -76,6 +80,20 @@ ul {
             }
             
         }
+
+        @keyframes navbar {
+            from {
+                top: -20px;
+                opacity: 0;
+            }
+            to{
+                top: 0;
+                opacity: 1
+            }
+        }
+
+
+//nav Links
     .navMenu {
         @include flex(space-between);
         gap: 80px;
@@ -88,6 +106,7 @@ ul {
                 padding: 5px 10px;
                 transition: 0.2s ease;
                 color: $text;
+        
             }
             .navLink:hover {
                 color: $swatch_6;
@@ -95,7 +114,10 @@ ul {
                 border-radius: 5px
             }
         }
+
+        
     }
+
     .hamburger {
         display: none;
         cursor: pointer;
