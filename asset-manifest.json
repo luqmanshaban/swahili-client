@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/swahili-client/static/css/main.e5486d06.css",
-    "main.js": "/swahili-client/static/js/main.1861eab0.js",
+    "main.css": "/swahili-client/static/css/main.7e8f6984.css",
+    "main.js": "/swahili-client/static/js/main.ee0db612.js",
     "static/media/landing-header.jpg": "/swahili-client/static/media/landing-header.93f1693de938925eee1f.jpg",
     "static/media/featured.png": "/swahili-client/static/media/featured.2d898429b14047545eb3.png",
     "static/media/Screenshot from 2023-03-29 11-27-15.png": "/swahili-client/static/media/Screenshot from 2023-03-29 11-27-15.e310ce101c1808d59278.png",
     "static/media/bg-sidebar-desktop.svg": "/swahili-client/static/media/bg-sidebar-desktop.6918153f38678372ceb1.svg",
     "index.html": "/swahili-client/index.html",
-    "main.e5486d06.css.map": "/swahili-client/static/css/main.e5486d06.css.map",
-    "main.1861eab0.js.map": "/swahili-client/static/js/main.1861eab0.js.map"
+    "main.7e8f6984.css.map": "/swahili-client/static/css/main.7e8f6984.css.map",
+    "main.ee0db612.js.map": "/swahili-client/static/js/main.ee0db612.js.map"
   },
   "entrypoints": [
-    "static/css/main.e5486d06.css",
-    "static/js/main.1861eab0.js"
+    "static/css/main.7e8f6984.css",
+    "static/js/main.ee0db612.js"
   ]
 }
