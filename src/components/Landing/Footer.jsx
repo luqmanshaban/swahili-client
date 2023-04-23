@@ -38,9 +38,8 @@ const theme = createTheme( {
 function Footer() {
   const [inView, setInView] = useState(false);
 
-
-  const swahiliRef = useRef(null)
-  const contactRef = useRef(null)
+  const swahiliRef = useRef(null);
+  const contactRef = useRef(null);
 
   // swahili
   useEffect(() => {
@@ -63,12 +62,12 @@ function Footer() {
 
     // Cleanup function
     return () => {
-      observer.unobserve(swahiliRef.current);
+      observer.disconnect(swahiliRef.current);
     };
   }, []);
 
-   // swahili
-   useEffect(() => {
+  //contact
+  useEffect(() => {
     // IntersectionObserver callback function
     const callback = (entries) => {
       const [entry] = entries;
@@ -88,13 +87,14 @@ function Footer() {
 
     // Cleanup function
     return () => {
-      observer.unobserve(contactRef.current);
+      observer.disconnect(contactRef.current);
     };
   }, []);
 
+ 
   //styles
-  const swahili = inView ? styles.swahili : ''
-  const subscription = inView ? styles.subscription : ''
+  const swahili = inView ? styles.swahili : '';
+  const subscription = inView ? styles.subscription : '';
 
   return (
     <>

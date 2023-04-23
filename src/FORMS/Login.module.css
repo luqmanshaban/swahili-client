@@ -1,5 +1,22 @@
 /* LOGIN */
 
+.form {
+    position: relative;
+    opacity: 0.4;
+    animation: form 1.3s ease forwards;
+}
+@keyframes form {
+    from {
+        opacity: 0.4;
+        top: -20px;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+
 .authorized {
     display: flex;
     justify-content: center;

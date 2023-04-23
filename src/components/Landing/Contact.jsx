@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useRef, useState } from 'react'
 
 
 //mui
@@ -35,10 +36,12 @@ const style = {
 //
 
 function Contact() {
+  
+
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems:'center'}}>
-        <div className={styles.contact}>
-        <div className={styles.sidebarImg}></div>
+      <div className={styles.contact}>
+         <div className={styles.sidebarImg}></div>
 
             <div className={styles.content}>
                 

@@ -53,7 +53,7 @@ function Main() {
 
     // Cleanup function
     return () => {
-      observer.unobserve(contentRef.current);
+      observer.disconnect(contentRef.current);
     };
   }, []);
 
@@ -78,7 +78,7 @@ function Main() {
 
     // Cleanup function
     return () => {
-      observer.unobserve(imgRef.current);
+      observer.disconnect(imgRef.current);
     };
   }, []);
 
@@ -89,7 +89,7 @@ function Main() {
   return (
     <>
       <div className={styles.featured}>
-        <section className={img} ref={imgRef}>
+        <section className={img}>
           <img className={styles.fImg} src={featured} alt="" />
         </section>
 

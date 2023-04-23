@@ -14,7 +14,7 @@ $swatch_8: #9b7151;
     align-items: center;
     gap: 50px;
     margin-top: 150px;
-    height: 550px;
+    height: 580px;
     border-radius: 20px;
     background-color: $secondary;
 
@@ -23,7 +23,18 @@ $swatch_8: #9b7151;
         background-position: center;
         background-image: url(../assets/images/bg-sidebar-desktop.svg);
         width: 300px;
-        height: 550px;
+        height: 580px;
+        animation: img 1.3s ease forwards;
+        position: relative;
+        transition: 0.3s ease-in-out;
+    }
+    @keyframes img {
+        from {
+            left: -100px;
+        }
+        to {
+            left: 0;
+        }
     }
 
     .content {
@@ -34,6 +45,9 @@ $swatch_8: #9b7151;
         // gap: 50px;
         padding: 50px;
         // width: 500px;
+        animation: content 1.3s ease forwards;
+        position: relative;
+        transition: 0.3s ease-in-out;
 
         .contactInfo {
             padding-top: 20px;
@@ -84,6 +98,15 @@ $swatch_8: #9b7151;
                 border-radius: 50%;
             }
             }
+        }
+    }
+
+    @keyframes content {
+        from {
+            right: -100px;
+        }
+        to {
+            right: 0;
         }
     }
 }

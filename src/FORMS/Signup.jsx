@@ -46,7 +46,8 @@ const style = {
     gap: '20px',  
     padding: '10px',
     borderRadius: '10px',
-    margin: '0 60px'
+    margin: '20px 0',
+    // width: '50%'
 }
 
 
@@ -77,12 +78,7 @@ function Signup() {
     const handleSubmit = async (e) => {
       e.preventDefault();
     
-      // Check if password and confirm password fields match
-      // if (user.password !== user.cpassword) {
-      //   setPasswordMatch(false);
-      //   return;
-      // }
-    
+     
       try {
         setTimeout(() => {
           navigate('/login');
@@ -122,7 +118,7 @@ function Signup() {
     ) : (
       <>
       {/* <Navbar /> */}
-      <form className={classes.root} onSubmit={handleSubmit}>
+      <form className={`${classes.root} ${styles.form}`} onSubmit={handleSubmit}>
 
         <TextField
         
@@ -188,18 +184,20 @@ function Signup() {
           onChange={handleChange}
         /> */}
 
-      {/* {!passwordMatch && (
-        <p style={{ color: "red" }}>Passwords don't match</p>
-      )} */}
-      {/* {showSuccessMessage && (
-        <p style={{ color: "green" }}>Passwords match!</p>
-      )}   */}
+      
         <Button type='submit' variant='contained' color='primary'>
           Sign Up
         </Button>
 
       
+        <div style={style}>
+         <p>Already A member ?</p>
+         <Link to='/login' style={{fontSize: '16px', textDecoration: 'underline', fontWeight: 'bold'}}>
+         Login
+         </Link>
+      </div>
       </form>
+      
      
 
       </>
@@ -210,12 +208,6 @@ function Signup() {
     return <div>
       {content}
 
-      <div style={style}>
-         <p>Already A member ?</p>
-         <Link to='/login' style={{fontSize: '18px', textDecoration: 'underline', fontWeight: 'bold'}}>
-         Login
-         </Link>
-      </div>
       
       
      

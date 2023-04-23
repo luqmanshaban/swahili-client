@@ -107,7 +107,7 @@ function Login() {
 
   return (
     <div>
-    <form className={classes.root} >
+    <form className={`${classes.root} ${styles.form}`} >
 
     
         <TextField 
