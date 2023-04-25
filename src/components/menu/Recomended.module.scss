@@ -1,0 +1,170 @@
+
+
+//Variables
+
+//VAriables
+$primary: #ffff;
+$background: #EFE9E2;
+$tertiary: #DB8A31;
+$grey: #797979;
+@mixin flex($justify){
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+
+///////////////////////////
+
+.recomended {
+    // background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+
+    .meals {
+        
+        article {
+            @include flex(space-between);  
+            gap: 30px;
+            width: 100%;
+
+            li {
+                @include flex(space-between);
+                flex-direction: column;
+                height: 300px;
+                width: 25%;
+                padding-bottom: 10px;
+                border-radius: 10px;
+                gap: 15px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+                border: none;
+
+                img {
+                    height: 150px;
+                    width: 100%;
+                    border-radius: 10px;
+                }
+                h4 {
+                    text-align: start;
+                    width: 100%;
+                    font-family:Arial, Helvetica, sans-serif;
+                    text-transform: capitalize;
+                    font-size: 18px;
+                    font-weight: lighter;
+                    padding: 0 5px;
+                }
+
+                .info {
+                    width: 100%;
+                    @include flex(space-between);
+                    gap: 20px;
+                    padding: 0 5px;
+
+
+                    span {
+                        font-family: 'Courier New', Courier, monospace;
+                        p {
+                            font-weight: bold;
+                        }
+                        .pricewas {
+                            text-decoration: line-through;
+                            color: grey;
+                            font-weight: lighter;
+                        }
+                    }
+                    
+                    button {
+                        background-color: $tertiary;
+                        padding: 10px 25px;
+                        border: none;
+                        border-radius: 15px;
+                        color: $background;
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.load {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 20px;
+    width: 100%;
+    // margin: 20px 0;
+    
+  
+  .food:empty {
+    width: 250px;
+    height: 350px;
+    border-radius: 6px;
+    box-shadow: 0 10px 45px rgba(0, 0, 0, .2);
+    background-repeat: no-repeat;
+    animation: food 1.5s ease-in-out infinite;
+    opacity: 0.4;
+    
+    background-image:
+      radial-gradient( lightgray 99%, transparent 0),
+      linear-gradient(lightgray, lightgray),
+      linear-gradient(lightgray, lightgray),
+      linear-gradient(lightgray, lightgray),
+      linear-gradient(lightgray, lightgray),
+      linear-gradient(#fff, #fff); 
+    
+    background-size:
+      230px 92px,
+      80px 52px,
+      30px 16px,
+      82% 20px,
+      280px 100%;
+    
+    background-position:
+      24px 30px,
+      66px 30px,
+      24px 90px,
+      24px 142px,
+      0 180px,
+      0 0;
+  }
+
+  @keyframes food {
+    0% {
+        opacity: 0.4;
+    }
+    25% {
+        opacity: 0.8;
+    }
+    75% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0.4;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+    .recomended {
+        padding: 0px;
+        margin:  0;
+
+       
+
+        .meals {
+            article {
+                h2 {
+                    padding-top: 20px;
+                }
+                gap: 20px;
+                flex-direction: column;
+
+                li {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

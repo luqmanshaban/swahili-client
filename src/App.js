@@ -8,10 +8,10 @@ import {Navigate, Route, Routes } from 'react-router-dom';
 import Login from './FORMS/Login';
 import Signup from './FORMS/Signup';
 import Contact from './components/Landing/Contact';
-import Menu from './components/Menu';
+import Menu from './components/menu/Menu';
 
 import Analytics from './Analytics'
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/./dashboard/Dashboard';
 
 function App() {
   const isDashboard = window.location.pathname === '/dashboard';
@@ -38,7 +38,7 @@ function App() {
         <Route path='/swahili-client' Component={Landing} />
         <Route path='/contact' Component={Contact} />
         <Route path='/menu' Component={Menu} />
-        <Route path='/dashboard' Component={Dashboard} />
+        <Route path='/dashboard/*' Component={Dashboard} />
         <Route path='/' element={<Navigate to='/swahili-client'></Navigate>}/>
       </Routes>
 

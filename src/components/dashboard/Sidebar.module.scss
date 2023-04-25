@@ -1,0 +1,142 @@
+
+
+//styles and variables
+
+$primary: #ffff;
+$background: #EFE9E2;
+$tertiary: #DB8A31;
+$grey: #797979;
+
+
+.sidebar {
+    position: fixed;
+    background-color: $primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    padding: 30px 20px;
+    border-radius: 0px 30px 30px 0;
+    span {
+        display: none;
+    }
+
+    //
+    .hamburger {
+        display: none;
+        cursor: pointer;
+
+        .bar {
+            display: block;
+            margin: 5px;
+            background-color: $grey;
+            height: 3px;
+            width: 25px;
+            -webkit-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+        }
+    }
+
+
+
+    img {
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    
+    .navLinks {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 45px;
+        a {
+            color: $grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s ease-in-out;
+        }
+        a:hover {
+            color: $tertiary;
+        }
+    }
+
+}
+
+
+//media break points
+@media screen and (max-width: 800px) {
+   .sidebar {
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    flex-direction: row;
+    gap: 0px !important;
+    margin: 0px !important;
+    padding: 10px;
+    border-radius: 0px 0px 20px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    min-height: 70px;
+    
+    // background-color: aqua;
+    padding: 10px  5px !important;
+
+
+
+    .hamburger {
+        display: block !important;
+
+        
+            &.active {
+                .bar:nth-child(2){
+                    opacity: 0;
+                }
+                .bar:nth-child(1){
+                    transform: translateY(8px) rotate(45deg);
+                }
+                .bar:nth-child(3){
+                    transform: translateY(-8px) rotate(-45deg);
+                }
+            }
+        
+    }
+    #logo {
+        display: none;
+    }
+    span {
+        color: #DB8A31;
+        font-weight: bold;
+        font-size: 20px;
+        display: block;
+    }
+
+    .navLinks {
+        position: relative;
+        right: -100%;
+        display: none;
+        gap: 20px;
+        width: 100%;
+        background-color: #fff;
+        top: 20px;
+        height: 500px;
+        transition: 0.7s ease-in-out;
+
+        &.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: 0;
+        }
+
+        #logo {
+            display: none;
+        }
+    }
+    
+   }
+}

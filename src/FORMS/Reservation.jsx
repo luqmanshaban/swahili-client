@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect,  useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './Reservation.module.scss';
 
 //MUI
@@ -39,37 +39,20 @@ const useStyles = makeStyles(theme => ({
   
 
 function Reservation() {
-  const formRef = useRef(null);
-  const [inView, setInView] = useState(false);
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setInView(entry.isIntersecting);
-      }
-    );
-
-    if (formRef.current) {
-      observer.observe(formRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  const formClass = inView ? 'form-in-view' : '';
 
     const classes = useStyles()
-    const [numPeople, setNumPeople] = useState(10);
+    const [numberOfPeople, setNumberOfPeople] = useState(4);
 
     const [booking, setBooking] = useState( {
         firstname : '',
         lastname: '',
         email: '',
         phone: '',
-        range: ''
+        date: '',
+        numberOfPeople,
+        time: '',
 
     });
 
@@ -83,32 +66,41 @@ function Reservation() {
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-
+    
+     
       try {
-          await axios.post('http://localhost:4000/api/v1/login', booking).then(response => {
-
-          setTimeout(() => {
-            navigate('/dashboard');
-          }, 4000);
-              console.log(response);
-              setBooking({
-                firstname : '',
-                lastname: '',
-                email: '',
-                phone: '',
-                range: ''
-              })
-              console.log(booking);              
-
-          })
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 4000);
+        await axios.post('http://localhost:4000/api/v1/bookings/', booking).then((response) => {
+          console.log(response);
+          setBooking({
+            firstname : '',
+            lastname: '',
+            email: '',
+            phone: '',
+            date: '',
+            numberOfPeople,
+            time: '',
+            
+          });
+          console.log(booking);
+          // setShowSuccessMessage(true);
+          if(response.status === 200){
+            alert('booking created')
+          }
+        });
       } catch (error) {
-          console.log(error);
+        console.log(error);
       }
-    }
+    
+      
+    };
+
   return (
     <div >
 
-     <form className={`${classes.root} ${formClass}`}>
+     <form className={`${classes.root} `} onSubmit={handleSubmit}>
       
       <TextField style={{color: ' #e78d26'}}
          label='First Name'
@@ -149,25 +141,47 @@ function Reservation() {
          inputProps={{maxLength: 15, minLength: 5}}
          onChange={handleChange}
       />
+      <TextField
+      label='date'
+      variant="filled"
+      placeholder='Date'
+      type='date'
+      name='date'
+      required
+      onChange={handleChange}
+      InputLabelProps={{
+        shrink: true,
+      }}
+    />
       <TextField  style={{color: ' #e78d26'}}
       id="people"
       label="Number of People"
       type="range"
-      name='range'
+      value={numberOfPeople}
       inputProps={{
         min: 1,
         max: 10,
         onChange: (e) => {
-          setNumPeople(parseInt(e.target.value));
+          setNumberOfPeople(parseInt(e.target.value));
         },
       }}
-      value={numPeople}
+      // value={numPeople}
       />
-      <span>{numPeople}</span>
+      <span>{numberOfPeople}</span>
+
+      <TextField
+      label="Time"
+      name='time'
+      required
+      onChange={handleChange}
+      variant="outlined"
+      fullWidth
+      placeholder="24hr format"
+    />
       
       
       
-      <Button onSubmit={handleSubmit} type='submit' variant='contained' color='primary'>
+      <Button  type='submit' variant='contained' color='primary'>
           Book
       </Button>
     </form>

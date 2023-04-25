@@ -1,0 +1,34 @@
+
+
+
+//styles and variables
+
+$primary: #ffff;
+$background: #EFE9E2;
+$tertiary: #DB8A31;
+$grey: #797979;
+
+/////////////////////
+/// 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.dashboard {
+    background-color: $background;
+    // height: 100%;
+    margin: 0;
+    // width: 120%;
+    display: flex;
+    gap: 100px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .dashboard {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+}
