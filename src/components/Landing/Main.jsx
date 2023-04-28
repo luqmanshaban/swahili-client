@@ -94,15 +94,13 @@ function Main() {
         </section>
 
         <section className={content} ref={contentRef}>
-          <h2>New Season Collection</h2>
+          <h2>Indulge in Authentic Swahili Cuisine </h2>
           <p>
-            Discover our latest collection of trendy and fashionable clothing
-            for the upcoming season. Stay stylish and comfortable with our
-            high-quality clothing line.
+          Swahili Plate is a restaurant that offers an authentic taste of Swahili cuisine. With a menu full of flavorful dishes, Swahili Plate takes pride in serving traditional dishes from the coastal region of East Africa. From aromatic biryanis and pilafs to succulent grilled meats and seafood, each dish is prepared with the perfect blend of spices and ingredients to tantalize your taste buds. Whether you are a fan of spicy curries or prefer mild flavors, Swahili Plate has something for everyone. Visit us today and experience the best of Swahili cuisine in a warm and welcoming atmosphere.
           </p>
 
           <Link to="/shop" className={styles.featuredA}>
-            <span>Order Now!</span>
+            <span>Discover Menu!</span>
             <ThemeProvider theme={theme}>
               {<ArrowIcon className={styles.arrowIcon} />}
             </ThemeProvider>

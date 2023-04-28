@@ -90,7 +90,7 @@ function Login() {
                   email: '',
                   password: ''
               })
-              console.log(user);
+            //   console.log(user);
               setIsLoggedIn(true)
               
               

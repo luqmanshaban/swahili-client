@@ -19,7 +19,6 @@ function Recomended() {
           }
         });
         setRecomended(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error('Error fetching food data:', error);
       }
@@ -27,6 +26,8 @@ function Recomended() {
 
     fetchData();
   }, []);
+
+ 
 
  
   //generating random price for each food
