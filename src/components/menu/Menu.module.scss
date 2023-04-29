@@ -24,6 +24,8 @@ button {
 .menu {
     padding: 20px;
     width: 100%;
+    padding-top: 150px;
+
 
     ///Header
     header {
@@ -45,6 +47,7 @@ button {
             @include flex(space-between);
             gap: 10px;
             background-color: #fff;
+            border: 1px solid black;
             width: 25%;
             border-radius: 15px;
             button {
@@ -72,6 +75,9 @@ button {
             }
             
         }
+        .cart {
+            background-color: #fff;
+        }
     }
     ////////////////
     /// Main ///
@@ -80,36 +86,43 @@ button {
         padding: 40px 20px;
         .navMenu {
             @include flex(space-between);
-            flex-wrap: wrap;
             gap: 50px;
+            background-color: $background;
+            padding: 2px 20px;
+            border-radius: 30px;
 
-            li:nth-child(1){
-                background-color: lighten($tertiary, 30%);
-                a {
-                    color: darken($tertiary, 30%);
-                }
-            }
+           
 
             li {
                 @include flex(space-between);
                 gap: 10px;
-                background-color: lighten($grey, 35%);
-                padding: 10px 20px;
+                background-color: $background !important;
+                padding: 10px 50px;
                 border-radius: 20px;
                 transition: 0.3s ease;
-                border: 1px solid $background;
 
-                a {
+                .btn {
                     font-weight: bold;
                     transition: 0.3s ease-in-out;
+                    padding: 5px;
+                    background-color: $background !important;
+                    color: black;
+
+                    &.active {
+                        background-color: #fff !important;
+                    }
                 }
-                a:hover {
+                .btn:hover {
                     color: $tertiary;
                 }
+
+
+                &.active {
+                    background-color: lighten($color: #fff, $amount: 10%) !important;
+                    border-radius: 30px;
+                }
             }
-            li:hover {
-                border:1px $tertiary solid;
-            }
+            
             
         }
     }
@@ -117,9 +130,11 @@ button {
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 720px) {
+
     header {
-        margin-top: 70px ;
+        padding-top: 20px;
+        margin-top: 10px ;
 
         section {
             display: none;
@@ -134,7 +149,14 @@ button {
         padding: 10px 0px;
         margin: 0;
         .navMenu {
-            gap: 20px;
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) ;
+            gap: 10px;
+
+            li {
+                padding: 10px !important;
+                gap: 5px !important;
+            }
         }
     }
 }

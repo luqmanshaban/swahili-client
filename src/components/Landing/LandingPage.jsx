@@ -9,7 +9,6 @@ import FacebookIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { createTheme, ThemeProvider } from '@mui/system';
 
-// import Button from '@mui/material/Button';
 
 
 //
@@ -18,10 +17,6 @@ import styles from '../../STYLES/Landing.module.scss';
 import breakPoints from '../../STYLES/BreakPoint.css'
 import '../../App.css'
 
-
-// import Navbar from './Navbar';
-// import Login from '../../FORMS/Login';
-// import Signup from '../../FORMS/Signup';
 import Footer from './Footer';
 import Main from './Main';
 import Map from './Map';
@@ -40,7 +35,7 @@ const theme = createTheme( {
         }
     }
 })
-/////////////////////////////////////////
+///////////////////////
 
 
 
@@ -52,7 +47,6 @@ function LandingPage() {
         {/* ############################# */}
         <header>
             <div className={styles.background}>
-              {/* <Navbar /> */}
             {/*  *******  */}
 
             <div className={styles.headerContent}>
@@ -80,10 +74,7 @@ function LandingPage() {
                             </ThemeProvider>
                          </section>
                     </div>
-
-                     
                  </div>
-
 
             </div>
             </div>
