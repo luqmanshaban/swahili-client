@@ -8,16 +8,19 @@ import Dinner from '@mui/icons-material/DinnerDining';
 import Dessert from '@mui/icons-material/Icecream';
 import Drinks from '@mui/icons-material/BrunchDining';
 import { createTheme, ThemeProvider } from '@mui/system';
+import Filter from '@mui/icons-material/Tune';
 import Recomended from './Recomended';
+import Breakfast from './Breakfast'
 import Meals from './Meals';
 import Snacks from './Snacks';
 import Shawarma from './Shawarma';
+import Drink from './Drinks'
 
 //Mui
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#DB8A31',
+      main: '#e78d26',
     },
     secondary: {
       main: '#000',
@@ -25,13 +28,22 @@ const theme = createTheme({
   },
 });
 
+
+
 function Menu() {
-  
-  //add the active class
-  const [active, setActive] = useState([false, false, false, false, false, false])
+  const [active, setActive] = useState([true, false, false, false, false, false]);
+  const [activeClass, setActiveClass] = useState(false)
 
   const handleClick = (index) => {
-      setActive(active.map((value, i) => i === index))
+    setActive(active.map((value, i) => i === index));
+  };
+
+  const toggleActive = () => {
+    setActiveClass(!activeClass)
+  }
+
+  const handleSearch = e => {
+    e.preventDefault()
   }
 
   return (
@@ -41,58 +53,68 @@ function Menu() {
           <h2>Welcome swahili Plate Menu!</h2>
           <p>Let's get you served!!</p>
         </section>
-        <form>
+        <form onSubmit={handleSearch}>
           <input type="search" placeholder="search for food ..." />
           <button>
-            <Search />
+            <Search className={styles.btn}/>
           </button>
         </form>
         <button className={styles.cart}>
           <ThemeProvider theme={theme}>
-            <Cart color="primary" sx={{ fontSize: '35px' }} />
+            <Cart color="primary" sx={{ fontSize: "35px" }} />
           </ThemeProvider>
         </button>
       </header>
 
       <main>
-        <ul className={styles.navMenu}>
-          <li onClick={() => handleClick(0)} className={`${active[0] ? styles.active: ''} `}>
-            <button className={`${active[0] ? styles.active: ''} ${styles.btn}`}>Recommended</button>
+        
+        <span className={`${styles.filter} `} onClick={toggleActive}>
+          <span>Filter</span>
+          <ThemeProvider theme={theme}>
+            <Filter color='primary' />
+          </ThemeProvider>
+        </span>
+        <ul className={`${styles.navMenu} ${activeClass ? styles.active : ''}`}>
+          <ThemeProvider theme={theme}>
+          <li onClick={() => handleClick(0)} className={`${active[0] ? styles.active : ""}`}>
+            <button className={`${active[0] ? styles.active : ""} ${styles.btn}`}>
+              Recommended
+            </button>
           </li>
-          <li onClick={() => handleClick(1)} className={`${active[1] ? styles.active: ''}`}>
-            <BreakFast color="primary" />
-            <button className={`${active[1] ? styles.active: ''} ${styles.btn}`}>Breakfast</button>
+          <li onClick={() => handleClick(1)} className={`${active[1] ? styles.active : ""}`}>
+            <BreakFast color="primary" className={styles.icons}/>
+            <button className={`${active[1] ? styles.active : ""} ${styles.btn}`}>Breakfast</button>
           </li>
-          <li onClick={() => handleClick(2)} className={`${active[2] ? styles.active: ''}`}>
-            <Lunch color="primary" />
-            <button className={`${active[2] ? styles.active: ''} ${styles.btn}`}>Meals</button>
+          <li onClick={() => handleClick(2)} className={`${active[2] ? styles.active : ""}`}>
+            <Lunch color="primary" className={styles.icons}/>
+            <button className={`${active[2] ? styles.active : ""} ${styles.btn}`}>Meals</button>
           </li>
-          <li onClick={() => handleClick(3)} className={`${active[3] ? styles.active: ''}`}>
-            <Dinner color="primary" />
-            <button className={`${active[3] ? styles.active: ''} ${styles.btn}`}>Snacks</button>
+          <li onClick={() => handleClick(3)} className={`${active[3] ? styles.active : ""}`}>
+            <Dinner color="primary" className={styles.icons}/>
+            <button className={`${active[3] ? styles.active : ""} ${styles.btn}`}>Snacks</button>
           </li>
-          <li onClick={() => handleClick(4)} className={`${active[4] ? styles.active: ''}`}>
-            <Dessert color="primary" />
-            <button className={`${active[4] ? styles.active: ''} ${styles.btn}`}>Shawarma</button>
+          <li onClick={() => handleClick(4)} className={`${active[4] ? styles.active : ""}`}>
+            <Dessert color="primary" className={styles.icons}/>
+            <button className={`${active[4] ? styles.active : ""} ${styles.btn}`}>Shawarma</button>
           </li>
-          <li onClick={() => handleClick(5)} className={`${active[5] ? styles.active: ''}`}>
-            <Drinks color="primary" />
-            <button className={`${active[5] ? styles.active: ''} ${styles.btn}`}>Drinks</button>
+          <li onClick={() => handleClick(5)} className={`${active[5] ? styles.active : ""}`}>
+            <Drinks color="primary" className={styles.icons}/>
+            <button className={`${active[5] ? styles.active : ""} ${styles.btn}`}>Drinks</button>
           </li>
+          </ThemeProvider>
         </ul>
-
       </main>
 
-      {active[0] ? <Recomended /> : null}
-      {active[1] ? <BreakFast /> : null}
-      {active[2] ? <Meals /> : null}
-      {active[3] ? <Snacks /> : null}
-      {active[4] ? <Shawarma /> : null}
-      {active[5] ? <Drinks /> : null}
-
+      {active[0] && <Recomended />}
+      {active[1] && <Breakfast />}
+      {active[2] && <Meals />}
+      {active[3] && <Snacks />}
+      {active[4] && <Shawarma />}
+      {active[5] && <Drink />}
     </div>
   );
 }
+
 
 export default Menu;
 

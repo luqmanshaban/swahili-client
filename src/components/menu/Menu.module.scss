@@ -128,34 +128,78 @@ button {
     }
 
 }
-
+.filter {
+    display: none;
+}
 
 @media screen and (max-width: 720px) {
 
     header {
-        padding-top: 20px;
+        padding-top: 10px;
         margin-top: 10px ;
+        align-items: flex-start !important;
+        gap: 35px;
+        flex-direction: column;
 
         section {
             display: none;
         }
 
         form {
-            width: 80% !important;
+            width: 100% !important;
+
+            input {
+                background-color: #fff !important;
+            }
+             .btn {
+                display: none;
+             }
         }
     }
 
     main {
-        padding: 10px 0px;
+        padding: 1 0px 0 !important;
         margin: 0;
-        .navMenu {
-            display: grid !important;
-            grid-template-columns: repeat(2, 1fr) ;
+        //Filter
+        .filter {
+            display: block;
+            position: absolute;
+            top: 250px;
+            left: 280px;
+            cursor: pointer;
+            @include flex(space-between);
             gap: 10px;
+        
+        }
+
+        .navMenu {
+            margin: 30px 0;
+            border-radius: 0 !important;
+            padding: 40px 10px !important;
+            display: none !important;
+            transition: 0.3s ease-in-out;
 
             li {
+                border-radius: 0 !important;
                 padding: 10px !important;
-                gap: 5px !important;
+                justify-content: center !important;
+                gap: 1px !important;
+                
+
+                .icons {
+                    display: none;
+                }
+
+                button {
+                    margin: 0 !important;
+                    font-size: 16px !important;
+                }
+            }
+
+            &.active {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) ;
+                gap: 10px;
             }
         }
     }
