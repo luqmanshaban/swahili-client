@@ -1,11 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React,{useRef, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
-
 //mui
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import AddIcCallIcon from '@mui/icons-material/AddIcCall';
-// import EmailIcon from '@mui/icons-material/Email';
 import { createTheme, ThemeProvider } from '@mui/system';
 import { TextField } from '@material-ui/core';
 
@@ -17,7 +15,6 @@ import styles from '../../STYLES/Landing.module.scss';
 
 import FacebookIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
-// import Map from './Map';
 
 //Mui
 const theme = createTheme( {
@@ -124,12 +121,12 @@ function Footer() {
             
             
             <div className={subscription} ref={contactRef}>
-            <h5 style={{ fontSize: '20px'}}>Stay Connected</h5>
-                <div className={styles.email}>
+            <h5 style={{ fontSize: '20px'}}>Get In Touch</h5>
+                {/* <div className={styles.email}>
                 <TextField 
                  label='Email Address'
                 />{<ArrowForwardIosIcon sx={{backgroundColor: 'black', color: 'white', cursor: 'pointer'}}/>}
-                </div>
+                </div> */}
                 <div className={styles.call}>
                    {<AddIcCallIcon color='tertiary'/>}
                    <p><a href="tel:0772435765">Call Us</a></p>
@@ -138,16 +135,7 @@ function Footer() {
                    {<AddIcCallIcon color='tertiary'/>}
                    <p><a href="tel:0773497954">Call Us</a></p>
                 </div>
-                {/* <div className={styles.emailUs}>
-                    {<EmailIcon color='tertiary' />}
-                    <p>Send Us an Email</p>
-                </div> */}
-                
-
-                
-            </div>
-            {/* <Map/> */}
-            
+            </div>            
     </>
   )
 }

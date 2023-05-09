@@ -28,19 +28,21 @@ const theme = createTheme({
   },
 });
 
-
-
 function Menu() {
   const [active, setActive] = useState([true, false, false, false, false, false]);
   const [activeClass, setActiveClass] = useState(false)
 
   const handleClick = (index) => {
     setActive(active.map((value, i) => i === index));
+    setActiveClass(!activeClass)
   };
 
+  //Toggle the active class
   const toggleActive = () => {
     setActiveClass(!activeClass)
   }
+  //remove the active class
+  
 
   const handleSearch = e => {
     e.preventDefault()
@@ -67,7 +69,6 @@ function Menu() {
       </header>
 
       <main>
-        
         <span className={`${styles.filter} `} onClick={toggleActive}>
           <span>Filter</span>
           <ThemeProvider theme={theme}>

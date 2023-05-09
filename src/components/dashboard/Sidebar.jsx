@@ -50,10 +50,7 @@ function Sidebar() {
         Home
       </Link>
 
-      <Link to='/menu' onClick={handleLinkClick}>
-        <Menu/>
-        Menu
-      </Link>
+     
 
       <Link to='/orders' onClick={handleLinkClick}>
         <Order/>

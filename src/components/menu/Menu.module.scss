@@ -82,7 +82,7 @@ button {
     ////////////////
     /// Main ///
     main {
-        margin: 50px 0;
+        margin: 50px 0 20px 0;
         padding: 40px 20px;
         .navMenu {
             @include flex(space-between);

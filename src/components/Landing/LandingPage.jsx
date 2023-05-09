@@ -1,6 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-
 import {Link}  from 'react-router-dom';
 // MUI //
 // import ShoppingCart from '@mui/icons-material/LocalMallRounded';
@@ -8,15 +6,10 @@ import ArrowIcon from '@mui/icons-material/ArrowRightAltRounded';
 import FacebookIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { createTheme, ThemeProvider } from '@mui/system';
-
-
-
 //
-
 import styles from '../../STYLES/Landing.module.scss';
 import breakPoints from '../../STYLES/BreakPoint.css'
 import '../../App.css'
-
 import Footer from './Footer';
 import Main from './Main';
 import Map from './Map';

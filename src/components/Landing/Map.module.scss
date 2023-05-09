@@ -1,0 +1,23 @@
+
+.map {
+    display: flex;
+    gap: 20px;
+}
+.mapLinks {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .map {
+        display: none;
+    }
+    .mapLinks {
+        margin-top: 0px !important;
+        display: block;
+        padding: 0 20px 20px 20px;
+        text-decoration: underline;
+        a {
+            color: blue;
+        }
+    }
+}
