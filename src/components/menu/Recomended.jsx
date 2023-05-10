@@ -4,7 +4,7 @@ import axios from 'axios'
 //
 import styles from './Recomended.module.scss'
 
-function Recomended() {
+function Recomended({search}) {
    const [recomended, setRecomended] = useState(null)
    
    //MEALS
@@ -13,7 +13,7 @@ function Recomended() {
       try {
         const response = await axios.get('https://api.edamam.com/api/food-database/v2/parser', {
           params: {
-            ingr: 'pizza',
+            ingr: search,
             app_id: '9a3765cf',
             app_key: '8530b85b5ed16e6f12603385ed108a15'
           }
@@ -25,11 +25,10 @@ function Recomended() {
     };
 
     fetchData();
-  }, []);
+  }, [search]);
 
  
 
- 
   //generating random price for each food
     // Extract the foods with images from the retrieved foodData
   const meals = recomended && recomended.hints.filter(hint => hint.food.image && hint.food.image !== '')

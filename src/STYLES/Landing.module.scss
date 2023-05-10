@@ -283,8 +283,8 @@ ul {
 
             .fImg {
                 // border-radius: 50%;
-                height: 300px;
-                width: 450px;
+                height: 200px;
+                width: 350px;
             }
             
 
@@ -333,15 +333,23 @@ ul {
     // #################### //
     ///  FOOTER   ///
     footer {
+        background-color: $secondary;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .footer {
         // position: absolute;
         // width: 80%;
         padding: 20px;
+        margin: 20px;
         background-color: $secondary;
         // border-radius: 20px 20px 0 0 ;
         @include flex(space-between);
         align-items: flex-start;
         gap: 60px !important;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
         .swahili {
             display: flex;
@@ -439,8 +447,8 @@ ul {
 @media screen and (max-width: 800px) {
 
     *{
-        padding: 0;
-        margin: 0;
+        padding: 0 ;
+        margin: 0 ;
     }
     
     .landing {
@@ -533,6 +541,8 @@ ul {
 
                 .featuredA {
                     margin: 10px 0;
+                    height: 50px;
+                    width: 60%;
                 }
             }
         }
@@ -542,8 +552,7 @@ ul {
         }
     }
 
-
-    footer {
+    .footer {
         flex-direction: column;
         gap: 2px;
         margin: 0 !important;

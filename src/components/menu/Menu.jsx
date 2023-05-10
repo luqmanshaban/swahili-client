@@ -30,7 +30,8 @@ const theme = createTheme({
 
 function Menu() {
   const [active, setActive] = useState([true, false, false, false, false, false]);
-  const [activeClass, setActiveClass] = useState(false)
+  const [activeClass, setActiveClass] = useState(false);
+  const [food, setFood] = useState(null)
 
   const handleClick = (index) => {
     setActive(active.map((value, i) => i === index));
@@ -47,6 +48,13 @@ function Menu() {
   const handleSearch = e => {
     e.preventDefault()
   }
+  const handleChange = (e) => {
+    setFood(prev => ({
+      prev,
+      [e.target.name]: e.target.value,
+    }))
+  }
+  console.log(food);
 
   return (
     <div className={styles.menu}>
@@ -56,7 +64,7 @@ function Menu() {
           <p>Let's get you served!!</p>
         </section>
         <form onSubmit={handleSearch}>
-          <input type="search" placeholder="search for food ..." />
+          <input type="search" name='food' placeholder="search for food ..." onChange={handleChange}/>
           <button>
             <Search className={styles.btn}/>
           </button>
@@ -104,9 +112,10 @@ function Menu() {
           </li>
           </ThemeProvider>
         </ul>
+
       </main>
 
-      {active[0] && <Recomended />}
+      {active[0] && <Recomended search={food}/>}
       {active[1] && <Breakfast />}
       {active[2] && <Meals />}
       {active[3] && <Snacks />}

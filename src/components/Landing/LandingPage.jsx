@@ -32,7 +32,11 @@ const theme = createTheme( {
 
 
 
+
 function LandingPage() {
+
+  //update year automatically
+    let date = new Date().getFullYear();
 
   return (
     <div className={`${styles.landing} ${breakPoints.landing} `}>
@@ -79,12 +83,20 @@ function LandingPage() {
         </main>
 
         {/* ############################# */}
-        <footer className={`${styles.footer}`} id='contact'>
+        <footer id='contact'>
 
+            <section className={`${styles.footer}`}>
             <Footer/>
             <Map />
-        </footer>
+            </section>
+            <hr />
 
+            <section>
+              <p>swahili Plate | {date}</p>
+              <p>&copy; all rights reserved</p>
+            </section>
+
+        </footer>
       
     </div>
   )

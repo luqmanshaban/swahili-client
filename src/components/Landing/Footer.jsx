@@ -100,8 +100,12 @@ function Footer() {
               </Link>
 
               <ul>
-                <li>Nairobi, Town -  Muindi Mbingu St, Nairobi</li>
-                <li>Nairobi, Westlands - Sarite Centre</li>
+                <li>
+                  <a href="https://goo.gl/maps/ewCKjhW536QFsQ6N9" target='_blank' rel="noreferrer">Muindi Mbingu Street | Town</a>
+                </li>
+                <li>
+                  <a href="https://goo.gl/maps/q7AiycVRXSNkokmS7" target='_blank' rel="noreferrer">Sarit Center | WESTLANDS</a>
+                </li>
               </ul>
               <section>
                    <ThemeProvider theme={theme}>
@@ -120,11 +124,6 @@ function Footer() {
             
             <div className={subscription} ref={contactRef}>
             <h5 style={{ fontSize: '20px'}}>Get In Touch</h5>
-                {/* <div className={styles.email}>
-                <TextField 
-                 label='Email Address'
-                />{<ArrowForwardIosIcon sx={{backgroundColor: 'black', color: 'white', cursor: 'pointer'}}/>}
-                </div> */}
                 <div className={styles.call}>
                    {<AddIcCallIcon color='tertiary'/>}
                    <p><a href="tel:0772435765">Call Us</a></p>

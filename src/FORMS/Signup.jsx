@@ -1,20 +1,13 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-
 import { Link } from 'react-router-dom';
-
-
 //mui
 import { makeStyles } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
 //
-
 import { useNavigate } from 'react-router-dom';
-
 import styles from'./Signup.module.css'
-// import Navbar from '../components/Landing/Navbar';
 
 //MUI STYLING
 const useStyles = makeStyles(theme => ({
@@ -37,7 +30,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 // ###
-
 const style = {
    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
    display: 'flex', 
