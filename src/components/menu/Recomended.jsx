@@ -1,90 +1,77 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react';
+import styles from './Recomended.module.scss';
+import Data from './Data';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import TickIcon from '@mui/icons-material/CheckCircleOutline';
 
-//
-import styles from './Recomended.module.scss'
+const Recomended = ({ addToCart }) => {
+  const [cartItems, setCartItems] = useState(Array(Data.topPick.length).fill(0));
+  const [addedItems, setAddedItems] = useState([]);
 
-function Recomended({search}) {
-   const [recomended, setRecomended] = useState(null)
-   
-   //MEALS
-   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://api.edamam.com/api/food-database/v2/parser', {
-          params: {
-            ingr: search,
-            app_id: '9a3765cf',
-            app_key: '8530b85b5ed16e6f12603385ed108a15'
-          }
-        });
-        setRecomended(response.data);
-      } catch (error) {
-        console.error('Error fetching food data:', error);
-      }
-    };
+  const add = (index) => {
+    const newCartItems = [...cartItems];
+    newCartItems[index] += 1;
+    setCartItems(newCartItems);
+  };
 
-    fetchData();
-  }, [search]);
+  const remove = (index) => {
+    const newCartItems = [...cartItems];
+    newCartItems[index] = Math.max(newCartItems[index] - 1, 0);
+    setCartItems(newCartItems);
+  };
 
- 
+  const addToCartClicked = (index) => {
+    const newAddedItems = [...addedItems];
+    newAddedItems[index] = true;
+    setAddedItems(newAddedItems);
+    addToCart(
+      Data.topPick[index].img,
+      Data.topPick[index].name,
+      Data.topPick[index].price,
+      Data.topPick[index].price * cartItems[index],
+      cartItems[index]
+    );
+  };
 
-  //generating random price for each food
-    // Extract the foods with images from the retrieved foodData
-  const meals = recomended && recomended.hints.filter(hint => hint.food.image && hint.food.image !== '')
-  .slice(7, 12)
-  .map(hint => ({ ...hint.food, price: Math.floor(Math.random() * (1500 - 200 + 1)) + 200 }));
-
+  const cartNumTotal = cartItems.reduce((total, num) => total + num, 0);
+  const isCartEmpty = cartNumTotal === 0;
 
   return (
-    <div className={styles.recomended}>
-        <ul>
-
-          <li>
-          {meals ? (
-          <ul className={styles.meals}>
-            <h2 style={{marginBottom: '20px'}}>Special Offer</h2>
-
-          <article>
-            {meals.map(food => (
-              <li key={food.foodId}>
-
-                <img src={food.image} alt="meal" height={50}/>
-
-                <h4>{food.knownAs}</h4>
-
-                <span className={styles.info}>
-                  <span>
-                    <p>{food.price}.00/ksh</p>
-                    <p className={styles.pricewas}>{food.price}.00/ksh</p>
-                  </span>
-                  <button>Order</button>
-                </span>
-
-              </li>
-            ))}
-          </article>
-        </ul>
-      ) 
-      :
-       (
-        <section className={styles.load}>
-            <article className={styles.food}></article>
-            <article className={styles.food}></article>
-            <article className={styles.food}></article>
-            <article className={styles.food}></article>
-            <article className={styles.food}></article>
-            <article className={styles.food}></article>
-            <article className={styles.food}></article>
-            <article className={styles.food}></article>
-        </section>
-      )}
-          </li>
-
-        </ul>
-    </div>
-  )
-}
+    <section className={styles.recomended}>
+      {Data.topPick.map((food, index) => (
+        <article key={index}>
+          <img src={food.img} alt={food.name} height={100} />
+          <figure className={styles.foodInfo}>
+            <h1>{food.name}</h1>
+            <h3>Price: KES {food.price}</h3>
+            <span className={styles.buttons}>
+              <button onClick={() => add(index)}>
+                <AddIcon />
+              </button>
+              <span>{cartItems[index]}</span>
+              <button onClick={() => remove(index)}>
+                <RemoveIcon />
+              </button>
+            </span>
+            {addedItems[index] ? (
+              <button id={styles.added}>
+                <TickIcon />
+              </button>
+            ) : (
+              <button
+                id={styles.addToCart}
+                onClick={() => addToCartClicked(index)}
+                disabled={isCartEmpty}
+              >
+                Add to Cart
+              </button>
+            )}
+          </figure>
+        </article>
+      ))}
+    </section>
+  );
+};
 
 export default Recomended;
-

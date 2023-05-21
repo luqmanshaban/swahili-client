@@ -1,5 +1,4 @@
 import React,{useEffect, useState} from 'react';
-
 import styles from './STYLES/App.scss';
 import BreakPoint from './STYLES/BreakPoint.css'
 import Landing from './components/Landing/Landing'
@@ -14,8 +13,14 @@ import Dashboard from './components/./dashboard/Dashboard';
 import MenuLanding from './components/menu/MenuLanding';
 
 function App() {
+  //handle cart count
+
+  //handle login
   const isDashboard = window.location.pathname === '/dashboard';
   const [logged, setLogged] = useState(!isDashboard)
+
+  //add Item to Cart
+
 
   /////// ANALYTICS ////////////
    useEffect(() => {

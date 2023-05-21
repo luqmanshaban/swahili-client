@@ -2,7 +2,7 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 
-import ShoppingCart from '@mui/icons-material/LocalMallRounded';
+// import ShoppingCart from '@mui/icons-material/LocalMallRounded';
 import Button from '@mui/material/Button';
 import {  createTheme,ThemeProvider } from '@mui/system';
 
@@ -87,7 +87,7 @@ function Navbar() {
         </ul>
   
         <ThemeProvider theme={theme}>
-          <ShoppingCart color='primary' sx={{cursor: 'pointer','&:hover': { scale: '1.2'}, transition: '0.3s ease' }}/>
+          {/* <ShoppingCart color='primary' sx={{cursor: 'pointer','&:hover': { scale: '1.2'}, transition: '0.3s ease' }}/> */}
         </ThemeProvider>
   
         <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`} onClick={toggleActiveClass}>
