@@ -16,7 +16,7 @@ $swatch_8: #9b7151;
         margin: 0 !important;
     }
     margin-bottom: 10px ;
-    width: 400px;
+    width: 420px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: $swatch_6;
     border-radius: 10px;
@@ -51,7 +51,11 @@ $swatch_8: #9b7151;
         #food {
             display: flex;
             flex-direction: row;
-            gap: 10px;
+            gap: 5px;
+
+            br {
+                display: none;
+            }
             img {
                 height: 50px;
                 width: 50px;
@@ -60,16 +64,29 @@ $swatch_8: #9b7151;
             h1 {
                 font-family: Arial, Helvetica, sans-serif;
                 font-weight: lighter;
-                font-size: 20px;
+                font-size: 16px;
             }
             h3 {
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 14px;
             }
         }
-    
-    
         
     }
+    .checkout {
+        width: 100%;
+        padding: 15px 10px !important; 
+        border-radius: 10px;
+        background-color: $swatch_5;
+        color: $swatch_1;
+        font-size: 16px;
+     }
+
+     .total {
+        margin: 20px 0 !important;
+        color: $swatch_1;
+        font-size: 20px;
+     }
 }
 
 @media screen and (max-width: 800px) {

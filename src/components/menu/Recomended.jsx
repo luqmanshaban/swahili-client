@@ -34,6 +34,12 @@ const Recomended = ({ addToCart }) => {
     );
   };
 
+  const removeFromCartClicked = (index) => {
+    const newAddedItems = [...addedItems];
+    newAddedItems[index] = false;
+    setAddedItems(newAddedItems);
+  };
+
   const cartNumTotal = cartItems.reduce((total, num) => total + num, 0);
   const isCartEmpty = cartNumTotal === 0;
 
@@ -54,19 +60,20 @@ const Recomended = ({ addToCart }) => {
                 <RemoveIcon />
               </button>
             </span>
-            {addedItems[index] ? (
-              <button id={styles.added}>
-                <TickIcon />
-              </button>
-            ) : (
-              <button
-                id={styles.addToCart}
-                onClick={() => addToCartClicked(index)}
-                disabled={isCartEmpty}
-              >
-                Add to Cart
-              </button>
-            )}
+            {/* ... */}
+          {addedItems[index] ? (
+            <button id={styles.added} onClick={() => removeFromCartClicked(index)}>
+              <TickIcon />
+            </button>
+          ) : (
+            <button
+              id={styles.addToCart}
+              onClick={() => addToCartClicked(index)}
+              disabled={isCartEmpty}
+            >
+              Add to Cart
+            </button>
+          )}
           </figure>
         </article>
       ))}

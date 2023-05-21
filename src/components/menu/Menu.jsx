@@ -35,6 +35,8 @@ function Menu() {
   const [numOfCartItems, setNumOfCartItems] = useState(0);
   const [cartItems, setCartItems] = useState([])
   const [toggleCart, setToggleCart] = useState(false)
+  const [totalPrice, setTotalPrice] = useState(0);
+
 
   const cart = () => {
     setToggleCart(!toggleCart)
@@ -51,6 +53,7 @@ function Menu() {
       totalItem: numOfItems
     }
     setCartItems(prev => [...prev, newCartItems])
+    setTotalPrice((prevTotal) => prevTotal + total); // Update the total price
   }
   const removeFromCart = (index) => {
     setNumOfCartItems(prev => prev - 1)
@@ -92,7 +95,7 @@ function Menu() {
             <span>{numOfCartItems}</span>
           </ThemeProvider>
         </button>
-        {toggleCart && <Cart cartItems={cartItems} removeFromCart={removeFromCart}/>}
+        {toggleCart && <Cart numOfCartItems={numOfCartItems} cartItems={cartItems} totalPrice={totalPrice} removeFromCart={removeFromCart}/>}
       </header>
 
       <main>

@@ -34,6 +34,13 @@ const Breakfast = ({ addToCart }) => {
     );
   };
 
+  const removeFromCartClicked = (index) => {
+    const newAddedItems = [...addedItems];
+    newAddedItems[index] = false;
+    setAddedItems(newAddedItems);
+  };
+
+
   const cartNumTotal = cartItems.reduce((total, num) => total + num, 0);
   const isCartEmpty = cartNumTotal === 0;
 
@@ -55,18 +62,18 @@ const Breakfast = ({ addToCart }) => {
               </button>
             </span>
             {addedItems[index] ? (
-              <button id={styles.added}>
-                <TickIcon />
-              </button>
-            ) : (
-              <button
-                id={styles.addToCart}
-                onClick={() => addToCartClicked(index)}
-                disabled={isCartEmpty}
-              >
-                Add to Cart
-              </button>
-            )}
+            <button id={styles.added} onClick={() => removeFromCartClicked(index)}>
+              <TickIcon />
+            </button>
+          ) : (
+            <button
+              id={styles.addToCart}
+              onClick={() => addToCartClicked(index)}
+              disabled={isCartEmpty}
+            >
+              Add to Cart
+            </button>
+          )}
           </figure>
         </article>
       ))}
