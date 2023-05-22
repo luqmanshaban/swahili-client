@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Recomended.module.scss';
 import Data from './Data';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import TickIcon from '@mui/icons-material/CheckCircleOutline';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+
+const animationVariations = {
+  hidden: {opacity: 0, y: 200},
+  visible: {opacity: 1, y: 0, transition: {duration:0.5}}
+}
 
 const Recomended = ({ addToCart }) => {
   const [cartItems, setCartItems] = useState(Array(Data.topPick.length).fill(0));
   const [addedItems, setAddedItems] = useState([]);
+  //Animation
+  const controls = useAnimation()
+  const [ref, inView] = useInView({triggerOnce: true})
 
   const add = (index) => {
     const newCartItems = [...cartItems];
@@ -43,10 +54,17 @@ const Recomended = ({ addToCart }) => {
   const cartNumTotal = cartItems.reduce((total, num) => total + num, 0);
   const isCartEmpty = cartNumTotal === 0;
 
+  // /animation 
+  useEffect( () => {
+    if(inView){
+      controls.start('visible')
+    }
+  },[controls, inView])
+
   return (
     <section className={styles.recomended}>
       {Data.topPick.map((food, index) => (
-        <article key={index}>
+        <motion.article key={index} ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
           <img src={food.img} alt={food.name} height={100} />
           <figure className={styles.foodInfo}>
             <h1>{food.name}</h1>
@@ -75,7 +93,7 @@ const Recomended = ({ addToCart }) => {
             </button>
           )}
           </figure>
-        </article>
+        </motion.article>
       ))}
     </section>
   );

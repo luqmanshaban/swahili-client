@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Breakfast.module.scss';
 import Data from './Data';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import TickIcon from '@mui/icons-material/CheckCircleOutline';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+
+const animationVariations = {
+  hidden: {opacity: 0, y: 200},
+  visible: {opacity: 1, y: 0, transition: {duration:0.5}}
+}
+
 
 const Breakfast = ({ addToCart }) => {
   const [cartItems, setCartItems] = useState(Array(Data.snacks.length).fill(0));
   const [addedItems, setAddedItems] = useState([]);
+    //Animation
+    const controls = useAnimation()
+    const [ref, inView] = useInView({triggerOnce: true})
 
   const add = (index) => {
     const newCartItems = [...cartItems];
@@ -40,14 +52,20 @@ const Breakfast = ({ addToCart }) => {
     setAddedItems(newAddedItems);
   };
 
+  // /animation 
+  useEffect( () => {
+    if(inView){
+      controls.start('visible')
+    }
+  },[controls, inView])
 
   const cartNumTotal = cartItems.reduce((total, num) => total + num, 0);
   const isCartEmpty = cartNumTotal === 0;
 
   return (
-    <section className={styles.breakfast}>
+    <motion.section className={styles.breakfast}  ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
       {Data.snacks.map((food, index) => (
-        <article key={index}>
+        <motion.article key={index} >
           <img src={food.img} alt={food.name} height={100} />
           <figure className={styles.foodInfo}>
             <h1>{food.name}</h1>
@@ -75,9 +93,9 @@ const Breakfast = ({ addToCart }) => {
             </button>
           )}
           </figure>
-        </article>
+        </motion.article>
       ))}
-    </section>
+    </motion.section>
   );
 };
 
