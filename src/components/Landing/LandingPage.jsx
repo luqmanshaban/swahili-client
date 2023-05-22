@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link}  from 'react-router-dom';
 // MUI //
 // import ShoppingCart from '@mui/icons-material/LocalMallRounded';
@@ -13,6 +13,8 @@ import '../../App.css'
 import Footer from './Footer';
 import Main from './Main';
 import Map from './Map';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 //Mui
 const theme = createTheme( {
@@ -29,11 +31,23 @@ const theme = createTheme( {
     }
 })
 ///////////////////////
-
-
+const animationVariations = {
+  hidden: {opacity: 0, y: 200},
+  visible: {opacity: 1, y: 0, transition: {duration:0.5}}
+}
 
 
 function LandingPage() {
+   //Animation
+   const controls = useAnimation()
+   const [ref, inView] = useInView({triggerOnce: true})
+
+   useEffect( () => {
+     if(inView){
+       controls.start('visible')
+     }
+   },[controls, inView])
+
 
   //update year automatically
     let date = new Date().getFullYear();
@@ -83,7 +97,7 @@ function LandingPage() {
         </main>
 
         {/* ############################# */}
-        <footer id='contact'>
+        <motion.footer id='contact' ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
 
             <section className={`${styles.footer}`}>
             <Footer/>
@@ -96,7 +110,7 @@ function LandingPage() {
               <p>&copy; all rights reserved</p>
             </section>
 
-        </footer>
+        </motion.footer>
       
     </div>
   )

@@ -62,9 +62,9 @@ const Shawarma = ({ addToCart }) => {
   const isCartEmpty = cartNumTotal === 0;
 
   return (
-    <section className={styles.shawarma}>
+    <motion.section className={styles.shawarma}  ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
       {Data.shawarma.map((food, index) => (
-        <motion.article key={index} ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
+        <motion.article key={index}>
           <img src={food.img} alt={food.name} height={100} />
           <figure className={styles.foodInfo}>
             <h1>{food.name}</h1>
@@ -94,7 +94,7 @@ const Shawarma = ({ addToCart }) => {
           </figure>
         </motion.article>
       ))}
-    </section>
+    </motion.section>
   );
 };
 

@@ -57,12 +57,14 @@ function Menu() {
   }
   const removeFromCart = (index) => {
     setNumOfCartItems(prev => prev - 1)
+    setTotalPrice(prevTotal => prevTotal - cartItems[index].total); // Subtract the price of the removed item from the total
     setCartItems(prev => {
-      const updatedCart = [...prev]
-      updatedCart.splice(index, 1)
-      return updatedCart
-    })
-  }
+      const updatedCart = [...prev];
+      updatedCart.splice(index, 1);
+      return updatedCart;
+    });
+  };
+  
 
   //handle the slider that renders different food components
   const handleClick = (index) => {

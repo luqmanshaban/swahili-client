@@ -96,5 +96,9 @@ article {
         flex-direction: column;
         margin: 20px 0 !important;
         padding: 0 !important;
+
+        article {
+            margin-bottom: 20px;
+        }
     }
 }

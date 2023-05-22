@@ -62,9 +62,9 @@ const Recomended = ({ addToCart }) => {
   },[controls, inView])
 
   return (
-    <section className={styles.recomended}>
+    <motion.section className={styles.recomended}  ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
       {Data.topPick.map((food, index) => (
-        <motion.article key={index} ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
+        <motion.article key={index} >
           <img src={food.img} alt={food.name} height={100} />
           <figure className={styles.foodInfo}>
             <h1>{food.name}</h1>
@@ -95,7 +95,7 @@ const Recomended = ({ addToCart }) => {
           </figure>
         </motion.article>
       ))}
-    </section>
+    </motion.section>
   );
 };
 

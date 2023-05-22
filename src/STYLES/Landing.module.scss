@@ -261,30 +261,19 @@ ul {
     main {
 
         margin: 40px 0;
-        
-        .featuredImg {
-            animation: img 1.2s ease-in-out forwards;
-            opacity: 0 ;
-        }
-        @keyframes img {
-            0% {
-                opacity: 0 ;
-            }
-            100% {
-                opacity: 1 ;
-            }
-        }
-       
+            
 
         .featured {
             @include flex(space-between);
             margin: 100px 0;
             gap: 200px;
+            padding: 0 100px;
 
             .fImg {
                 // border-radius: 50%;
-                height: 200px;
-                width: 350px;
+                height: 350px;
+                width: 500px;
+                margin: 0 50px;
             }
             
 
@@ -294,9 +283,6 @@ ul {
                 align-items: flex-start;
                 gap: 30px;
                 flex-direction: column;
-                animation: fcontent 1.2s ease-in-out forwards;
-                opacity: 0;
-                position: relative;
 
                 .featuredA {
                     @include flex(flex-start);
@@ -314,18 +300,7 @@ ul {
                 }
 
             }
-            @keyframes fcontent {
-                0% {
-                    opacity: 0;
-                    right: -50px;
-                    top: -10px;
-                }
-                100% {
-                    opacity: 1;
-                    right: 0;
-                    top: 0;
-                }
-            }
+           
         }
         
 
@@ -358,7 +333,7 @@ ul {
             flex-direction: column;
             gap: 10px;
             opacity: 0;
-            animation: swahili 3.2s ease forwards;
+            animation: swahili 0.5s ease forwards;
 
             .logo {
                 @include flex(flex-start);
@@ -384,12 +359,10 @@ ul {
         }
         @keyframes swahili {
             from {
-                opacity: 0;
-                
+               opacity: 0;
             }
             to {
                 opacity: 1;
-                
             }
         }
         
@@ -401,7 +374,7 @@ ul {
             flex-direction: column;
             gap: 20px;
             opacity: 0;
-            animation: swahili 3.2s ease forwards;
+            animation: swahili 0.5s ease forwards;
             .email {
                 @include flex(space-between)
             }
@@ -422,7 +395,6 @@ ul {
             }
         }
 
-        
     }
 }
 
@@ -520,24 +492,30 @@ ul {
         }
         .featured{ 
             flex-direction: column;
-            gap: 80px !important;
+            gap: 20px !important;
             margin: 0 !important;
-            padding: 20px;
+            padding: 20px !important;
 
             .featuredImg {
                 opacity: 1 !important;
                 animation: none !important;
                 .fImg {
-                    animation: none !important;
+                    height: 250px !important;
+                    width: 350px !important;
+                    margin: 0 0!important;
                 }
             }
             
 
             .featuredContent {
-                margin: 0;
-                gap: 5px;
+                margin: 0 !important;
+                gap: 5px !important;
                 animation: none !important;
                 opacity: 1 !important;
+                
+                #sp {
+                    display: none;
+                }
 
                 .featuredA {
                     margin: 10px 0;

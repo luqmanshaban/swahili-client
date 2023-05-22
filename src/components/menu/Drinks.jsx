@@ -61,9 +61,9 @@ const Drinks = ({ addToCart }) => {
   const isCartEmpty = cartNumTotal === 0;
 
   return (
-    <section className={styles.drinks}>
+    <motion.section className={styles.drinks}  ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
       {Data.drinks.map((food, index) => (
-        <motion.article key={index}  ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
+        <motion.article key={index} >
           <img src={food.img} alt={food.name} height={100} />
           <figure className={styles.foodInfo}>
             <h1>{food.name}</h1>
@@ -93,7 +93,7 @@ const Drinks = ({ addToCart }) => {
           </figure>
         </motion.article>
       ))}
-    </section>
+    </motion.section>
   );
 };
 
