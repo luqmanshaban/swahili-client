@@ -38,10 +38,15 @@ function Menu() {
   const [totalPrice, setTotalPrice] = useState(0);
 
 
+  //Toggle Cart
   const cart = () => {
     setToggleCart(!toggleCart)
   }
-
+  //Untoggle Cart
+  const unToggle = () => {
+    setToggleCart(!toggleCart)
+  }
+  console.log(toggleCart);
 
   const addToCart = (img, name, price, total, numOfItems) => {
     setNumOfCartItems(prev => prev + 1)
@@ -65,7 +70,6 @@ function Menu() {
     });
   };
   
-
   //handle the slider that renders different food components
   const handleClick = (index) => {
     setActive(active.map((value, i) => i === index));
@@ -75,9 +79,7 @@ function Menu() {
   const toggleActive = () => {
     setActiveClass(!activeClass)
   }
-  
  
-
   return (
     <div className={styles.menu}>
       <header>
@@ -97,7 +99,17 @@ function Menu() {
             <span>{numOfCartItems}</span>
           </ThemeProvider>
         </button>
-        {toggleCart && <Cart numOfCartItems={numOfCartItems} cartItems={cartItems} totalPrice={totalPrice} removeFromCart={removeFromCart}/>}
+        
+        {(toggleCart || numOfCartItems > 0) && (
+          <Cart
+            numOfCartItems={numOfCartItems}
+            cartItems={cartItems}
+            totalPrice={totalPrice}
+            removeFromCart={removeFromCart}
+            unToggle={unToggle}
+          />
+        )}
+
       </header>
 
       <main>

@@ -21,7 +21,7 @@ $swatch_8: #9b7151;
     background-color: $swatch_6;
     border-radius: 10px;
     color: $swatch_5;
-    position: absolute;
+    position: fixed;
     top: 200px;
     right: 50px;
     z-index: 9999;
@@ -89,12 +89,21 @@ $swatch_8: #9b7151;
      }
 }
 
+#cancel {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-weight: bold;
+    background-color: $swatch_6;
+
+}
+
 @media screen and (max-width: 800px) {
     .cartItems {
         display: block !important;
-        position: relative !important;
+        // position: relative !important;
         right: 0px !important;
-        top: 0 !important;
+        top: 80px !important;
         width: 100%;
     }
 }

@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './Cart.module.scss';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import CloseIcon from '@mui/icons-material/Close';
 
-const Cart = ({ cartItems, removeFromCart, totalPrice }) => {
+const Cart = ({ cartItems, removeFromCart, totalPrice, unToggle }) => {
+  
   return (
     <section className={styles.cartItems}>
       <h1>Cart</h1>
+      <button id={styles.cancel} onClick={unToggle}><CloseIcon id={styles.icon}/></button>
       <hr />
       {cartItems.length > 0 ? (
         cartItems.map((food, index) => (
