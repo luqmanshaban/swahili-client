@@ -10,6 +10,16 @@ const Data = {
       img: "https://d1ralsognjng37.cloudfront.net/f277e5f2-9d86-4d62-be6f-97637aadd7ae",
       price: 730.0,
     },
+    {
+      name: "Chapati with Mbaazi",
+      img: "	https://pbs.twimg.com/media/EYikvDOX0AACbL8.jpg",
+      price: 480.0,
+    },
+    {
+      name: "Chicken stew on Bone",
+      img: "https://recipetineats.com/wp-content/uploads/2018/05/Chicken-Stew_6.jpg",
+      price: 730.0,
+    },
   ],
   shawarma: [
     {

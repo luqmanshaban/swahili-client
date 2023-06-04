@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Drinks.module.scss';
 import Data from './Data';
 import AddIcon from '@mui/icons-material/Add';
+import { ImageList } from '@material-ui/core';
+import {  createTheme,ThemeProvider } from '@mui/system';
+import ImageListItem from '@material-ui/core/ImageListItem';
 import RemoveIcon from '@mui/icons-material/Remove';
 import TickIcon from '@mui/icons-material/CheckCircleOutline';
 import { motion, useAnimation } from 'framer-motion';
@@ -12,6 +15,30 @@ const animationVariations = {
   hidden: {opacity: 0, y: 200},
   visible: {opacity: 1, y: 0, transition: {duration:0.5}}
 }
+
+//adjust on small screens
+function getGridCols() {
+  return window.innerWidth >= 800 ? 3 : 1.2;
+}
+function cellHeight() {
+  return window.innerWidth >= 800 ? 400 : 320;
+}
+
+
+//Mui
+const theme = createTheme( {
+  palette: {
+      primary: {
+          main: '#573B07'
+      },
+      secondary: {
+          main: '#fbf8f2'
+      },
+      tertiary: {
+          main: '#563b13'
+      }
+  }
+})
 
 const Drinks = ({ addToCart }) => {
   const [cartItems, setCartItems] = useState(Array(Data.drinks.length).fill(0));
@@ -44,42 +71,51 @@ const Drinks = ({ addToCart }) => {
       cartItems[index]
     );
   };
-
   const removeFromCartClicked = (index) => {
     const newAddedItems = [...addedItems];
     newAddedItems[index] = false;
     setAddedItems(newAddedItems);
   };
- // /animation 
- useEffect( () => {
-  if(inView){
-    controls.start('visible')
-  }
-},[controls, inView])
+
+  // /animation 
+  useEffect( () => {
+    if(inView){
+      controls.start('visible')
+    }
+  },[controls, inView])
 
   const cartNumTotal = cartItems.reduce((total, num) => total + num, 0);
   const isCartEmpty = cartNumTotal === 0;
 
   return (
     <motion.section className={styles.drinks}  ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
+      <h1>drinks</h1>
+      <ImageList cols={getGridCols()} rowHeight={cellHeight()} style={{ flexWrap: 'nowrap', }} id={styles.grid}>
       {Data.drinks.map((food, index) => (
-        <motion.article key={index} >
+         <ImageListItem key={index} className={styles.artc}>
+        <motion.article>
           <img src={food.img} alt={food.name} height={100} />
           <figure className={styles.foodInfo}>
             <h1>{food.name}</h1>
             <h3>Price: KES {food.price}</h3>
             <span className={styles.buttons}>
               <button onClick={() => add(index)}>
-                <AddIcon />
+                <ThemeProvider theme={theme}>
+                <AddIcon color='primary'/>
+                </ThemeProvider>
               </button>
               <span>{cartItems[index]}</span>
               <button onClick={() => remove(index)}>
-                <RemoveIcon />
+                <ThemeProvider theme={theme}>
+                <RemoveIcon color='primary'/>
+                </ThemeProvider>
               </button>
             </span>
             {addedItems[index] ? (
             <button id={styles.added} onClick={() => removeFromCartClicked(index)}>
-              <TickIcon />
+              <ThemeProvider theme={theme} >
+              <TickIcon id={styles.icon} color='primary'/>
+              </ThemeProvider>
             </button>
           ) : (
             <button
@@ -92,7 +128,9 @@ const Drinks = ({ addToCart }) => {
           )}
           </figure>
         </motion.article>
+        </ImageListItem>
       ))}
+      </ImageList>
     </motion.section>
   );
 };

@@ -12,7 +12,6 @@ import breakPoints from '../../STYLES/BreakPoint.css'
 import '../../App.css'
 import Footer from './Footer';
 import Main from './Main';
-import Map from './Map';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -47,10 +46,6 @@ function LandingPage() {
        controls.start('visible')
      }
    },[controls, inView])
-
-
-  //update year automatically
-    let date = new Date().getFullYear();
 
   return (
     <div className={`${styles.landing} ${breakPoints.landing} `}>
@@ -98,18 +93,7 @@ function LandingPage() {
 
         {/* ############################# */}
         <motion.footer id='contact' ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
-
-            <section className={`${styles.footer}`}>
-            <Footer/>
-            <Map />
-            </section>
-            <hr />
-
-            <section>
-              <p>swahili Plate | {date}</p>
-              <p>&copy; all rights reserved</p>
-            </section>
-
+            <Footer />
         </motion.footer>
       
     </div>

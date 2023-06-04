@@ -17,12 +17,15 @@ $grey: #797979;
 }
 
 .dashboard {
-    background-color: $background;
-    // height: 100%;
+    background-color: #fff;
     margin: 0;
-    // width: 120%;
-    display: flex;
-    gap: 100px;
+
+    .main {
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        padding-left: 150px;
+    }
 }
 
 
@@ -30,5 +33,10 @@ $grey: #797979;
     .dashboard {
         flex-direction: column;
         gap: 10px !important;
+
+        .main {
+            padding-left: 0;
+            padding-top: 50px;
+        }
     }
 }

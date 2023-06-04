@@ -9,7 +9,7 @@ import Drinks from '@mui/icons-material/BrunchDining';
 import { createTheme, ThemeProvider } from '@mui/system';
 import Filter from '@mui/icons-material/Tune';
 import Recomended from './Recomended';
-import Snacks from './Breakfast'
+import Snacks from './Snacks'
 import Meals from './Meals';
 import Shawarma from './Shawarma';
 import Drink from './Drinks'
@@ -152,6 +152,8 @@ function Menu() {
       {active[2] && <Meals addToCart={addToCart} />}
       {active[3] && <Shawarma addToCart={addToCart} />}
       {active[4] && <Drink addToCart={addToCart} />}
+
+      
     </div>
   );
 }
