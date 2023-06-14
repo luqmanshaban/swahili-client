@@ -25,13 +25,11 @@ button {
     padding: 20px;
     width: 100%;
     padding-top: 50px;
-
+    // z-index: 1;
 
     ///Header
     header {
         @include flex(space-between);
-        // flex-wrap: wrap;
-        // gap: 50px;
 
         section {
             h1 {
@@ -48,7 +46,7 @@ button {
             gap: 10px;
             background-color: #fff;
             border: 1px solid black;
-            width: 25%;
+            width: 35%;
             border-radius: 15px;
             button {
                 border: none;
@@ -57,7 +55,7 @@ button {
                 transition: 0.3s ease;
             }
             input {
-                width: 85%;
+                width: 50%;
                 height: 40px;
                 border: none;
                 padding: 0 15px;
@@ -76,7 +74,10 @@ button {
             
         }
         .cart {
-            background-color: #fff;
+            position: relative;
+            top: 120px;
+            right: 100px;
+            background-color: #FCE7C0;
         }
     }
     ////////////////
@@ -85,24 +86,26 @@ button {
         margin: 50px 0 20px 0;
         padding: 40px 20px;
         .navMenu {
-            @include flex(space-between);
-            gap: 50px;
-            background-color: $background;
-            padding: 2px 20px;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            padding: 0px 20px;
             border-radius: 30px;
 
             li {
                 @include flex(space-between);
-                gap: 10px;
+                flex-direction: column;
+                height: 70px;
+                width: 70px;
                 background-color: $background !important;
-                padding: 10px 50px;
-                border-radius: 20px;
+                padding: 10px;
+                border-radius: 50%;
                 transition: 0.3s ease;
 
                 .btn {
                     font-weight: bold;
                     transition: 0.3s ease-in-out;
-                    padding: 5px;
+                    // padding: 5px;
                     background-color: $background !important;
                     color: black;
 
@@ -130,6 +133,12 @@ button {
 
 @media screen and (max-width: 720px) {
 
+    .menu {
+        background-color: #FCE7C0;
+        margin-top: -25px;
+        padding: 10px;
+    }
+
     header {
         padding-top: 10px;
         margin-top: 10px ;
@@ -153,6 +162,12 @@ button {
         }
     }
 
+    .cart {
+        top: 60px !important;
+        right: 0px !important;
+        color: black;
+    }
+
     main {
         padding: 1 0px 0 !important;
         margin: 0;
@@ -171,30 +186,30 @@ button {
         .navMenu {
             margin: 30px 0;
             border-radius: 0 !important;
-            padding: 40px 10px !important;
+            padding: 40px 0px !important;
             display: none !important;
             transition: 0.3s ease-in-out;
+            gap: 5px;
 
             li {
-                border-radius: 0 !important;
-                padding: 10px !important;
+                padding: 25px !important;
                 justify-content: center !important;
                 gap: 1px !important;
-                
-
-                .icons {
-                    display: none;
-                }
-
+                height: 60px !important;
+                width: 60px !important;
+                margin-top: -20px;
+                background-color: aqua !important;
+            
                 button {
                     margin: 0 !important;
-                    font-size: 16px !important;
+                    font-size: 12px !important;
+                    font-weight: lighter;
                 }
             }
 
             &.active {
                 display: grid !important;
-                grid-template-columns: repeat(2, 1fr) ;
+                grid-template-columns: repeat(5, 1fr) ;
                 gap: 10px;
             }
         }

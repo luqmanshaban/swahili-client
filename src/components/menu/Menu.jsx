@@ -5,6 +5,7 @@ import CartIcon from '@mui/icons-material/ShoppingCart';
 import BreakFast from '@mui/icons-material/FreeBreakfast';
 import Lunch from '@mui/icons-material/LunchDining';
 import Dessert from '@mui/icons-material/Icecream';
+import RecommendIcon from '@mui/icons-material/Recommend';
 import Drinks from '@mui/icons-material/BrunchDining';
 import { createTheme, ThemeProvider } from '@mui/system';
 import Filter from '@mui/icons-material/Tune';
@@ -122,8 +123,9 @@ function Menu() {
         <ul className={`${styles.navMenu} ${activeClass ? styles.active : ''}`}>
           <ThemeProvider theme={theme}>
           <li onClick={() => handleClick(0)} className={`${active[0] ? styles.active : ""}`}>
+            <RecommendIcon color="primary" className={styles.icons}/>
             <button className={`${active[0] ? styles.active : ""} ${styles.btn}`}>
-              Recommended
+              Top
             </button>
           </li>
           <li onClick={() => handleClick(1)} className={`${active[1] ? styles.active : ""}`}>
@@ -147,11 +149,13 @@ function Menu() {
 
       </main>
 
+      <section className={styles.foodMenu}>
       {active[0] && <Recomended addToCart={addToCart} />}
       {active[1] && <Snacks addToCart={addToCart} />}
       {active[2] && <Meals addToCart={addToCart} />}
       {active[3] && <Shawarma addToCart={addToCart} />}
       {active[4] && <Drink addToCart={addToCart} />}
+      </section>
 
       
     </div>

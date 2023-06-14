@@ -4,7 +4,7 @@
 //styles and variables
 
 $primary: #ffff;
-$background: #EFE9E2;
+$background: #FCE7C0;
 $tertiary: #DB8A31;
 $grey: #797979;
 
@@ -16,16 +16,24 @@ $grey: #797979;
     box-sizing: border-box;
 }
 
+#dash {
+    background-color: #FCE7C0;
+}
+
 .dashboard {
-    background-color: #fff;
+    width: 100%;
+    background-color: $background;
+    height: 100vh !important;
     margin: 0;
 
     .main {
-        background-color: #fff;
         padding: 0;
         margin: 0;
         padding-left: 150px;
+        background-color: #FCE7C0;
     }
+
+    
 }
 
 
