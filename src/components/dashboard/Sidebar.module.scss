@@ -53,4 +53,77 @@
         font-weight: bold;
         margin: 40px 0;
     }
+    .hamburger {
+        display: none;
+        cursor: pointer;
+    
+        .bar {
+            background-color: #120f0b;
+            width: 25px;
+            height: 3px;
+            display: block;
+            margin: 5px;
+            -webkit-transition: 0.7s ease-in-out;
+            transition: 0.7s ease-in-out;
+        }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .aside {
+        background-color: transparent;
+        height: auto;
+
+        h1 {
+            display: none;
+        }
+
+        nav {
+            position: fixed;
+            left: -100%;
+            width: 80%;
+            transition: 0.7s ease-in-out;
+
+            h6 {
+                display: none;
+            }
+
+            .navMenu {
+                display: block !important;
+                background-color: #1B1515;
+                padding: 100px 0 500px 0;
+                text-align: center;
+
+                li {
+                    margin: 36px 0;
+                }
+            }
+
+            &.active {
+                left: 0;
+                margin-bottom: 500px;
+            }
+        }
+
+        .hamburger {
+            display: block;
+            position: fixed;
+            z-index: 9999 !important;
+
+            &.active {
+                .bar:nth-child(2) {
+                    opacity: 0;
+                }
+                .bar:nth-child(1) {
+                    transform: translateY(8px) rotate(45deg);
+                    background-color: #fff;
+                }
+                .bar:nth-child(3) {
+                    transform: translateY(-8px) rotate(-45deg);
+                    background-color: #fff;
+                }
+            }
+        }
+    }
 }

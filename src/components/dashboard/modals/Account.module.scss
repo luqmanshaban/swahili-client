@@ -22,9 +22,24 @@
     top: 0px;
     right: -700px;
     z-index: 1;
+    -webkit-transition: 0.7s ease-in-out;
     transition: 0.7s ease-in-out;
 
     &.active {
         right: 0px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .background {
+        width: 100%;
+    }
+
+    .account {
+        position: relative;
+        height: 100% ;
+        width: 80% ;
+        right: 20px;
+        padding-top: 100px;
     }
 }
