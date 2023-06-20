@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
 //
@@ -15,6 +16,18 @@ function Dashboard() {
   const [historyActive, setHistoryActive] = useState(false)
   const [discountActive, setDiscountActive] = useState(false)
   const [accountActive, setAccountActive] = useState(false)
+
+  //Automatically logout after session token has expired
+  const navigate = useNavigate();
+  const Logout = () => {
+    const token = localStorage.getItem('authToken');
+
+    if (!token) {
+      navigate("/login")
+    }
+  }
+
+  Logout();
 
   const toggleOrderComponent = () => {
     setOrderActive(!orderActive)

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import styles from './Menu.module.scss';
 import Search from '@mui/icons-material/Search';
 import CartIcon from '@mui/icons-material/ShoppingCart';
@@ -47,7 +48,6 @@ function Menu() {
   const unToggle = () => {
     setToggleCart(!toggleCart)
   }
-  console.log(toggleCart);
 
   const addToCart = (img, name, price, total, numOfItems) => {
     setNumOfCartItems(prev => prev + 1)
@@ -70,6 +70,40 @@ function Menu() {
       return updatedCart;
     });
   };
+
+  const email = localStorage.getItem('email');  
+  //Handle Order
+  const handleOrderSubmit = async () => {
+    
+    try {
+      const response = await axios.post('http://localhost:4000/api/v1/customer', email);
+      const customerId = response.data.customerId;
+      localStorage.setItem('customerId', customerId)
+  
+      const order = {
+        custId: customerId,
+        foodName: cartItems.map(item => item.name).join(", "), // Concatenate food names
+        foodImage: cartItems.map(item => item.image).join(", "), // Concatenate food image
+        foodPrice: cartItems.map(item => item.price.toString()).join(", "), // Concatenate food price
+        orderQuantity: numOfCartItems,
+        totalPrice: totalPrice
+      };
+  
+  
+      await axios.post('http://localhost:4000/api/v1/orders', order).then(response => {
+        if (response.status === 201) {
+          alert('Order created');
+        }
+        
+        setNumOfCartItems(0)
+        setCartItems([])
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  
   
   //handle the slider that renders different food components
   const handleClick = (index) => {
@@ -108,6 +142,7 @@ function Menu() {
             totalPrice={totalPrice}
             removeFromCart={removeFromCart}
             unToggle={unToggle}
+            handleOrderSubmit={handleOrderSubmit}
           />
         )}
 

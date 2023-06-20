@@ -82,9 +82,9 @@ function Login() {
           setTimeout(() => {
             navigate('/dashboard');
           }, 4000);
-              console.log(response);
               const {token } = response.data;
               localStorage.setItem('authToken', token)
+              localStorage.setItem('email', user.email)
               setUser({
                   
                   email: '',

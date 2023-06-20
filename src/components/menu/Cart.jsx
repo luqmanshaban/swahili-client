@@ -3,7 +3,7 @@ import styles from './Cart.module.scss';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CloseIcon from '@mui/icons-material/Close';
 
-const Cart = ({ cartItems, removeFromCart, totalPrice, unToggle }) => {
+const Cart = ({ cartItems, removeFromCart, totalPrice, unToggle, handleOrderSubmit }) => {
   
   return (
     <section className={styles.cartItems}>
@@ -32,7 +32,7 @@ const Cart = ({ cartItems, removeFromCart, totalPrice, unToggle }) => {
       {cartItems.length > 0 && (
         <>
           <span className={styles.total}>Total: KES {totalPrice}</span>
-          <button className={styles.checkout}>Checkout</button>
+          <button onClick={handleOrderSubmit} className={styles.checkout}>Checkout</button>
         </>
       )}
     </section>

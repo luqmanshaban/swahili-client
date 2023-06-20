@@ -76,7 +76,6 @@ function Signup() {
           navigate('/login');
         }, 4000);
         await axios.post('http://localhost:4000/api/v1/signup', user).then((response) => {
-          console.log(response);
           setUser({
             firstname: '',
             lastname: '',
@@ -85,8 +84,6 @@ function Signup() {
             password: '',
             
           });
-          console.log(user);
-          // setShowSuccessMessage(true);
           if(response.status === 200){
             alert('User created')
           }
