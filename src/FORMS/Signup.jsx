@@ -96,7 +96,6 @@ function Signup() {
       
     };
     
-  
     // Define the content to be rendered
     const content = signedUp ? (
 
@@ -196,9 +195,6 @@ function Signup() {
     // Conditionally render the content
     return <div>
       {content}
-
-      
-      
      
       </div>;
   }

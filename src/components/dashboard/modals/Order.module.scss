@@ -26,7 +26,27 @@
     &.active {
         right: 0px;
     }
+
+    .order {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        margin: 20px 0;
+        background-color: #FFA500;
+        width: 500px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 15px;
+
+        img {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+        }
+    }
 }
+
+
 
 @media screen and (max-width: 800px) {
     .background {
@@ -36,8 +56,26 @@
     .orders {
         position: relative;
         height: 100% ;
-        width: 80% ;
+        width: 95% ;
         right: 20px;
         padding-top: 100px;
+
+        .order {
+            width: 100%;
+            gap: 10px;
+            margin-left: 10px;
+
+            h1 {
+                font-size: 15px !important;
+            }
+            p {
+                font-size: 13px ;
+            }
+
+            img {
+                height: 50px;
+                width: 50px;
+            }
+        }
     }
 }
