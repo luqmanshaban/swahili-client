@@ -38,7 +38,7 @@ function Menu() {
   const [cartItems, setCartItems] = useState([])
   const [toggleCart, setToggleCart] = useState(false)
   const [totalPrice, setTotalPrice] = useState(0);
-  const [loggedIn, setIsLoggedIn] = useState(localStorage.getItem('authToken') !== null);
+  const [loggedIn] = useState(localStorage.getItem('authToken') !== null);
 
   //Toggle Cart
   const cart = () => {
