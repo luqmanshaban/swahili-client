@@ -56,6 +56,7 @@
     .hamburger {
         display: none;
         cursor: pointer;
+        background-color: #FCE7C0;
     
         .bar {
             background-color: #120f0b;
@@ -109,7 +110,7 @@
         .hamburger {
             display: block;
             position: fixed;
-            z-index: 9999 !important;
+            z-index: 200 !important;
 
             &.active {
                 .bar:nth-child(2) {
@@ -117,11 +118,11 @@
                 }
                 .bar:nth-child(1) {
                     transform: translateY(8px) rotate(45deg);
-                    background-color: #fff;
+                    // background-color: #fff;
                 }
                 .bar:nth-child(3) {
                     transform: translateY(-8px) rotate(-45deg);
-                    background-color: #fff;
+                    // background-color: #fff;
                 }
             }
         }

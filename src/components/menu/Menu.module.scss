@@ -77,7 +77,6 @@ button {
             position: relative;
             top: 120px;
             right: 100px;
-            background-color: #FCE7C0;
         }
     }
     ////////////////
@@ -163,9 +162,28 @@ button {
     }
 
     .cart {
-        top: 60px !important;
-        right: 0px !important;
+        position: fixed !important;
+        top: 20px !important;
+        right: 100px !important;
+        z-index: 300;
         color: black;
+        background-color: #fff;
+
+        &.active {
+            background-color: #FCE7C0 !important;
+            right: 10px !important;
+            top: 10px !important;
+        }
+        
+
+        .cartIcon {
+            background-color: #fff;
+            &.active {
+                right: 10px !important;
+                background-color: #FCE7C0 !important;
+            }
+        }
+        
     }
 
     main {

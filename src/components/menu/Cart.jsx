@@ -4,6 +4,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CloseIcon from '@mui/icons-material/Close';
 
 const Cart = ({ cartItems, removeFromCart, totalPrice, unToggle, handleOrderSubmit }) => {
+ 
   
   return (
     <section className={styles.cartItems}>

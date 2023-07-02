@@ -38,7 +38,7 @@ function Menu() {
   const [cartItems, setCartItems] = useState([])
   const [toggleCart, setToggleCart] = useState(false)
   const [totalPrice, setTotalPrice] = useState(0);
-
+  const [loggedIn, setIsLoggedIn] = useState(localStorage.getItem('authToken') !== null);
 
   //Toggle Cart
   const cart = () => {
@@ -76,7 +76,7 @@ function Menu() {
   const handleOrderSubmit = async () => {
     
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/customer', email);
+      const response = await axios.post('http://192.168.0.21:4000/api/v1/customer', email);
       const customerId = response.data.customerId;
       localStorage.setItem('customerId', customerId)
   
@@ -90,7 +90,7 @@ function Menu() {
       };
   
   
-      await axios.post('http://localhost:4000/api/v1/orders', order).then(response => {
+      await axios.post('http://192.168.0.21:4000/api/v1/orders', order).then(response => {
         if (response.status === 201) {
           alert('Order created');
         }
@@ -102,8 +102,6 @@ function Menu() {
       console.error(error);
     }
   };
-  
-  
   
   //handle the slider that renders different food components
   const handleClick = (index) => {
@@ -128,14 +126,14 @@ function Menu() {
             <Search className={styles.btn}/>
           </button>
         </form>
-        <button className={styles.cart}>
+        <button className={`${styles.cart} ${loggedIn ? styles.active : ''}`}>
           <ThemeProvider theme={theme}>
-            <CartIcon color="primary" sx={{ fontSize: "35px" }} onClick={cart}/>
+            <CartIcon color="primary" sx={{ fontSize: "35px" }} onClick={cart} className={`${loggedIn ? styles.active : ''} ${styles.cartIcon}`}/>
             <span>{numOfCartItems}</span>
           </ThemeProvider>
         </button>
         
-        {(toggleCart || numOfCartItems > 0) && (
+        {toggleCart  && (
           <Cart
             numOfCartItems={numOfCartItems}
             cartItems={cartItems}

@@ -77,7 +77,7 @@ function Login() {
       e.preventDefault();
 
       try {
-          await axios.post('http://localhost:4000/api/v1/login', user).then(response => {
+          await axios.post('http://192.168.0.21:4000/api/v1/login', user).then(response => {
 
           setTimeout(() => {
             navigate('/dashboard');

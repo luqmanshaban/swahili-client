@@ -10,7 +10,7 @@ const Order = ({ active, click }) => {
 
   const getAllOrders = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/v1/orders/customer/${custId}`);
+      const response = await axios.get(`http://192.168.0.21:4000/api/v1/orders/customer/${custId}`);
       setOrders(response.data);
     } catch (error) {
       console.error(error);

@@ -19,7 +19,7 @@ const animationVariations = {
 
 //adjust on small screens
 function getGridCols() {
-  return window.innerWidth >= 800 ? 3 : 1.2;
+  return window.innerWidth >= 800 ? 4 : 1.2;
 }
 function cellHeight() {
   return window.innerWidth >= 800 ? 400 : 320;
@@ -90,7 +90,7 @@ const Recomended = ({ addToCart }) => {
 
   return (
     <motion.section className={styles.Recomended}  ref={ref} initial='hidden' animate={controls} variants={animationVariations}>
-      <h1>topPick</h1>
+      <h1>Recomended</h1>
       <ImageList cols={getGridCols()} rowHeight={cellHeight()} style={{ flexWrap: 'nowrap', }} id={styles.grid}>
       {Data.topPick.map((food, index) => (
          <ImageListItem key={index} className={styles.artc}>
