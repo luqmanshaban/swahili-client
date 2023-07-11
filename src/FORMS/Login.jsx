@@ -1,17 +1,14 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-
 import { Link } from 'react-router-dom';
-
 //mui
 import { makeStyles } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useNavigate } from 'react-router-dom';
-
-
-
 import styles from './Login.module.css'
+import Navbar from '../components/Landing/Navbar';
+import Loading from '../components/Loading';
 
 
 
@@ -57,6 +54,7 @@ function Login() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [wrongPass, setWrongPass] = useState(false)
   const [focused, setFocused] = useState(false);
+  const [isLoading, setIsLoading] = useState(null);
 
 
 
@@ -75,31 +73,29 @@ function Login() {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
+      setIsLoading(true)
 
       try {
-          await axios.post('http://192.168.0.21:4000/api/v1/login', user).then(response => {
+          await axios.post('http://127.0.0.1:8000/api/login', user).then(response => {
 
           setTimeout(() => {
             navigate('/dashboard');
-          }, 4000);
+          }, 2000);
+          console.log(response);
               const {token } = response.data;
               localStorage.setItem('authToken', token)
-              localStorage.setItem('email', user.email)
-              setUser({
-                  
+              setUser({                  
                   email: '',
                   password: ''
               })
-            //   console.log(user);
-              setIsLoggedIn(true)
-              
-              
-
+              setIsLoggedIn(true)              
           })
       } catch (error) {
           console.log(error);
           setWrongPass(true)
           console.log(wrongPass);
+      }finally {
+        setIsLoading(false); 
       }
       
 
@@ -107,6 +103,7 @@ function Login() {
 
   return (
     <div>
+        <Navbar />
     <form className={`${classes.root} ${styles.form}`} >
 
     
@@ -141,9 +138,10 @@ function Login() {
         />
 
 
-        <Button type='submit' variant='contained' color='primary'  onClick={handleSubmit}>
+        <Button className={styles.loginBtn} type='submit' variant='contained' color='primary'  onClick={handleSubmit}>
             Login
         </Button>
+        {isLoading && <Loading />}
         <div style={style}>
 
          <p>Not a member ?</p>

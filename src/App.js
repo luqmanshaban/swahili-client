@@ -13,14 +13,6 @@ import Dashboard from './components/./dashboard/Dashboard';
 import MenuLanding from './components/menu/MenuLanding';
 
 function App() {
-  //handle cart count
-
-  //handle login
-  const isDashboard = window.location.pathname === '/dashboard';
-  const [logged, setLogged] = useState(!isDashboard)
-
-  //add Item to Cart
-
 
   /////// ANALYTICS ////////////
    useEffect(() => {
@@ -34,16 +26,15 @@ function App() {
 
   return (
     <div className={`${styles.App} ${BreakPoint.App} `}>
-      {logged ? !isDashboard && <Landing /> : setLogged(isDashboard)}
 
       <Routes>
         <Route exact path='/login' Component={Login } />
         <Route exact path='/signup' Component={Signup } />
-        <Route path='/swahili-client' Component={LandingPage} />
+        <Route path='/home' Component={LandingPage} />
         <Route path='/contact' Component={Contact} />
         <Route path='/menu/*' Component={MenuLanding} />
         <Route path='/dashboard' Component={Dashboard} />
-        <Route path='/' element={<Navigate to='/swahili-client'></Navigate>}/>
+        <Route path='/' element={<Landing />}/>
       </Routes>
 
     </div>

@@ -9,6 +9,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 
 import styles from '../../STYLES/Contact.module.scss'
+import Navbar from './Navbar';
 //
 
 const theme = createTheme( {
@@ -35,6 +36,8 @@ function Contact() {
   
 
   return (
+    <>
+    <Navbar />
     <div style={{ display: 'flex', justifyContent: 'center', alignItems:'center'}}>
       <div className={styles.contact}>
          <div className={styles.sidebarImg}></div>
@@ -98,6 +101,7 @@ function Contact() {
 
     </div>
     </div>
+    </>
   )
 }
 

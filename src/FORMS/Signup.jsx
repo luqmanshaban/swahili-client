@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button';
 //
 import { useNavigate } from 'react-router-dom';
 import styles from'./Signup.module.css'
+import Navbar from '../components/Landing/Navbar';
+import Loading from '../components/Loading';
 
 //MUI STYLING
 const useStyles = makeStyles(theme => ({
@@ -21,10 +23,6 @@ const useStyles = makeStyles(theme => ({
         '& .MuiTextField-root': {
             margin: theme.spacing(0.5),
             width: '300px'
-        },
-        '& .MuiButtonBase-root': {
-            margin: theme.spacing(2),
-            backgroundColor: '#e78d26'
         },
     },
 }))
@@ -49,14 +47,12 @@ function Signup() {
     const classes = useStyles();
   
     const [signedUp, setSignedUp] = useState(false);
-    // const [passwordMatch, setPasswordMatch] = useState(true);
-    // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [isLoading, setIsLoading] = useState(null);
   
     const [user, setUser] = useState({
       firstname: '',
       lastname: '',
       email: '',
-      phone: '',
       password: '',
     });
   
@@ -69,18 +65,17 @@ function Signup() {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-    
+     setIsLoading(true)
      
       try {
         setTimeout(() => {
           navigate('/login');
         }, 4000);
-        await axios.post('http://localhost:4000/api/v1/signup', user).then((response) => {
+        await axios.post('http://127.0.0.1:8000/api/signup', user).then((response) => {
           setUser({
             firstname: '',
             lastname: '',
             email: '',
-            phone: '',
             password: '',
             
           });
@@ -90,6 +85,8 @@ function Signup() {
         });
       } catch (error) {
         console.log(error);
+      }finally {
+        setIsLoading(false); 
       }
     
       setSignedUp(true);
@@ -105,7 +102,7 @@ function Signup() {
 
     ) : (
       <>
-      {/* <Navbar /> */}
+      <Navbar />
       <form className={`${classes.root} ${styles.form}`} onSubmit={handleSubmit}>
 
         <TextField
@@ -139,17 +136,6 @@ function Signup() {
           inputProps={{ maxLength: 35, minLength: 8 }}
           onChange={handleChange}
         />
-
-        <TextField
-          label='Phone Number'
-          variant='filled'
-          type='tel'
-          name='phone'
-          required
-          inputProps={{ maxLength: 15 }}
-          onChange={handleChange}
-        />
-        
     
         <TextField
           label='Create Password'
@@ -160,22 +146,11 @@ function Signup() {
           inputProps={{ maxLength: 25, minLength: 6 }}
           onChange={handleChange}
         />
-       
-  
-        {/* <TextField
-          label='Confirm Password'
-          variant='filled'
-          name='cpassword'
-          type='password'
-          required
-          inputProps={{ maxLength: 25, minLength: 6 }}
-          onChange={handleChange}
-        /> */}
-
       
-        <Button type='submit' variant='contained' color='primary'>
+        <button className={styles.signupBtn} type='submit' variant='contained' color='primary'>
           Sign Up
-        </Button>
+        </button>
+        {isLoading && <Loading />}
 
       
         <div style={style}>
