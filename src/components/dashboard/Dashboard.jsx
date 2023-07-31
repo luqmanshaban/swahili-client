@@ -54,7 +54,6 @@ function Dashboard() {
         <main className={styles.main}>
           <h1>Welcome Back {}</h1>
           <p>Let's grab you some food . . .</p>
-          {/* <Menu /> */} 
             <FoodMenus />
        
          {orderActive && <Order click={toggleOrderComponent}/>}
@@ -63,7 +62,7 @@ function Dashboard() {
          {accountActive && <Account click={toggleAccountComponent}/>}
 
           
-          {/* <Footer /> */}
+          <Footer />
         </main>
 
      </div>
