@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 //mui
@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css'
 import Navbar from '../components/Landing/Navbar';
 import Loading from '../components/Loading';
+import { DeleteToken } from '../components/DeleteToken';
 
 
 
@@ -56,8 +57,6 @@ function Login() {
   const [focused, setFocused] = useState(false);
   const [isLoading, setIsLoading] = useState(null);
 
-
-
   const [user, setUser] = useState( {
       email: '',
       password: ''
@@ -77,19 +76,25 @@ function Login() {
 
       try {
           await axios.post('http://127.0.0.1:8000/api/login', user).then(response => {
+            console.log(response.data.role[0]);
 
           setTimeout(() => {
-            navigate('/dashboard');
+            if(response.data.role[0] === 'admin'){
+                navigate('/admin');
+            }else {
+                navigate('/dashboard')
+            }
           }, 2000);
-          console.log(response);
-              const {token } = response.data;
-              localStorage.setItem('authToken', token)
-              setUser({                  
-                  email: '',
-                  password: ''
-              })
-              setIsLoggedIn(true)              
+
+          const {token } = response.data;
+          localStorage.setItem('token', token)
+          setUser({                  
+              email: '',
+              password: ''
           })
+          setIsLoggedIn(true)   
+          DeleteToken()        
+      })
       } catch (error) {
           console.log(error);
           setWrongPass(true)

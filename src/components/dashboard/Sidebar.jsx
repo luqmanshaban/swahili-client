@@ -1,33 +1,12 @@
 import React, { useState } from 'react'
 import styles from './Sidebar.module.scss'
 import userImage from '../../assets/avatar.jpeg'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import Logout from './Logout'
+import { Link } from 'react-router-dom'
 
 const Sidebar = ({toggleOrderComponent, toggleHistoryComponent, toggleDiscountComponent, toggleAccountComponent}) => {
 
   const [active, setActive] = useState(false)
-
-  const navigate = useNavigate()
-
-  const Logout = async () => {
-    const token = localStorage.getItem('authToken');
-  
-    try {
-      await axios.post('http://127.0.0.1:8000/api/logout', null, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      console.log('User Logged Out');
-      localStorage.removeItem('authToken');
-      navigate('/login');
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  
 
   const toggleActive = () => {
     setActive(!active)
@@ -44,7 +23,9 @@ const Sidebar = ({toggleOrderComponent, toggleHistoryComponent, toggleDiscountCo
         <span className={styles.bar}></span>
         <span className={styles.bar}></span>
       </ul>
-      <h1>Swahili Plate</h1>
+      <Link to='/dashboard'>
+        <h1>Swahili Plate</h1>
+      </Link>
       <nav className={`${active ? styles.active : ''}`}>
         <h6>Swahili Plate</h6>
         <ul className={styles.navMenu}>
@@ -66,7 +47,9 @@ const Sidebar = ({toggleOrderComponent, toggleHistoryComponent, toggleDiscountCo
             </button>
           </li>
         </ul>
-        <button onClick={Logout} id={styles.logout}>LOGOUT</button>
+        <ul id={styles.logout}>
+          <Logout />
+        </ul>
       </nav>
          
     </aside>

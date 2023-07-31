@@ -5,12 +5,14 @@ import axios from 'axios';
 const Order = ({ active, click }) => {
   const [orders, setOrders] = useState([]);
 
-  // user's customerId
-  const custId = localStorage.getItem('customerId');
-
   const getAllOrders = async () => {
+    const token = localStorage.getItem('token')
     try {
-      const response = await axios.get(`http://192.168.0.21:4000/api/v1/orders/customer/${custId}`);
+      const response = await axios.get(`http://localhost:8000/api/orders`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       setOrders(response.data);
     } catch (error) {
       console.error(error);

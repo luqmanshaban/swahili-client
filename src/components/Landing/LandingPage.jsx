@@ -62,7 +62,7 @@ function LandingPage() {
     
                          <h1>Meet, Eat & &#9; <span> <br />  </span> Enjoy The true &#9; <span> <br />  </span> taste</h1>
                          
-                         <Link to='/menu' className={styles.headerA}>
+                         <Link to='/signup' className={styles.headerA}>
                              <span>Explore Menu</span>
                              <ThemeProvider theme={theme}>
                                 {<ArrowIcon className={styles.arrowIcon}/>}

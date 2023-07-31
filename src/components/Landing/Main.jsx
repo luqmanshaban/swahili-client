@@ -61,7 +61,7 @@ function Main() {
           Swahili Plate is a restaurant that offers an authentic taste of Swahili cuisine. <span id={styles.sp}> With a menu full of flavorful dishes, Swahili Plate takes pride in serving traditional dishes from the coastal region of East Africa.</span> From aromatic biryanis and pilafs to succulent grilled meats and seafood, each dish is prepared with the perfect blend of spices and ingredients to tantalize your taste buds. Whether you are a fan of spicy curries or prefer mild flavors, Swahili Plate has something for everyone. <span id={styles.sp}> Visit us today and experience the best of Swahili cuisine in a warm and welcoming atmosphere.</span>
           </p>
 
-          <Link to="/menu" className={styles.featuredA}>
+          <Link to="/signup" className={styles.featuredA}>
             <span>Discover Menu!</span>
             <ThemeProvider theme={theme}>
               {<ArrowIcon className={styles.arrowIcon} />}

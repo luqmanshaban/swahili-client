@@ -46,7 +46,7 @@
 
     #logout {
         background-color: #FF0000;
-        padding: 10px 30px;
+        // padding: 10px 30px;
         color: #fff;
         border: none;
         border-radius: 15px;
@@ -85,6 +85,9 @@
             left: -100%;
             width: 80%;
             transition: 0.7s ease-in-out;
+            gap: 10px;
+            padding: 100px 0 500px 0;
+            background-color: #120f0b;
 
             h6 {
                 display: none;
@@ -92,8 +95,7 @@
 
             .navMenu {
                 display: block !important;
-                background-color: #1B1515;
-                padding: 100px 0 500px 0;
+                // background-color: #1B1515;
                 text-align: center;
 
                 li {
@@ -105,6 +107,14 @@
                 left: 0;
                 margin-bottom: 500px;
             }
+
+            #logout {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                background-color: #120f0b;
+            }
+
         }
 
         .hamburger {
