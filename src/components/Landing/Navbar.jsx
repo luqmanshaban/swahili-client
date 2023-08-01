@@ -2,12 +2,6 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 
-// import ShoppingCart from '@mui/icons-material/LocalMallRounded';
-import Button from '@mui/material/Button';
-import {  createTheme,ThemeProvider } from '@mui/system';
-
-
-
 //
 import styles from './Navbar.module.scss';
 import logo from '../../assets/Screenshot from 2023-03-29 11-27-15.png';
