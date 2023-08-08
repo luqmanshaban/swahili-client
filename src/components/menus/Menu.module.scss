@@ -1,5 +1,4 @@
 
-
 .menu  {
     margin: 40px 0;
     padding: 10px 30px;
@@ -63,4 +62,9 @@
         width: 100px;
         border-radius: 50%;
     }
+
+   .cart {
+        position: fixed;
+        left: 50px;
+   }
 }

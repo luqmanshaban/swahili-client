@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Navbar from './Components/MenuNavbar'
 import styles from './Menu.module.scss'
 import Drinks from './Drinks'
@@ -7,10 +7,12 @@ import Snacks from './Snacks'
 import Lunch from './Lunch'
 import Shawarma from './Shawarma'
 import TopPick from './TopPick'
+import { MenuContext } from '../../stores/MenuContext'
+import Cart from './Cart'
 
 const Menus = () => {
-  const [activeBtn, setActiveBtn] = useState([true, false, false, false, false, false])
-
+  const [activeBtn, setActiveBtn] = useState([true, false, false, false, false, false]);
+ 
   const handleBtnClick = (index) => {
     setActiveBtn(activeBtn.map((value, i) => i === index));
   };

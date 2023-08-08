@@ -22,7 +22,7 @@ const Drinks = () => {
                         <p>{itemCount[food.name] || 0}</p>
                         <button onClick={() => handleMinus(food.name)}>-</button>
                     </figure>
-                    <button onClick={() => addToCart(food.name, food.price, food.img)}>Add To Cart</button>
+                    <button onClick={() => addToCart(food.name, food.price, food.img, itemCount)}>Add To Cart</button>
                 </article>
             ))
         }

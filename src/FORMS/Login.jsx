@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css'
 import Navbar from '../components/Landing/Navbar';
 import Loading from '../components/Loading';
-import { DeleteToken } from '../components/DeleteToken';
+// import { DeleteToken } from '../components/DeleteToken';
 
 
 
@@ -76,7 +76,6 @@ function Login() {
 
       try {
           await axios.post('http://127.0.0.1:8000/api/login', user).then(response => {
-            console.log(response.data.role[0]);
 
           setTimeout(() => {
             if(response.data.role[0] === 'admin'){
@@ -93,7 +92,7 @@ function Login() {
               password: ''
           })
           setIsLoggedIn(true)   
-          DeleteToken()        
+        //   DeleteToken()        
       })
       } catch (error) {
           console.log(error);

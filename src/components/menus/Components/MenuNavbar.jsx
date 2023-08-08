@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './MenuNavbar.module.scss'
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 import DrinksIcon from '@mui/icons-material/FreeBreakfast';
@@ -8,9 +8,11 @@ import ShawarmaIcon from '@mui/icons-material/LocalPizza';
 import SnacksIcon from '@mui/icons-material/DinnerDining';
 import SearchBar from '../../../layouts/Search';
 import CartIcon from '@mui/icons-material/ShoppingCart';
+import { MenuContext } from '../../../stores/MenuContext';
+import Cart from '../Cart';
 
 const Navbar = ({activeBtn, handleBtnClick}) => {
-
+  const { count, toggleCartComponent, toggleCart } = useContext(MenuContext)
   return (
     <nav className={styles.menuNavbar}>
         <ul className={styles.navMenu}>
@@ -56,9 +58,15 @@ const Navbar = ({activeBtn, handleBtnClick}) => {
           <li className={styles.search}>
            <SearchBar id={styles.search}/>
           </li>
-          <li className={styles.cart}>
+          <li className={styles.cart} onClick={toggleCartComponent}>
+            <span style={{position: 'relative', top: '-25px', right: '-30px', font: 'sans-serif'}}>{count}</span>
             <CartIcon sx={{color: 'orange', fontSize: '30px', cursor: 'pointer'}}/>
           </li>
+        </ul>
+        <ul>
+        <article className='cart'>
+          {toggleCart && <Cart />}
+        </article>
         </ul>
     </nav>
   )

@@ -5,33 +5,33 @@
     justify-content: space-between;
     align-items: center;
 
-    button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 10px;
-        height: 70px;
-        width: 70px;
-        border-radius: 50%;
-        font-size: 14px;
-        font-weight: bold;
-        background-color: aliceblue;
-        cursor: pointer;
-        border: none;
-
-        &:hover {
-            background-color: #fff;
-        }
-        &.active {
-            background-color: rgb(252, 192, 81);
-        }
-    }
-
+    
     .navMenu {
         display: flex;
         align-items: center;
         gap: 10px;
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: aliceblue;
+            cursor: pointer;
+            border: none;
+    
+            &:hover {
+                background-color: #fff;
+            }
+            &.active {
+                background-color: rgb(252, 192, 81);
+            }
+        }
     }
 
     .rightNav {
