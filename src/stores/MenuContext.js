@@ -36,59 +36,44 @@ export function MenuProvider({ children }) {
     );
   }, [itemCount, items]);
 
-//   const checkOut = async () => {
-//     const token = localStorage.getItem("token");
-//     try {
-//         const orders = {
-//             name: '',
-//             img: '',
-//             quantity: null,
-//             total: null
-//         }
-//        items.map((item) => {
-//         orders.name = item.name,
-//         orders.img = item.img,
-//         orders.quantity = item.itemQuantity,
-//         orders.total = item.price * item.itemQuantity,
-//        });
-//       console.log(orders);
-
-//       await axios.post("http://localhost:8000/api/orders", orders, {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       });
-
-//       console.log("Order placed successfully!");
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
+  // ... (imports and other code)
 
 const checkOut = async () => {
+  try {
     const token = localStorage.getItem("token");
-    try {
-      const orders = items.map((item) => ({
-        name: item.name,
-        img: item.img,
-        quantity: itemCount[item.name],
-        total: total,
-      }));
-  
-      console.log(orders);
-  
-      await axios.post("http://localhost:8000/api/orders", orders, {
+
+    const orders = items.map((item) => ({
+      name: item.name,
+      img: item.img,
+      quantity: itemCount[item.name] || 1,
+      total: item.price * (itemCount[item.name] || 1),
+    }));
+
+    console.log(orders);
+
+    await axios.post(
+      "http://localhost:8000/api/orders",
+      { orders }, 
+      {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      });
-  
-      console.log("Order placed successfully!");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  
+      }
+    ).then(response => {
+      console.log(response);
+      if(response.status === 201){
+        alert('ORDER CREATED')
+      }
+    });
+    setItemCount({})
+    setItems([])
+
+    console.log("Order placed successfully!");
+  } catch (error) {
+    console.log(error);
+  } finally {
+  }
+};
 
 
   const toggleCartComponent = () => setToggleCart(!toggleCart);

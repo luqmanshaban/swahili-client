@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import styles from './MenuNavbar.module.scss'
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 import DrinksIcon from '@mui/icons-material/FreeBreakfast';

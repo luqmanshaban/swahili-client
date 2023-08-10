@@ -49,13 +49,14 @@ function Dashboard() {
 
   useEffect(() => {
     getUserDetails()
-  },[])
+  },[getUserDetails])
 
   return (
     <section id={styles.dash}>
       <aside>
         <Sidebar toggleOrderComponent={toggleOrderComponent} toggleHistoryComponent={toggleHistoryComponent} toggleDiscountComponent={toggleDiscountComponent} toggleAccountComponent={toggleAccountComponent}/>
       </aside>
+
      <div className={styles.dashboard}>
         <main className={styles.main}>
           <h1 id={styles.headerH1}>Welcome Back {user.firstname}</h1>
@@ -66,7 +67,6 @@ function Dashboard() {
          {historyActive && <History click={toggleHistoryComponent}/>}
          {discountActive && <Discount click={toggleDiscountComponent}/>}
          {accountActive && <Account click={toggleAccountComponent}/>}
-
           
           <Footer />
         </main>
