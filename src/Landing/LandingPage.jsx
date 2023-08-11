@@ -7,9 +7,9 @@ import FacebookIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { createTheme, ThemeProvider } from '@mui/system';
 //
-import styles from '../../STYLES/Landing.module.scss';
-import breakPoints from '../../STYLES/BreakPoint.css'
-import '../../App.css'
+import styles from '../STYLES/Landing.module.scss';
+import breakPoints from '../STYLES/BreakPoint.css'
+import '../App.css'
 import Footer from './Footer';
 import Main from './Main';
 import { motion, useAnimation } from 'framer-motion';

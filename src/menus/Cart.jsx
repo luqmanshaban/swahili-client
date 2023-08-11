@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { MenuContext } from '../../stores/MenuContext'
+import { MenuContext } from '../stores/MenuContext'
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 import styles from './Cart.module.scss'

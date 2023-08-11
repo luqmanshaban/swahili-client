@@ -6,10 +6,10 @@ import Lunch from '@mui/icons-material/LunchDining';
 import Dessert from '@mui/icons-material/Icecream';
 import ShawarmaIcon from '@mui/icons-material/LocalPizza';
 import SnacksIcon from '@mui/icons-material/DinnerDining';
-import SearchBar from '../../../layouts/Search';
+import SearchBar from '../../layouts/Search';
 import CartIcon from '@mui/icons-material/ShoppingCart';
-import { MenuContext } from '../../../stores/MenuContext';
-import Cart from '../Cart';
+import { MenuContext } from '../../stores/MenuContext';
+import Cart from '../Cart'
 
 const Navbar = ({activeBtn, handleBtnClick}) => {
   const { count, toggleCartComponent, toggleCart } = useContext(MenuContext)

@@ -10,7 +10,8 @@ import Discount from './modals/Discount';
 import Account from './modals/Account';
 import { useNavigate } from 'react-router-dom';
 import FoodMenus from '../menus/FoodMenus';
-import UserContext from '../../stores/AuthUser';
+import UserContext from '../stores/AuthUser';
+
 
 function Dashboard() {
   const [orderActive, setOrderActive] = useState(false)

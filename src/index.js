@@ -7,6 +7,7 @@ import { UserProvider } from './stores/AuthUser';
 //GOOGLE ANALYTICS
 import ReactGA from 'react-ga4'
 import { MenuProvider } from './stores/MenuContext';
+import { AdminProvider } from './stores/Admin';
 ReactGA.initialize("G-GV3EMF5W6T");
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,7 +16,9 @@ root.render(
     <BrowserRouter>
     <UserProvider>
       <MenuProvider>
-        <App />
+        <AdminProvider>
+          <App />
+        </AdminProvider>
       </MenuProvider>
     </UserProvider>
     </BrowserRouter>

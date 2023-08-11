@@ -1,18 +1,18 @@
 import React, { useContext } from 'react'
 import Data from './Data'
-import { MenuContext } from '../../stores/MenuContext'
+import { MenuContext } from '../stores/MenuContext'
 import styles from './Menu.module.scss';
 
-const Shawarma = () => {
-    const Shawarma = Data.shawarma
+const TopPick = () => {
+    const TopPick = Data.topPick
 
     const { addToCart, handleAdd, handleMinus, itemCount } = useContext(MenuContext)
   return (
     <div>
-        <h1 style={{margin: '10px', fontSize: '30px'}}>Shawarma</h1>
+        <h1 style={{margin: '10px', fontSize: '30px'}}>TopPick</h1>
         <section className={styles.menu}>
         {
-            Shawarma.map((food, id) => (
+            TopPick.map((food, id) => (
                 <article key={id}>
                     <img src={food.img} alt={food.name} />
                     <h1>{food.name}</h1>
@@ -31,4 +31,4 @@ const Shawarma = () => {
   )
 }
 
-export default Shawarma
+export default TopPick

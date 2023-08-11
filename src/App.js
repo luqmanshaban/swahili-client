@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 import styles from './STYLES/App.scss';
 import BreakPoint from './STYLES/BreakPoint.css';
-import Landing from './components/Landing/Landing';
-import LandingPage from './components/Landing/LandingPage';
+import Landing from './Landing/Landing';
+import LandingPage from './Landing/LandingPage';
 import { Route, Routes } from 'react-router-dom';
 import Login from './FORMS/Login';
 import Signup from './FORMS/Signup';
-import Contact from './components/Landing/Contact';
+import Contact from './Landing/Contact';
 
 import Analytics from './Analytics';
-import Dashboard from './components/dashboard/Dashboard';
-import AdminDashboard from './components/dashboard/admin/AdminDashboard';
+import Dashboard from './dashboard/Dashboard';
+import AdminDashboard from './dashboard/admin/AdminDashboard';
 import Protected from './components/LoggedIn';
-import Menus from './components/menus/FoodMenus';
-import Drinks from './components/menus/Drinks';
+import Menus from './menus/FoodMenus';
+import Drinks from './menus/Drinks';
 
 function App() {
 

@@ -7,7 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css'
-import Navbar from '../components/Landing/Navbar';
+import Navbar from '../Landing/Navbar';
 import Loading from '../components/Loading';
 // import { DeleteToken } from '../components/DeleteToken';
 

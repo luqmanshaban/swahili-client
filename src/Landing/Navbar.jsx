@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 //
 import styles from './Navbar.module.scss';
-import logo from '../../assets/Screenshot from 2023-03-29 11-27-15.png';
-import breakPoints from '../../STYLES/BreakPoint.css'
+import logo from '../assets/Screenshot from 2023-03-29 11-27-15.png';
+import breakPoints from '../STYLES/BreakPoint.css'
 
 
 function Navbar() {

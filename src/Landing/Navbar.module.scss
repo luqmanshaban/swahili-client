@@ -45,6 +45,9 @@ ul {
     list-style: none;
 }
 
+button {
+    border: none
+}
 
 .navbar {
     @include flex(space-between);

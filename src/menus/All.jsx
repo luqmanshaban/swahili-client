@@ -1,18 +1,18 @@
 import React, { useContext } from 'react'
 import Data from './Data'
-import { MenuContext } from '../../stores/MenuContext'
+import { MenuContext } from '../stores/MenuContext'
 import styles from './Menu.module.scss';
 
-const Snacks = () => {
-    const snacks = Data.snacks
+const All = () => {
+    const All = Data.all
 
     const { addToCart, handleAdd, handleMinus, itemCount } = useContext(MenuContext)
   return (
     <div>
-        <h1 style={{margin: '10px', fontSize: '30px'}}>Snacks</h1>
+        <h1 style={{margin: '10px', fontSize: '30px'}}>All</h1>
         <section className={styles.menu}>
         {
-            snacks.map((food, id) => (
+            All.map((food, id) => (
                 <article key={id}>
                     <img src={food.img} alt={food.name} />
                     <h1>{food.name}</h1>
@@ -31,4 +31,4 @@ const Snacks = () => {
   )
 }
 
-export default Snacks
+export default All

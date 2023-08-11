@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './Sidebar.module.scss'
-import userImage from '../../assets/avatar.jpeg'
+import userImage from '../assets/avatar.jpeg'
 import Logout from './Logout'
 import { Link } from 'react-router-dom'
 

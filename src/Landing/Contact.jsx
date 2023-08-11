@@ -7,8 +7,7 @@ import FacebookIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
 //
 
-
-import styles from '../../STYLES/Contact.module.scss'
+import styles from '../STYLES/Contact.module.scss'
 import Navbar from './Navbar';
 //
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import styles from '../../STYLES/Footer.module.scss'
+import styles from '../STYLES/Footer.module.scss'
 import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';

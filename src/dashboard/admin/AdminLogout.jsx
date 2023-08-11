@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const style = {
+    textAlign: 'center',
     backgroundColor: 'red',
     border: '1px solid red',
     borderRadius: '10px',
@@ -11,7 +12,7 @@ const style = {
     fontWeight: 'bold',
     color: '#fff',
     transition: '0.3s ease-in-out',
-    cursor: 'pointer'
+    cursor: 'pointer',
 
 }
 

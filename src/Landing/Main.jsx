@@ -7,8 +7,8 @@ import { createTheme, ThemeProvider } from '@mui/system';
 import ArrowIcon from '@mui/icons-material/ArrowRightAltRounded';
 
 //
-import styles from '../../STYLES/Landing.module.scss';
-import featured from '../../assets/images/featured.png';
+import styles from '../STYLES/Landing.module.scss';
+import featured from '../assets/images/featured.png';
 ////
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

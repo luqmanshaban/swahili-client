@@ -7,7 +7,7 @@ import TextField from '@material-ui/core/TextField';
 //
 import { useNavigate } from 'react-router-dom';
 import styles from'./Signup.module.css'
-import Navbar from '../components/Landing/Navbar';
+import Navbar from '../Landing/Navbar';
 import Loading from '../components/Loading';
 
 //MUI STYLING
