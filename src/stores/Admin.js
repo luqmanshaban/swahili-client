@@ -1,15 +1,18 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useCallback } from "react";
 
 export const AdminContext = createContext();
 
 export function AdminProvider({ children }) {
   const [details, setDetails] = useState({});
   
+  const memoizedGetAdminDetails = useCallback(() => {
+    getAdminDetails();
+  }, []); // Providing an empty dependency array
+
   useEffect(() => {
-    getAdminDetails(); 
-  }, []);
-  
+    memoizedGetAdminDetails();
+  }, [memoizedGetAdminDetails]);
 
   const getAdminDetails = async () => {
     try {
