@@ -8,6 +8,7 @@ const AdminDashboard = () => {
   const { getAdminDetails } = useContext(AdminContext)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     getAdminDetails()
   }, [])
   return (
