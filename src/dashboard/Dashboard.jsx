@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar';
 
 //
@@ -10,7 +10,6 @@ import Discount from './modals/Discount';
 import Account from './modals/Account';
 import { useNavigate } from 'react-router-dom';
 import FoodMenus from '../menus/FoodMenus';
-import UserContext from '../stores/AuthUser';
 
 
 function Dashboard() {
@@ -19,7 +18,6 @@ function Dashboard() {
   const [discountActive, setDiscountActive] = useState(false)
   const [accountActive, setAccountActive] = useState(false);
 
-  const { user, getUserDetails } = useContext(UserContext)
 
   const navigate = useNavigate()
   useEffect(() => {
@@ -48,10 +46,6 @@ function Dashboard() {
     setAccountActive(!accountActive)
   }
 
-  useEffect(() => {
-    getUserDetails()
-  },[getUserDetails])
-
   return (
     <section id={styles.dash}>
       <aside>
@@ -60,7 +54,6 @@ function Dashboard() {
 
      <div className={styles.dashboard}>
         <main className={styles.main}>
-          <h1 id={styles.headerH1}>Welcome Back {user.firstname}</h1>
           <p id={styles.headerP}>Let's grab you some food . . .</p>
             <FoodMenus />
        

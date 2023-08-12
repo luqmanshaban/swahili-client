@@ -1,12 +1,8 @@
-import React, { useContext } from 'react'
-import { AdminContext } from '../../../stores/Admin'
+import React from 'react'
 
 const Home = () => {
-    const { details } = useContext(AdminContext)
   return (
-    <div>
-        <h1>Welcome back {details.firstname}</h1>
-    </div>
+    <div>Home</div>
   )
 }
 

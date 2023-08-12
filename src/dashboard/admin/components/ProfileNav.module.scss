@@ -1,0 +1,22 @@
+
+.ProfileNav {
+    ul{
+        display: flex;
+        // justify-content: space-between;
+        align-items: start;
+        gap: 20px;
+        li{
+            &.active {
+                text-decoration: underline 3px;
+                text-underline-offset: 10px;
+                text-decoration-color: #D1894B;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .ProfileNav {
+        display: none;
+    }
+}

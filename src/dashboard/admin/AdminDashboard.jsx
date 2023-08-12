@@ -1,22 +1,37 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
 import styles from './Admin.module.scss'
-import { AdminContext } from '../../stores/Admin'
+import Header from './pages/Header'
 import Home from './pages/Home'
+import Orders from './pages/Orders'
+import History from './pages/History'
+import Users from './pages/Users'
+import Analytics from './pages/Analytics'
+import Profile from './pages/Profile'
+import Messages from './pages/Messages'
 
 const AdminDashboard = () => {
-  const { getAdminDetails } = useContext(AdminContext)
+  const [activeComponent, setActiveComponent] = useState([true, false, false, false, false, false, false])
 
-  useEffect(() => {
-    getAdminDetails()
-  },[getAdminDetails])
+  const toggleActiveComponent = index => setActiveComponent(activeComponent.map((value, i) => i === index))
+
+  
   return (
     <section className={styles.admin}>
         <aside>
-          <Navbar />
+          <Navbar toggleComponent={toggleActiveComponent}/>
         </aside>
         <main>
-          <Home />
+          <Header />
+          <section>
+            {activeComponent[0] && <Home />}
+            {activeComponent[1] && <Orders />}
+            {activeComponent[2] && <History />}
+            {activeComponent[3] && <Users />}
+            {activeComponent[4] && <Analytics />}
+            {activeComponent[5] && <Messages />}
+            {activeComponent[6] && <Profile />}
+          </section>
         </main>
     </section>
   )

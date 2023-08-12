@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useContext, useState} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 //mui
@@ -50,8 +50,7 @@ const style = {
 function Login() {
   const classes = useStyles();
 
-  const navigate = useNavigate();
-    
+  const navigate = useNavigate();    
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [wrongPass, setWrongPass] = useState(false)
   const [focused, setFocused] = useState(false);
@@ -91,7 +90,7 @@ function Login() {
               email: '',
               password: ''
           })
-          setIsLoggedIn(true)   
+          setIsLoggedIn(true)  
         //   DeleteToken()        
       })
       } catch (error) {

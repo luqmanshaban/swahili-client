@@ -4,15 +4,8 @@ import { createContext, useEffect, useState, useCallback } from "react";
 export const AdminContext = createContext();
 
 export function AdminProvider({ children }) {
-  const [details, setDetails] = useState({});
+  const [adminDetails, setDetails] = useState({});
   
-  const memoizedGetAdminDetails = useCallback(() => {
-    getAdminDetails();
-  }, []); // Providing an empty dependency array
-
-  useEffect(() => {
-    memoizedGetAdminDetails();
-  }, [memoizedGetAdminDetails]);
 
   const getAdminDetails = async () => {
     try {
@@ -29,8 +22,9 @@ export function AdminProvider({ children }) {
     }
   };
 
+
   const contextValue = {
-    details,
+    adminDetails,
     getAdminDetails
   };
 

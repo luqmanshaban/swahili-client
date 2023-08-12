@@ -1,22 +1,24 @@
 
 .admin {
     display: flex;
-    gap: 10px;
-    display: flex; 
+    gap: 20px;
     flex-direction: column;
     width: 100%;
     background-color: #FCE7C0;
     height: 100vh !important;
     margin: 0;
+    padding: 0;
 main {
     padding: 20px;
     width: 100%;
     margin: 0;
-    padding-left: 150px;
+    padding-left: 210px;
     background-color: #FCE7C0;
 }
 
 }
-@media screen and (max-width: 800px) {
-   
+@media screen and (max-width: 600px) {
+   main {
+    padding: 0;
+   }
 }

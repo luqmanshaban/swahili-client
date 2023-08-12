@@ -1,0 +1,76 @@
+
+.AdminProfilePic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+
+    #icon {
+        position: relative;
+        left: 110px;
+        top: -20px;
+        height: 30px;
+        width: 30px;
+        background-color: rgb(137, 173, 238);
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        color: black;
+        transition: 0.3s ease;
+        &:hover {
+            color: rgb(3, 16, 128);
+        }
+    }
+    figure {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    img {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+    }
+
+    h1 {
+        font-size: 20px;
+        font-weight: lighter;
+    }
+    .hr {
+        height: 1px;
+        width: 100%;
+        border: 1px solid rgb(145, 145, 145);
+    }
+    .AdminDetails {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+    }
+
+    button {
+        background-color: rgb(185, 180, 180);
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+        
+        &.active {
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 10px;
+            border: none;
+            background-color: green;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+
+        }
+    }
+}
