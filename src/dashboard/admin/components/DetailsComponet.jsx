@@ -12,12 +12,8 @@ const DetailsComponent = () => {
         region: '',
         address: '',
     });
-    const { getAdminDetails, adminDetails } = useContext(AdminContext)
+    const { adminDetails, getAdminDetails } = useContext(AdminContext)
 
-    
-    useEffect(() => {
-        getAdminDetails();
-    }, [getAdminDetails]);
 
 
     const handleChange = (e) => {
@@ -29,6 +25,10 @@ const DetailsComponent = () => {
         setActive(true)
         console.log(details);
     }
+
+    useEffect(() => {
+        getAdminDetails()
+    },[])
 
     return (
         <div className={styles.DetailsComponent}>

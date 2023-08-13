@@ -1,0 +1,27 @@
+
+.dashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    width: 100%;
+    top: -20px;
+    padding: 20px;
+
+}
+
+@media screen and (max-width: 600px) {
+    .dashboardHeader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        z-index: 100;
+        section {
+            h1 {
+                display: none;
+            }
+        }
+    }
+}

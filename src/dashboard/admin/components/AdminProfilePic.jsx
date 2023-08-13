@@ -1,16 +1,16 @@
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react'; // Import useRef
+import React, { useContext, useEffect, useRef, useState } from 'react'; // Import useRef
 import CameraIcon from '@mui/icons-material/CameraAlt';
 import userImage from '../../../assets/avatar.jpeg';
 import styles from './AdminProfilePic.module.scss';
+import { AdminContext } from '../../../stores/Admin';
 
 const AdminProfilePic = () => {
   const [image, setImage] = useState(null);
-  const [profilePic, setProfilePic] = useState(null);
-  const [details, setDetails] = useState({});
   const [active, setActive] = useState(false)
   
   const fileInputRef = useRef(null); 
+  const { adminDetails, profilePic, getProfilePicture } = useContext(AdminContext)
 
   const handleFileInput = (e) => {
     const formData = new FormData();
@@ -29,48 +29,14 @@ const AdminProfilePic = () => {
       console.log(response);
     })
   }
-
   const openFileInput = () => {
     // Trigger a click on the file input
     fileInputRef.current.click();
   };
 
-  const getProfilePicture = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:8000/api/profiles', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      setProfilePic(response.data.profilePic);
-    } catch (error) {
-      console.error('Error fetching profile picture:', error);
-    }
-  };
-  
-  const getAdminDetails = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:8000/api/admin-details', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-
-      setDetails(response.data.details);
-    } catch (error) {
-      console.error("Error fetching admin details:", error);
-    }
-  };
-
   useEffect(() => {
-    getAdminDetails();
+    getProfilePicture()
   },[])
-  
-  useEffect(() => {
-    getProfilePicture();
-  }, []);
 
   return (
     <div className={styles.AdminProfilePic}>
@@ -87,8 +53,8 @@ const AdminProfilePic = () => {
       </figure>
       <hr className={styles.hr}/>
       <div className={styles.AdminDetails}>
-        <h1>{details.firstname} {details.lastname}</h1>
-        <h1>{details.email}</h1>
+        <h1>{adminDetails.firstname} {adminDetails.lastname}</h1>
+        <h1>{adminDetails.email}</h1>
       </div>
       <button className={`${active ? styles.active : ''}`} disabled={!active} onClick={handleSave}>update</button>
     </div>

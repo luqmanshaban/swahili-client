@@ -2,6 +2,8 @@
 .admin {
     display: flex;
     gap: 20px;
+    justify-content: start;
+    align-items: flex-start;
     flex-direction: column;
     width: 100%;
     background-color: #FCE7C0;
@@ -9,16 +11,16 @@
     margin: 0;
     padding: 0;
 main {
-    padding: 20px;
+    // padding: 20px;
     width: 100%;
     margin: 0;
-    padding-left: 210px;
+    padding-left: 120px;
     background-color: #FCE7C0;
 }
 
 }
 @media screen and (max-width: 600px) {
    main {
-    padding: 0;
+    padding: 0 !important;
    }
 }

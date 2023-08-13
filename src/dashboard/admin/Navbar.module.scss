@@ -2,11 +2,11 @@
 .aside {
     background-color: #1B1515;
     height: auto;
-    width: 200px;
+    // width: 200px;
     height: 100%;
     scroll-behavior: smooth;
     margin:  0;
-    padding: 20px 0;
+    padding: 20px;
     position: fixed;
     display: flex;
     justify-content: baseline;
@@ -15,7 +15,8 @@
     gap: 20px;
 
     #Icons {
-        color: #120f0b;
+        color: #fff;
+        font-size: 30px;
     }
 
     .logo {
@@ -30,29 +31,30 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 50px;
+            gap: 5px;
         }
 
 
         .btn {
-            background-color: #FCE7C0;
-            color: #1B1515;
+            background-color: #1B1515;
+            color: #fff;
             border-radius: 15px;
             padding: 10px 20px;
             border: none;
             font-weight: bolder;
             display: flex;
-            // flex-direction: column;
+            flex-direction: column;
             align-items: center;
             gap: 5px;
+            font-size: 10px;
         }
 
         #accImg {
             border: none;
             background-color: #1B1515;
             img {
-                height: 70px;
-                width: 70px;
+                height: 50px;
+                width: 50px;
                 border-radius: 50%;
             }
         }
@@ -61,7 +63,7 @@
     .hamburger {
         display: none;
         cursor: pointer;
-        background-color: #FCE7C0;
+        background-color: #fff;
     
         .bar {
             background-color: #120f0b;
@@ -87,20 +89,17 @@
            }
 
            a {
-               .logo {
-                   height: 50px;
-                   width: 50px;
-                   border-radius: 50%;
-               }
+            display: none;
            }
    
            nav {
                position: fixed;
                left: -100%;
-               width: 80%;
+               width: 100%;
+               top: -20px;
                transition: 0.7s ease-in-out;
                gap: 10px;
-               padding: 100px 0 500px 0;
+               padding: 50px 0 500px 0;
                background-color: #120f0b;
    
                h6 {
@@ -129,6 +128,7 @@
            .hamburger {
                display: block;
                position: fixed;
+               right: 0px;
                z-index: 200 !important;
    
                &.active {

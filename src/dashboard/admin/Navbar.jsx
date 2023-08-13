@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './Navbar.module.scss'
 import { Link } from 'react-router-dom'
 import AdminLogout from './AdminLogout'
@@ -9,12 +9,12 @@ import AnalyticsIcon from '@mui/icons-material/SignalCellularAlt';
 import ChatIcon from '@mui/icons-material/Chat';
 import userImage from '../../assets/avatar.jpeg'
 import logo from '../../assets/Screenshot from 2023-03-29 11-27-15.png'
-import axios from 'axios';
+import { AdminContext } from '../../stores/Admin';
 
 const Navbar = ({ toggleComponent }) => {
     const [active, setActive] = useState(false)
-    const [profilePic, setProfilePic] = useState(null);
-
+    const { profilePic } = useContext(AdminContext)
+   
     const toggleActive = () => {
       setActive(!active)
     }
@@ -23,27 +23,12 @@ const Navbar = ({ toggleComponent }) => {
       setActive(false)
     }
 
-    const getProfilePicture = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:8000/api/profiles', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        setProfilePic(response.data.profilePic);
-      } catch (error) {
-        console.error('Error fetching profile picture:', error);
-      }
-    };
 
-    useEffect(() => {
-      getProfilePicture();
-    }, []);
+  
   
  
   return (
-    <header className={styles.aside} onLoad={getProfilePicture}>
+    <header className={styles.aside}>
     <ul className={`${styles.hamburger} ${active ? styles.active : ''}`} onClick={toggleActive}>
         <span className={styles.bar}></span>
         <span className={styles.bar}></span>
@@ -56,13 +41,13 @@ const Navbar = ({ toggleComponent }) => {
         <ul className={styles.navMenu}>
           <li onClick={unToggleActive}>
             <button className={styles.btn} onClick={() => toggleComponent(1)}>
-                <OrdersIcon />
+                <OrdersIcon id={styles.Icons}/>
                 ORDERS
             </button>
           </li>
           <li onClick={unToggleActive}>
             <button className={styles.btn} onClick={() => toggleComponent(2)}>
-                <AllIcon />
+                <AllIcon id={styles.Icons}/>
                 History
             </button>
           </li>
@@ -74,13 +59,13 @@ const Navbar = ({ toggleComponent }) => {
           </li>
           <li onClick={unToggleActive}>
             <button className={styles.btn} onClick={() => toggleComponent(4)}>
-                <AnalyticsIcon />
+                <AnalyticsIcon id={styles.Icons}/>
                 Analytics
             </button>
           </li>
           <li onClick={unToggleActive}>
             <button className={styles.btn} onClick={() => toggleComponent(5)}>
-                <ChatIcon />
+                <ChatIcon id={styles.Icons}/>
                 Messages
             </button>
           </li>
