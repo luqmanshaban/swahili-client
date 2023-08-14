@@ -9,11 +9,21 @@ import Users from './pages/Users'
 import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
 import Messages from './pages/Messages'
+import Menu from './pages/Menu'
 
 const AdminDashboard = () => {
-  const [activeComponent, setActiveComponent] = useState([true, false, false, false, false, false, false])
+  const [activeComponent, setActiveComponent] = useState([true, false, false, false, false, false, false, false])
+  const [active, setActive] = useState(false)
 
-  const toggleActiveComponent = index => setActiveComponent(activeComponent.map((value, i) => i === index))
+  const toggleActiveComponent = index => {
+    setActiveComponent(activeComponent.map((value, i) => i === index))
+    setActive(false)
+  }
+
+  const toggleProfile = () => {
+    setActive(true)
+    setActiveComponent([false,false, false, false, false, false, false])
+  }
 
   
   return (
@@ -22,15 +32,17 @@ const AdminDashboard = () => {
           <Navbar toggleComponent={toggleActiveComponent}/>
         </aside>
         <main>
-          <Header />
+          <Header toggleProfile={toggleProfile}/>
           <section>
             {activeComponent[0] && <Home />}
             {activeComponent[1] && <Orders />}
             {activeComponent[2] && <History />}
-            {activeComponent[3] && <Users />}
-            {activeComponent[4] && <Analytics />}
-            {activeComponent[5] && <Messages />}
-            {activeComponent[6] && <Profile />}
+            {activeComponent[3] && <Users />}  
+            {activeComponent[4] && <Menu />}  
+            {activeComponent[5] && <Analytics />}
+            {activeComponent[6] && <Messages />}
+            {activeComponent[7] && <Profile />}
+            {active && <Profile />}
           </section>
         </main>
     </section>

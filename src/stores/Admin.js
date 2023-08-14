@@ -6,6 +6,7 @@ export const AdminContext = createContext();
 export function AdminProvider({ children }) {
   const [adminDetails, setDetails] = useState({});
   const [profilePic, setProfilePic] = useState(null);
+  const [users, setUsers] = useState([])
   
 
   const getAdminDetails = async () => {
@@ -38,14 +39,28 @@ export function AdminProvider({ children }) {
     }
   };
 
- 
+  const getUsers = async () => {
+    const token = localStorage.getItem('token');
+    
+    await axios.get('http://localhost:8000/api/users', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then(response => {
+      setUsers(response.data.users);
+    }).catch(error => {
+      console.error("Error fetching users:", error);
+    });
+  }
 
 
   const contextValue = {
     adminDetails,
     profilePic,
+    users,
     getAdminDetails,
-    getProfilePicture
+    getProfilePicture,
+    getUsers
   };
 
   return (

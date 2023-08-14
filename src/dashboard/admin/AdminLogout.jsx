@@ -1,20 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import LogoutIcon from '@mui/icons-material/Logout';
 
-const style = {
-    textAlign: 'center',
-    backgroundColor: 'red',
-    border: '1px solid red',
-    borderRadius: '10px',
-    padding: '10px 15px',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    color: '#fff',
-    transition: '0.3s ease-in-out',
-    cursor: 'pointer',
-
-}
 
 const AdminLogout = () => {
     const navigate = useNavigate()
@@ -37,7 +25,7 @@ const AdminLogout = () => {
         }
       };
   return (
-    <button onClick={Logout} style={style}>Logout</button>
+    <button style={{backgroundColor: '#1B1515'}} onClick={Logout}><LogoutIcon style={{color: '#fff', fontSize: '40px'}}/></button>
   )
 }
 

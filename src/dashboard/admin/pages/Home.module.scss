@@ -1,0 +1,58 @@
+
+@mixin flex() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.adminHome {
+    padding: 20px;
+    @include flex();
+    
+    #a1 {
+        background-color: #1B1515;
+    }
+    #a2 {
+        background-color: rgb(204, 133, 1);
+    }
+    #a3 {
+        background-color: #0e0d0b;
+    }
+    #a4 {
+        background-color: #919090;
+    }
+    section {
+        width: 17%;
+        height: auto;
+        padding: 10px;
+        border-radius: 10px;
+
+        article {
+            cursor: pointer;
+        }
+
+        .content {
+            @include flex();
+            margin-bottom: 20px;
+        }
+        .hr {
+            height: 5px;
+            width: 100%;
+            background-color: #fff
+        }
+
+        h3 {
+            background-color: rgb(43, 42, 42);
+            padding: 5px;
+            border-radius: 3px
+        }
+
+        p {
+            @include flex();
+            align-items: start;
+            flex-direction: column;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+    }
+}

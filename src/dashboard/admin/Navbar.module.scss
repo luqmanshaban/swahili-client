@@ -20,9 +20,9 @@
     }
 
     .logo {
-        height: 70px;
-        width: 70px;
-        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        border-radius: 10px;
     }
 
     nav {
@@ -51,6 +51,7 @@
 
         #accImg {
             border: none;
+            display: none;
             background-color: #1B1515;
             img {
                 height: 50px;
@@ -106,6 +107,9 @@
                    display: none;
                }
    
+               #accImg  {
+                display: block;
+               }
                .navMenu {
                    gap: 30px;
                    text-align: center;

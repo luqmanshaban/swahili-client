@@ -6,6 +6,7 @@ import UsersIcon from '@mui/icons-material/Group';
 import OrdersIcon from '@mui/icons-material/CircleNotifications';
 import AllIcon from '@mui/icons-material/AllInclusive';
 import AnalyticsIcon from '@mui/icons-material/SignalCellularAlt';
+import MenuIcon from '@mui/icons-material/RestaurantMenu';
 import ChatIcon from '@mui/icons-material/Chat';
 import userImage from '../../assets/avatar.jpeg'
 import logo from '../../assets/Screenshot from 2023-03-29 11-27-15.png'
@@ -22,10 +23,6 @@ const Navbar = ({ toggleComponent }) => {
     const unToggleActive = () => {
       setActive(false)
     }
-
-
-  
-  
  
   return (
     <header className={styles.aside}>
@@ -37,6 +34,7 @@ const Navbar = ({ toggleComponent }) => {
       <Link to='/admin' onClick={() => toggleComponent(0)}>
         <img src={logo} alt="Logo" className={styles.logo}/>
       </Link>
+      <hr style={{width: '100%'}}/>
       <nav className={`${active ? styles.active : ''}`}>
         <ul className={styles.navMenu}>
           <li onClick={unToggleActive}>
@@ -59,20 +57,25 @@ const Navbar = ({ toggleComponent }) => {
           </li>
           <li onClick={unToggleActive}>
             <button className={styles.btn} onClick={() => toggleComponent(4)}>
+                <MenuIcon id={styles.Icons}/>
+                Menus
+            </button>
+          </li>
+          <li onClick={unToggleActive}>
+            <button className={styles.btn} onClick={() => toggleComponent(5)}>
                 <AnalyticsIcon id={styles.Icons}/>
                 Analytics
             </button>
           </li>
           <li onClick={unToggleActive}>
-            <button className={styles.btn} onClick={() => toggleComponent(5)}>
+            <button className={styles.btn} onClick={() => toggleComponent(6)}>
                 <ChatIcon id={styles.Icons}/>
                 Messages
             </button>
           </li>
           <li onClick={unToggleActive}>
-            <button id={styles.accImg} onClick={() => toggleComponent(6)}>
-             {profilePic === null && (<img src={userImage} alt="img" />)}
-             {profilePic !== null && (<img src={profilePic} alt="img"/>)}
+            <button id={styles.accImg} onClick={() => toggleComponent(7)}>
+             <img src={ profilePic ||userImage} alt="img" />
             </button>
           </li>
           <li onClick={unToggleActive}>
