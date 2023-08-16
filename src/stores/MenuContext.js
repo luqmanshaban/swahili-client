@@ -24,8 +24,7 @@ export function MenuProvider({ children }) {
     setItems((prev) => [...prev, { name, price, img, itemQuantity }]);
   };
 
-  const removeFromCart = (name) =>
-    setItems((prev) => prev.filter((item) => item.name !== name));
+  const removeFromCart = (name) => setItems((prev) => prev.filter((item) => item.name !== name));
 
   const count = items.length;
 
@@ -74,6 +73,7 @@ const checkOut = async () => {
   } finally {
   }
 };
+
 
 
   const toggleCartComponent = () => setToggleCart(!toggleCart);

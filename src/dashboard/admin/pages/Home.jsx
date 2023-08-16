@@ -58,7 +58,7 @@ const Home = () => {
           <figure className={styles.content}>
             <p>
               10
-            <span>Total Orders</span>
+            <span>Visits today</span>
             </p>
             <h3>
               <AccountBoxIcon style={{color: '#fff'}}/>

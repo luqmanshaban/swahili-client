@@ -28,9 +28,9 @@ const AdminDashboard = () => {
   
   return (
     <section className={styles.admin}>
-        <aside>
+        <header>
           <Navbar toggleComponent={toggleActiveComponent}/>
-        </aside>
+        </header>
         <main>
           <Header toggleProfile={toggleProfile}/>
           <section>
