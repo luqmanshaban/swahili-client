@@ -7,6 +7,7 @@ export function MenuProvider({ children }) {
   const [items, setItems] = useState([]);
   const [itemCount, setItemCount] = useState({});
   const [toggleCart, setToggleCart] = useState(false);
+  const [activeOrders, setActiveOrders] = useState([])
 
   const handleAdd = (foodName) =>
     setItemCount((prev) => ({
@@ -74,6 +75,23 @@ const checkOut = async () => {
   }
 };
 
+const getActiveOrders = () => {
+  const token = localStorage.getItem('token')
+
+  try {
+    axios.get('http://localhost:8000/api/user-orders', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then(response => {
+      setActiveOrders(response.data.orders)
+    })
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
 
 
   const toggleCartComponent = () => setToggleCart(!toggleCart);
@@ -92,6 +110,8 @@ const checkOut = async () => {
     toggleCartComponent,
     unToggleCartComponent,
     checkOut,
+    activeOrders,
+    getActiveOrders,    
   };
 
   return (

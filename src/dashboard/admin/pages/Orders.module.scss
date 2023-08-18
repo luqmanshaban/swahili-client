@@ -1,0 +1,87 @@
+@mixin flex() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin flexStart() {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.OrdersComponent {
+    header {}
+
+    main {
+        section {
+            margin: 0 40px;
+            table {
+                border: 1px solid black;
+                width: auto;
+                margin: 40px 0;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: #fff;
+                width: 100%;
+        
+                tr {
+                    border: 1px solid #000 !important;
+                    border-radius: 10px;
+                }
+            }
+            td, th {
+                padding: 10px;
+                text-align: center;
+                border: 1px solid #000;
+            }
+            img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .btns {
+                border: none;
+                button {
+                    border: none;
+                    border-radius: 10px;
+                    padding: 10px 20px;
+                    color: #fff;
+                    font-size: 16px;
+                    margin: 0 10px;
+                }
+
+                .accept {
+                    background-color: green;
+                }
+                .reject {
+                    background-color: red;
+                }
+            }
+
+
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .OrdersComponent {
+        padding: 100px 0;
+        // display: none;
+
+        main {
+            section {
+                margin: 0 20px;
+            }
+        }
+
+        table {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 200px;
+        }
+        td, th {
+            padding: 5px;
+        }
+    }
+}

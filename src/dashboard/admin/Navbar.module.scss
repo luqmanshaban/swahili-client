@@ -18,6 +18,16 @@
         font-size: 30px;
     }
 
+    #orders {
+        span {
+            position: relative;
+            height: 5px;
+            width: 5px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    }
+
     .logo {
         height: 50px;
         width: 50px;
