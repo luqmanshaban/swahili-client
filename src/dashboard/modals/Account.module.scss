@@ -20,10 +20,14 @@
     height: 100vh;
     width: 100%;
     top: 0px;
-    right: -700px;
+    right: -500px;
     z-index: 1;
     -webkit-transition: 0.7s ease-in-out;
     transition: 0.7s ease-in-out;
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    align-items: center;
 
     &.active {
         right: 0px;

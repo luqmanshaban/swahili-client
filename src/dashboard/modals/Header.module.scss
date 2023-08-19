@@ -1,0 +1,57 @@
+
+.customerDashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    width: 100%;
+    top: -20px;
+    padding: 20px;
+    #h1 {
+        // padding: 0 50px;
+        margin-left: 150px;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row-reverse;
+        gap: 20px;
+    }
+    img {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    button {
+        background-color: #fff;
+        #icon {
+            font-size: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .customerDashboardHeader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        z-index: 100;
+        #h1 {
+            margin-left: 0;
+            position: relative;
+            right: -250%;
+        }
+
+        section {
+            display: none;
+            h1 {
+                display: none;
+            }
+        }
+    }
+}

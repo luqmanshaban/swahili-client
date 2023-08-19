@@ -20,7 +20,7 @@ const Snacks = () => {
                     <figure>
                         <button onClick={() => handleAdd(food.name)}>+</button>
                         <p>{itemCount[food.name] || 0}</p>
-                        <button onClick={() => handleMinus(food.name)}>-</button>
+                        <button onClick={() => handleMinus(food.name)} disabled={(itemCount[food.name] || 0 ) === 0}>-</button>
                     </figure>
                     <button onClick={() => addToCart(food.name, food.price, food.img)}>Add To Cart</button>
                 </article>

@@ -4,7 +4,7 @@ import userImage from '../assets/avatar.jpeg'
 import Logout from './Logout'
 import { Link } from 'react-router-dom'
 
-const Sidebar = ({toggleOrderComponent, toggleHistoryComponent, toggleDiscountComponent, toggleAccountComponent}) => {
+const Sidebar = ({toggleComponent}) => {
 
   const [active, setActive] = useState(false)
 
@@ -30,19 +30,19 @@ const Sidebar = ({toggleOrderComponent, toggleHistoryComponent, toggleDiscountCo
         <h6>Swahili Plate</h6>
         <ul className={styles.navMenu}>
           <li onClick={unToggleActive}>
-            <button onClick={toggleOrderComponent} className={styles.btn}>ORDERS</button>
+            <button onClick={() => toggleComponent(0)} className={styles.btn}>ORDERS</button>
           </li>
           <li onClick={unToggleActive}>
-            <button onClick={toggleHistoryComponent} className={styles.btn}>HISTORY</button>
+            <button onClick={() => toggleComponent(1)} className={styles.btn}>HISTORY</button>
           </li>
           <li onClick={unToggleActive}>
-            <button onClick={toggleDiscountComponent} className={styles.btn}>DISCOUNT</button>
+            <button onClick={() => toggleComponent(2)} className={styles.btn}>DISCOUNT</button>
           </li>
+          {/* <li onClick={unToggleActive}>
+            <button onClick={() => toggleComponent(3)} className={styles.btn}>ACCOUNT</button>
+          </li> */}
           <li onClick={unToggleActive}>
-            <button onClick={toggleAccountComponent} className={styles.btn}>ACCOUNT</button>
-          </li>
-          <li onClick={unToggleActive}>
-            <button onClick={toggleAccountComponent} id={styles.accImg}>
+            <button onClick={() => toggleComponent(3)} id={styles.accImg}>
               <img src={userImage} alt="img" height={50} />
             </button>
           </li>

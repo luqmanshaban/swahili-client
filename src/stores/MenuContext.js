@@ -8,6 +8,7 @@ export function MenuProvider({ children }) {
   const [itemCount, setItemCount] = useState({});
   const [toggleCart, setToggleCart] = useState(false);
   const [activeOrders, setActiveOrders] = useState([])
+  const [completedOrders, setCompletedOrders] = useState([])
 
   const handleAdd = (foodName) =>
     setItemCount((prev) => ({
@@ -18,7 +19,7 @@ export function MenuProvider({ children }) {
   const handleMinus = (foodName) =>
     setItemCount((prev) => ({
       ...prev,
-      [foodName]: (prev[foodName] || 0) - 1,
+      [foodName]: (prev[foodName] || 0) -1,
     }));
 
   const addToCart = (name, price, img, itemQuantity) => {
@@ -90,6 +91,21 @@ const getActiveOrders = () => {
     console.error(error);
   }
 }
+const getCompletedOrders = () => {
+  const token = localStorage.getItem('token')
+
+  try {
+    axios.get('http://localhost:8000/api/order-history/', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then(response => {
+      setCompletedOrders(response.data.orders)
+    })
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 
 
@@ -112,6 +128,8 @@ const getActiveOrders = () => {
     checkOut,
     activeOrders,
     getActiveOrders,    
+    completedOrders,
+    getCompletedOrders
   };
 
   return (

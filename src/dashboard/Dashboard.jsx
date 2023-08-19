@@ -10,13 +10,13 @@ import Discount from './modals/Discount';
 import Account from './modals/Account';
 import { useNavigate } from 'react-router-dom';
 import FoodMenus from '../menus/FoodMenus';
+import { CustomerProvider } from '../stores/Customer';
+import Header from './modals/Header';
 
 
 function Dashboard() {
-  const [orderActive, setOrderActive] = useState(false)
-  const [historyActive, setHistoryActive] = useState(false)
-  const [discountActive, setDiscountActive] = useState(false)
-  const [accountActive, setAccountActive] = useState(false);
+
+  const [toggleComponent, setToggleComponent] = useState([false, false, false, false, false])
 
 
   const navigate = useNavigate()
@@ -30,42 +30,36 @@ function Dashboard() {
       navigate('/');
     }
   }
-  const toggleOrderComponent = () => {
-    setOrderActive(!orderActive)
+
+  const toggleClickedButtonComponent = index => {
+    setToggleComponent(toggleComponent.map((value, i) => i === index))
   }
 
-  const toggleHistoryComponent = () => {
-    setHistoryActive(!historyActive)
-  }
-
-  const toggleDiscountComponent = () => {
-    setDiscountActive(!discountActive)
-  }
-
-  const toggleAccountComponent = () => {
-    setAccountActive(!accountActive)
-  }
 
   return (
     <section id={styles.dash}>
       <aside>
-        <Sidebar toggleOrderComponent={toggleOrderComponent} toggleHistoryComponent={toggleHistoryComponent} toggleDiscountComponent={toggleDiscountComponent} toggleAccountComponent={toggleAccountComponent}/>
+        <Sidebar toggleComponent={toggleClickedButtonComponent}/>
       </aside>
 
+      <CustomerProvider>
+        <Header />
      <div className={styles.dashboard}>
         <main className={styles.main}>
           <p id={styles.headerP}>Let's grab you some food . . .</p>
             <FoodMenus />
        
-         {orderActive && <Order click={toggleOrderComponent}/>}
-         {historyActive && <History click={toggleHistoryComponent}/>}
-         {discountActive && <Discount click={toggleDiscountComponent}/>}
-         {accountActive && <Account click={toggleAccountComponent}/>}
+         {toggleComponent[0] && <Order click={toggleClickedButtonComponent}/>}
+         {toggleComponent[1] && <History click={toggleClickedButtonComponent}/>}
+         {toggleComponent[2] && <Discount click={toggleClickedButtonComponent}/>}
+         {toggleComponent[3] && <Account click={toggleClickedButtonComponent}/>}
           
           <Footer />
         </main>
 
      </div>
+      </CustomerProvider>
+
    </section>
   )
 }
