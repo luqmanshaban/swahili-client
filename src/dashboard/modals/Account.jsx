@@ -5,6 +5,8 @@ import ProfileNav from './ProfileNav';
 import DetailsComponent from './components/DetailsComponet'
 import Billing from './components/BillingComponent'
 import MessagesComponent from './components/MessagesComponent'
+import CloseIcon from '@mui/icons-material/Close';
+
 
 const Account = ({active, click}) => {
   const [activeComponent, setActiveComponent] = useState([true, false, false])
@@ -13,8 +15,10 @@ const Account = ({active, click}) => {
     
   return (
     <div className={styles.main}>
-        <div className={styles.background}>
+        <div className={styles.background} onClick={click}>
+        </div>
         <section className={`${styles.account} ${active ? styles.active : ''}`}>
+        <button className={styles.cancel} onClick={click}><CloseIcon className={styles.icon}/></button>
             {/* <h1>Account</h1> */}
             <CustomerProfilePic />
             <article>
@@ -25,7 +29,6 @@ const Account = ({active, click}) => {
             {activeComponent[2] && <MessagesComponent />}
             </article>
         </section>
-    </div>
     </div>
   )
 }

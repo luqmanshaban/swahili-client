@@ -6,17 +6,17 @@ import styles from './Dashboard.module.scss'
 import Footer from '../Landing/Footer';
 import Order from './modals/Order';
 import History from './modals/History';
-import Discount from './modals/Discount';
 import Account from './modals/Account';
 import { useNavigate } from 'react-router-dom';
 import FoodMenus from '../menus/FoodMenus';
 import { CustomerProvider } from '../stores/Customer';
 import Header from './modals/Header';
+import Messages from './modals/Messages';
 
 
 function Dashboard() {
 
-  const [toggleComponent, setToggleComponent] = useState([false, false, false, false, false])
+  const [toggleComponent, setToggleComponent] = useState([false, false, false, false])
 
 
   const navigate = useNavigate()
@@ -38,11 +38,11 @@ function Dashboard() {
 
   return (
     <section id={styles.dash}>
+
+      <CustomerProvider>
       <aside>
         <Sidebar toggleComponent={toggleClickedButtonComponent}/>
       </aside>
-
-      <CustomerProvider>
         <Header />
      <div className={styles.dashboard}>
         <main className={styles.main}>
@@ -51,7 +51,7 @@ function Dashboard() {
        
          {toggleComponent[0] && <Order click={toggleClickedButtonComponent}/>}
          {toggleComponent[1] && <History click={toggleClickedButtonComponent}/>}
-         {toggleComponent[2] && <Discount click={toggleClickedButtonComponent}/>}
+         {toggleComponent[2] && <Messages click={toggleClickedButtonComponent}/>}
          {toggleComponent[3] && <Account click={toggleClickedButtonComponent}/>}
           
           <Footer />

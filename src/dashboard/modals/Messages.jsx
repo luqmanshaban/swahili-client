@@ -1,20 +1,19 @@
 import React from 'react'
-import styles from './History.module.scss'
+import styles from './Messages.module.scss'
 import CloseIcon from '@mui/icons-material/Close';
 
-
-const History = ({active, click}) => {
+const Messages = ({active, click}) => {
     
   return (
     <div className={styles.main}>
         <div className={styles.background} onClick={click}>
         </div>
-        <section className={`${styles.history} ${active ? styles.active : ''}`}>
+        <section className={`${styles.Messages} ${active ? styles.active : ''}`}>
             <button className={styles.cancel} onClick={click}><CloseIcon className={styles.icon}/></button>
-            <h1>History</h1>
+            <h1>Messages</h1>
         </section>
     </div>
   )
 }
 
-export default History;
+export default Messages;
