@@ -13,10 +13,7 @@
     gap: 20px;
     padding: 10px;
 
-    #Icons {
-        color: #fff;
-        font-size: 30px;
-    }
+
 
     #orders {
         span {
@@ -56,7 +53,17 @@
             align-items: center;
             gap: 5px;
             font-size: 10px;
+
+            
         }
+        
+        button {
+            
+            &.active {
+                color: orange;
+            }
+        }
+        
 
         #accImg {
             border: none;

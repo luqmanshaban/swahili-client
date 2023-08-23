@@ -7,10 +7,10 @@ import CloseIcon from '@mui/icons-material/Close';
 const Order = ({ active, click }) => {
   const [orders, setOrders] = useState([]);
 
-  const getAllOrders = async () => {
+  const getActiveOrders = async () => {
     const token = localStorage.getItem('token');
     try {
-      const response = await axios.get(`http://localhost:8000/api/orders`, {
+      const response = await axios.get(`http://localhost:8000/api/orders/active`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -21,8 +21,27 @@ const Order = ({ active, click }) => {
     }
   };
 
+  const cancelOrder = async (id) => {
+    const token = localStorage.getItem('token');
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/api/cancel-order/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
   useEffect(() => {
-    getAllOrders();
+    getActiveOrders();
   }, []);
 
   return (
@@ -43,6 +62,8 @@ const Order = ({ active, click }) => {
                 <p>price: {order.total}</p>
                 <p>quantity: {order.quantity}</p>
                 <p>Total: {order.total}</p>
+                <p>Status: <span style={{color: 'green'}}>{order.status}</span></p>
+                <button onClick={() => cancelOrder(order.id)}>cancel</button>
               </div>
             ))
           )}

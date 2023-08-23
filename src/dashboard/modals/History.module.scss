@@ -10,6 +10,7 @@
     top: 0px;
     right: 0px;
     z-index: 100;
+    cursor: pointer;
 }
 
 .history {
@@ -30,6 +31,24 @@
 
     .cancel {
         display: none;
+    }
+
+    .order {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        margin: 20px 0;
+        background-color: #f8e7d1;
+        width: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 15px;
+
+        img {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+        }
     }
 }
 
@@ -54,6 +73,24 @@
 
             .icon {
                 font-size: 30px;
+            }
+        }
+
+        .order {
+            width: 100%;
+            gap: 10px;
+            margin-left: 10px;
+
+            h1 {
+                font-size: 15px !important;
+            }
+            p {
+                font-size: 13px ;
+            }
+
+            img {
+                height: 50px;
+                width: 50px;
             }
         }
     }

@@ -16,6 +16,7 @@ import { MenuContext } from '../../stores/MenuContext';
 
 const Navbar = ({ toggleComponent }) => {
     const [active, setActive] = useState(false)
+    const [isBtnActive, toggleBtnActive] = useState([false, false, false, false, false, false,false,false, false, false])
     const { profilePic } = useContext(AdminContext)
     const { activeOrders, getActiveOrders } = useContext(MenuContext)
    
@@ -25,6 +26,16 @@ const Navbar = ({ toggleComponent }) => {
   
     const unToggleActive = () => {
       setActive(false)
+    }
+
+    const toggleActiveBtnClass = (index) => {
+      toggleBtnActive(isBtnActive.map((value, i) => i === index))
+    }
+    
+
+    const onBtnClick = (index) => {
+      toggleComponent(index)
+      toggleActiveBtnClass(index);
     }
 
     useEffect ( () => {
@@ -38,57 +49,59 @@ const Navbar = ({ toggleComponent }) => {
         <span className={styles.bar}></span>
         <span className={styles.bar}></span>
       </ul>
-      <Link to='/admin' onClick={() => toggleComponent(0)}>
-        <img src={logo} alt="Logo" className={styles.logo}/>
+      <Link to='/admin' onClick={() => onBtnClick(0)}>
+        <img src={logo} alt="Logo" className={`${styles.logo} ${isBtnActive[0] ? styles.active: ""}`}/>
       </Link>
       <hr style={{width: '100%'}}/>
       <nav className={`${active ? styles.active : ''}`}>
         <ul className={styles.navMenu}>
           <li onClick={unToggleActive}>
-            <button id={styles.orders} className={styles.btn} onClick={() => toggleComponent(1)}>
-                <OrdersIcon id={styles.Icons}/>
-                {activeOrders !== null && (<div style={{height: '10px', width: '10px',borderRadius: '50%', backgroundColor: 'red', position: 'relative', top: '-30px', right: '-10px'}}></div>)}
+            <button id={styles.orders} className={` ${styles.btn} ${isBtnActive[1] ? styles.active : ''}`} onClick={() => onBtnClick(1)}>
+                <OrdersIcon />
+                {activeOrders.length > 0 && (<div style={{height: '10px', width: '10px',borderRadius: '50%', backgroundColor: 'red', position: 'relative', top: '-50px', right: '-10px'}}></div>)}
                 ORDERS
             </button>
           </li>
           <li onClick={unToggleActive}>
-            <button className={styles.btn} onClick={() => toggleComponent(2)}>
+            <button className={`${styles.btn} ${isBtnActive[2] ? styles.active : ''}`} onClick={() => onBtnClick(2)}>
                 <DeliveryIcon id={styles.Icons}/>
-                Delivery
+                DELIVERY
             </button>
           </li>
           <li onClick={unToggleActive}>
-            <button className={styles.btn} onClick={() => toggleComponent(3)}>
+            <button className={`${styles.btn} ${isBtnActive[3] ? styles.active : ''}`} onClick={() => onBtnClick(3)}>
                 <AllIcon id={styles.Icons}/>
-                History
+                HISTORY
             </button>
           </li>
           <li onClick={unToggleActive}>
-            <button className={styles.btn} onClick={() => toggleComponent(4)}>
+            <button className={`${styles.btn} ${isBtnActive[4] ? styles.active : ''}`} onClick={() => onBtnClick(4)}>
                 <UsersIcon id={styles.Icons}/>
                 USERS
             </button>
           </li>
           <li onClick={unToggleActive}>
-            <button className={styles.btn} onClick={() => toggleComponent(5)}>
+            <button className={`${styles.btn} ${isBtnActive[5] ? styles.active : ''}`} onClick={() => onBtnClick(5)}>
                 <MenuIcon id={styles.Icons}/>
-                Menus
+                MENUS
             </button>
           </li>
           <li onClick={unToggleActive}>
-            <button className={styles.btn} onClick={() => toggleComponent(6)}>
+            <button className={`${styles.btn} ${isBtnActive[6] ? styles.active : ''}`} onClick={() => onBtnClick(6)}>
                 <AnalyticsIcon id={styles.Icons}/>
-                Analytics
+                ANALYTICS
             </button>
           </li>
           <li onClick={unToggleActive}>
-            <button className={styles.btn} onClick={() => toggleComponent(7)}>
+            <button className={`${styles.btn} ${isBtnActive[7] ? styles.active : ''}`} onClick={() => onBtnClick(7)}>
                 <ChatIcon id={styles.Icons}/>
-                Messages
+                
+                  MESSAGES
+                
             </button>
           </li>
           <li onClick={unToggleActive}>
-            <button id={styles.accImg} onClick={() => toggleComponent(7)}>
+            <button id={styles.accImg} onClick={() => onBtnClick(8)}>
              <img src={ profilePic ||userImage} alt="img" />
             </button>
           </li>
