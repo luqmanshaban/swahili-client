@@ -16,10 +16,10 @@ const Snacks = () => {
                 <article key={id}>
                     <img src={food.img} alt={food.name} />
                     <h1>{food.name}</h1>
-                    <p>{food.price}</p>
+                    <p>ksh {food.price}</p>
                     <figure>
                         <button onClick={() => handleAdd(food.name)}>+</button>
-                        <p>{itemCount[food.name] || 0}</p>
+                        <p>ksh {itemCount[food.name] || 0}</p>
                         <button onClick={() => handleMinus(food.name)} disabled={(itemCount[food.name] || 0 ) === 0}>-</button>
                     </figure>
                     <button onClick={() => addToCart(food.name, food.price, food.img)}>Add To Cart</button>

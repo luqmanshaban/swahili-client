@@ -16,7 +16,7 @@ const Shawarma = () => {
                 <article key={id}>
                     <img src={food.img} alt={food.name} />
                     <h1>{food.name}</h1>
-                    <p>{food.price}</p>
+                    <p>ksh {food.price}</p>
                     <figure>
                         <button onClick={() => handleAdd(food.name)}>+</button>
                         <p>{itemCount[food.name] || 0}</p>

@@ -4,7 +4,7 @@
     padding: 10px 30px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 50px;
     h1 {
         text-align: center;
     }
@@ -12,7 +12,7 @@
         padding: 10px;
         margin: 20px 0;
         display: flex;
-        width: 300px;
+        width: 20%;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -46,6 +46,7 @@
                 width: 20px;
                 border-radius: 50%;
                 background-color: orange;
+                color: #000;
                 font-size: 25px;
                 display: flex;
                 justify-content: center;
@@ -58,8 +59,10 @@
         }
     }
     img {
-        height: 100px;
-        width: 100px;
+        height: 150px;
+        width: 150px;
+        position: relative;
+        top: -20%;
         border-radius: 50%;
     }
 
@@ -67,4 +70,15 @@
         position: fixed;
         left: 50px;
    }
+}
+
+@media screen and (max-width: 600px) {
+    .menu {
+        // gap: 10px;
+        padding: 10px;
+
+        article {
+            width: 100%;
+        }
+    }
 }

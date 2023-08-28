@@ -14,6 +14,7 @@ import AdminDashboard from './dashboard/admin/AdminDashboard';
 import Protected from './components/LoggedIn';
 import Menus from './menus/FoodMenus';
 import Drinks from './menus/Drinks';
+import Chat from './components/Chat';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
   return (
     
     <div className={`${styles.App} ${BreakPoint.App} `}>
+      <Chat />
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
