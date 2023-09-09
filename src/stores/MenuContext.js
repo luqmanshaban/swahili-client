@@ -37,7 +37,6 @@ export function MenuProvider({ children }) {
     );
   }, [itemCount, items]);
 
-  // ... (imports and other code)
 
 const checkOut = async () => {
   try {
@@ -106,10 +105,6 @@ const getCompletedOrders = () => {
     console.error(error);
   }
 }
-
-
-
-
   const toggleCartComponent = () => setToggleCart(!toggleCart);
   const unToggleCartComponent = () => setToggleCart(false);
 

@@ -6,53 +6,84 @@
     gap: 10px;
 }
 .adminHome {
-    padding: 20px;
-    @include flex();
+    margin: 0 40px;
+    .header {
+        padding: 20px;
+        @include flex();
+        #a1 {
+            background-color: #1B1515;
+        }
+        #a2 {
+            background-color: rgb(204, 133, 1);
+        }
+        #a3 {
+            background-color: #0e0d0b;
+        }
+        #a4 {
+            background-color: #919090;
+        }
+        section {
+            width: 17%;
+            height: auto;
+            padding: 10px;
+            border-radius: 10px;
     
-    #a1 {
-        background-color: #1B1515;
+            article {
+                cursor: pointer;
+            }
+    
+            .content {
+                @include flex();
+                margin-bottom: 20px;
+            }
+            .hr {
+                height: 5px;
+                width: 100%;
+                background-color: #fff
+            }
+    
+            h3 {
+                background-color: rgb(43, 42, 42);
+                padding: 5px;
+                border-radius: 3px
+            }
+    
+            p {
+                @include flex();
+                align-items: start;
+                flex-direction: column;
+                color: #fff;
+                margin-bottom: 20px;
+            }
+        }
+        
     }
-    #a2 {
-        background-color: rgb(204, 133, 1);
-    }
-    #a3 {
-        background-color: #0e0d0b;
-    }
-    #a4 {
-        background-color: #919090;
-    }
-    section {
-        width: 17%;
-        height: auto;
+
+    .orderList {
+        margin: 10px;
         padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 10px;
+        background-color: #fff;
 
-        article {
-            cursor: pointer;
-        }
-
-        .content {
-            @include flex();
-            margin-bottom: 20px;
-        }
         .hr {
-            height: 5px;
-            width: 100%;
-            background-color: #fff
+            height: 1px;
+            width: 1px;
+            background-color: rgb(196, 194, 194);
+            margin: 15px 0;
+            width: 100% !important;
         }
 
-        h3 {
-            background-color: rgb(43, 42, 42);
-            padding: 5px;
-            border-radius: 3px
-        }
-
-        p {
-            @include flex();
-            align-items: start;
-            flex-direction: column;
-            color: #fff;
-            margin-bottom: 20px;
+        .orders {
+            table {
+                padding: 20px;
+                width: 100%;
+            }
+            td, th {
+                padding: 10px;
+                text-align: start;
+            }
         }
     }
+    
 }

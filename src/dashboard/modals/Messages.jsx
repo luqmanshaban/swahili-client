@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styles from './Messages.module.scss'
 import CloseIcon from '@mui/icons-material/Close';
+import CallIcon from '@mui/icons-material/Call';
+import VisitIcon from '@mui/icons-material/FmdGood';
 import axios from 'axios';
 
 const Messages = ({active, click}) => {
@@ -86,6 +88,16 @@ const Messages = ({active, click}) => {
 
                 </fieldset>
               </form>
+            </div>
+            <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+              <a href="tel:0772435765" style={{display: 'flex', alignItems: 'center'}} target='_blank' rel='noreferrer'>
+              <CallIcon />
+                Call us
+              </a>
+              <a href="https://goo.gl/maps/ewCKjhW536QFsQ6N9" style={{display: 'flex', alignItems: 'center'}} target='_blank' rel='noreferrer'>
+                <VisitIcon />
+                Visit Us
+              </a>
             </div>
         </section>
     </div>

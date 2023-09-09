@@ -9,6 +9,20 @@ const Menu = () => {
   const [menuCheckboxes, setMenuCheckboxes] = useState({});
   const [selectAll, setSelectAll] = useState(false);
   const [deleteMenu, setDeleteMenu] = useState(false)
+  const [selectedMenu, setSelectedMenu] = useState({
+    name: '',
+    price: '',
+    img: ''
+  })
+
+  const handleSelectedMenu = (name, price, img) => {
+    setSelectedMenu({
+      name: name,
+      price: price,
+      img: img
+    });
+    console.log(selectedMenu);
+  };
   
 
   const handleCheckboxChange = (menuId) => {
@@ -67,6 +81,7 @@ const Menu = () => {
               <th>Name</th>
               <th>Price</th>
               <th>Category</th>
+              <th>Edit</th>
               <th>
                 <input
                   type="checkbox"
@@ -86,6 +101,9 @@ const Menu = () => {
                 <td>{menu.name}</td>
                 <td>{menu.price}</td>
                 <td>{menu.category}</td>
+                <td style={{textAlign: 'center'}}>
+                  <button onClick={() => handleSelectedMenu(menu.name, menu.price, menu.img)}>edit</button>
+                </td>
                 <td style={{ textAlign: 'center' }}>
                   <input
                     type="checkbox"
