@@ -3,7 +3,7 @@
     ul{
         display: flex;
         // justify-content: space-between;
-        align-items: start;
+        align-items: flex-start;
         gap: 20px;
         li{
             &.active {

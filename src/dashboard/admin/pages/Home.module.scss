@@ -50,7 +50,7 @@
     
             p {
                 @include flex();
-                align-items: start;
+                align-items: flex-start;
                 flex-direction: column;
                 color: #fff;
                 margin-bottom: 20px;
@@ -81,7 +81,7 @@
             }
             td, th {
                 padding: 10px;
-                text-align: start;
+                // text-align: start;
             }
         }
     }

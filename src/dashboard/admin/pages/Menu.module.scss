@@ -29,6 +29,85 @@
             height: 50px;
         }
     }
+
+        .addMenu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+
+            input {
+                padding: 10px;
+                border-radius: 5px;
+            }
+            select {
+                padding: 10px;
+                border-radius: 5px;
+            }
+            button {
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #fff;
+            }
+            #save {
+                background-color: green;
+            }
+            #cancel {
+                background-color: red;
+            }
+            
+        }
+
+    .editForm {
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+
+        h2 {
+            margin: 10px 0;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            input {
+                padding: 10px;
+                border-radius: 5px;
+            }
+            select {
+                padding: 10px;
+                border-radius: 5px;
+            }
+            button {
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #fff;
+            }
+            #save {
+                background-color: green;
+            }
+            #cancel {
+                background-color: red;
+            }
+            
+        }
+    }
+
+    .editMenu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        background-color: #fff;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+        padding: 40px 10px;
+    }
 }
 
 @media screen and (max-width: 600px)  {
