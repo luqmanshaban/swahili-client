@@ -183,7 +183,7 @@ const Menu = () => {
       <option value="drinks">Drinks</option>
     </select>
       <button type="submit" id={styles.save}>Add</button>
-      <button onClick={() => setAddMenuClicked(false)} type="button" id={styles.cancel}>cancel</button>
+      <button onClick={() => setAddMenuClicked(!addMenuClicked)} type="button" id={styles.cancel}>cancel</button>
     </form>
   )
 

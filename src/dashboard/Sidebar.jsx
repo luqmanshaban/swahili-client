@@ -3,7 +3,6 @@ import styles from './Sidebar.module.scss'
 import userImage from '../assets/avatar.jpeg'
 import OrdersIcon from '@mui/icons-material/CircleNotifications';
 import HistoryIcon from '@mui/icons-material/History';
-import ChatIcon from '@mui/icons-material/Chat';
 import ContactIcon from '@mui/icons-material/ContactSupport';
 import Logout from './Logout'
 import { Link } from 'react-router-dom'
