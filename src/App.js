@@ -15,6 +15,7 @@ import Protected from './components/LoggedIn';
 import Menus from './menus/FoodMenus';
 import Drinks from './menus/Drinks';
 import Chat from './components/Chat';
+import PaymentSuccess from './pages/PaymentSuccess';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
         <Route path='/dashboard/*' element={<Protected><Dashboard /></Protected>} />
         <Route path='/admin' element={<Protected><AdminDashboard /></Protected>} />
         <Route path='/' element={<Landing />} />
+        <Route path='/success' element={<PaymentSuccess />} />
       </Routes>
     </div>
   );

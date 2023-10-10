@@ -1,0 +1,13 @@
+.success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: skyblue;
+    height: 100vh;
+
+    #icon {
+        font-size: 50px;
+        color: green;
+    }
+}

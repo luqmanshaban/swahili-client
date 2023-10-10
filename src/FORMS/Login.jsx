@@ -74,7 +74,7 @@ function Login() {
       setIsLoading(true)
 
       try {
-          await axios.post('http://127.0.0.1:8000/login', user).then(response => {
+          await axios.post('http://localhost:8000/api/login', user).then(response => {
 
           setTimeout(() => {
             if(response.data.role[0] === 'admin'){

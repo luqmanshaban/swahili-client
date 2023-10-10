@@ -3,9 +3,10 @@ import { MenuContext } from '../stores/MenuContext'
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 import styles from './Cart.module.scss'
+import Loading from '../components/Loading';
 
 const Cart = () => {
-    const { items, itemCount, total, removeFromCart, unToggleCartComponent, checkOut } = useContext(MenuContext);
+    const { items, itemCount, total, removeFromCart, unToggleCartComponent, checkOut, paymentProcessing } = useContext(MenuContext);
 
     return (
         <div className={styles.cart}>
@@ -34,7 +35,7 @@ const Cart = () => {
                             </article>
                         ))}
                         <article className={styles.totalCheck}>
-                            <button className={styles.checkout} onClick={checkOut}>Checkout</button>
+                            {paymentProcessing ? <Loading />: <button className={styles.checkout} onClick={checkOut}>Checkout</button>}
                             <p>Total : <span>{total}</span></p>
                         </article>
                     </section>
